@@ -29,516 +29,200 @@
             --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body {
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-main); color: var(--text-main); }
+        body { overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
 
         /* Navigation Bar */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(248, 250, 249, 0.85);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: rgba(248, 250, 249, 0.88);
+            backdrop-filter: blur(12px); z-index: 1000;
             border-bottom: 1px solid var(--border-color);
-            transition: var(--transition);
         }
+        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--text-main); }
+        .logo-icon { background: var(--brand-green); color: white; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); font-size: 1.2rem; }
+        
+        .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+        .nav-links a:hover { color: var(--brand-green); }
 
-        .nav-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-main);
-        }
-
-        .logo-icon {
-            background: var(--brand-green);
-            color: white;
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--radius-sm);
-            font-size: 1.2rem;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--brand-green);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
+        .nav-actions { display: flex; align-items: center; gap: 1rem; }
         .btn-login {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 0.6rem 1.2rem;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: var(--transition);
+            background: #FFFFFF; border: 1px solid var(--border-color); color: var(--text-main);
+            font-weight: 600; font-size: 0.95rem; padding: 0.6rem 1.2rem; border-radius: var(--radius-sm);
+            cursor: pointer; transition: var(--transition); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
         }
+        .btn-login:hover { border-color: var(--brand-green); }
 
-        .btn-login.logged-in {
-            background: var(--brand-green-light);
-            color: var(--brand-green-dark);
-            border-color: var(--brand-green);
+        .user-profile-pill {
+            display: flex; align-items: center; gap: 0.7rem;
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            padding: 0.4rem 0.9rem 0.4rem 0.4rem; border-radius: 50px;
+            box-shadow: var(--shadow-card); cursor: pointer; transition: var(--transition);
         }
+        .user-profile-pill:hover { border-color: rgba(239, 68, 68, 0.4); }
+        .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--brand-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+        .user-name { font-size: 0.9rem; font-weight: 600; color: var(--text-main); }
 
         .btn-primary {
-            background-color: var(--brand-green);
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: none;
-            cursor: pointer;
+            background-color: var(--brand-green); color: white; padding: 0.7rem 1.5rem;
+            border-radius: var(--radius-sm); font-weight: 600; font-size: 0.95rem; text-decoration: none;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3); transition: var(--transition); border: none; cursor: pointer;
+            display: inline-flex; align-items: center; gap: 0.5rem;
         }
+        .btn-primary:hover { background-color: var(--brand-green-dark); transform: translateY(-2px); }
 
-        .btn-primary:hover {
-            background-color: var(--brand-green-dark);
-            transform: translateY(-2px);
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-main);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 10rem 2rem 5rem 2rem;
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: var(--brand-green-light);
-            color: var(--brand-green-dark);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            width: fit-content;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            color: var(--text-main);
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            max-width: 520px;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
+        /* 1. Hero Section */
+        .hero { padding: 10rem 2rem 5rem 2rem; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-content { display: flex; flex-direction: column; gap: 1.5rem; }
+        .badge { display: inline-flex; align-items: center; gap: 0.5rem; background-color: var(--brand-green-light); color: var(--brand-green-dark); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; width: fit-content; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; }
+        .hero p { font-size: 1.15rem; color: var(--text-muted); line-height: 1.6; }
+        .hero-cta { display: flex; gap: 1rem; margin-top: 0.5rem; }
 
         .btn-secondary {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 0.7rem 1.5rem;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            background-color: transparent; color: var(--text-main); border: 1px solid var(--border-color);
+            padding: 0.7rem 1.5rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: var(--transition); display: inline-flex; align-items: center; justify-content: center;
         }
+        .btn-secondary:hover { border-color: var(--text-main); background-color: rgba(0,0,0,0.02); }
 
-        .btn-secondary:hover {
-            border-color: var(--text-main);
-            background-color: rgba(0,0,0,0.02);
-        }
-
-        /* Hero Visual Scene */
         .hero-visual {
-            position: relative;
-            background: linear-gradient(135deg, #E6F4EA 0%, #E0F2FE 100%);
-            border-radius: var(--radius-lg);
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 440px;
-            box-shadow: var(--shadow-subtle);
+            position: relative; background: linear-gradient(135deg, #E6F4EA 0%, #E0F2FE 100%);
+            border-radius: var(--radius-lg); padding: 3rem; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; min-height: 440px; box-shadow: var(--shadow-subtle);
         }
-
-        .pet-stage {
-            font-size: 7rem;
-            animation: floatPet 4s ease-in-out infinite;
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
-            cursor: pointer;
-        }
-
-        @keyframes floatPet {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
+        .pet-stage { font-size: 7rem; animation: floatPet 4s ease-in-out infinite; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1)); cursor: pointer; }
+        @keyframes floatPet { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
         .floating-ui-card {
-            position: absolute;
-            background: var(--bg-card);
-            padding: 0.75rem 1.2rem;
-            border-radius: var(--radius-sm);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            border: 1px solid var(--border-color);
+            position: absolute; background: var(--bg-card); padding: 0.75rem 1.2rem;
+            border-radius: var(--radius-sm); box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 0.6rem; border: 1px solid var(--border-color);
         }
-
         .card-level { top: 25px; left: 25px; }
         .card-happy { top: 25px; right: 25px; }
         .card-energy { bottom: 35px; left: 25px; }
         .card-xp { bottom: 35px; right: 25px; }
 
-        /* Trust / Concept Strip */
-        .concept-strip {
-            max-width: 1280px;
-            margin: 2rem auto 5rem auto;
-            padding: 0 2rem;
-        }
-
+        /* 2. Trust / Concept Strip */
+        .concept-strip { max-width: 1280px; margin: 0 auto 5rem auto; padding: 0 2rem; }
         .strip-grid {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            box-shadow: var(--shadow-card);
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);
+            padding: 2rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; box-shadow: var(--shadow-card);
         }
+        .strip-item { display: flex; align-items: center; gap: 1rem; font-weight: 600; font-size: 1rem; }
+        .strip-icon { font-size: 1.5rem; background: var(--brand-green-light); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); }
 
-        .strip-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--text-main);
-        }
+        /* Generic Section Header */
+        section { padding: 6rem 2rem; max-width: 1280px; margin: 0 auto; }
+        .section-header { text-align: center; max-width: 650px; margin: 0 auto 4rem auto; display: flex; flex-direction: column; gap: 1rem; }
+        .section-header h2 { font-size: 2.75rem; color: var(--text-main); }
+        .section-header p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; }
 
-        .strip-icon {
-            font-size: 1.5rem;
-            background: var(--brand-green-light);
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--radius-sm);
-        }
-
-        /* Section Generic */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 4rem auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.75rem;
-            color: var(--text-main);
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* Interactive Categories Section */
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .category-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            box-shadow: var(--shadow-card);
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .category-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--brand-green);
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .category-icon {
-            font-size: 3rem;
-            background: var(--brand-green-light);
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        /* Subcategory & Pets Drill-Down View */
-        .drilldown-container {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 3rem;
-            margin: 2rem 0;
-            box-shadow: var(--shadow-card);
-        }
-
-        .breadcrumb-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .back-btn {
-            background: var(--bg-main);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .back-btn:hover { background: var(--border-color); }
-
-        .pets-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .pet-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .pet-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--brand-green);
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .pet-img-container {
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-            background: #E2E8F0;
-        }
-
-        .pet-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .pet-card:hover .pet-img-container img { transform: scale(1.05); }
-
-        .pet-card-content {
-            padding: 1.2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-            flex-grow: 1;
-            justify-content: space-between;
-        }
-
-        .pet-subcat {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: var(--brand-green-dark);
-            letter-spacing: 0.05em;
-        }
-
-        .pet-card h4 { font-size: 1.05rem; color: var(--text-main); }
-        .pet-price-tag { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; color: #D97706; }
-
-        /* Other Landing Sections */
+        /* 3. "Why DiPet?" Section */
         .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-        .feature-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-card); display: flex; flex-direction: column; gap: 1rem; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-card); transition: var(--transition); display: flex; flex-direction: column; gap: 1rem; }
+        .feature-card:hover { transform: translateY(-5px); border-color: var(--brand-green); box-shadow: var(--shadow-subtle); }
+        .feature-icon-box { font-size: 2rem; background: var(--brand-green-light); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); margin-bottom: 0.5rem; }
+
+        /* 4. How It Works Section */
         .steps-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
         .step-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-card); display: flex; flex-direction: column; gap: 1rem; }
         .step-number { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: var(--brand-green); }
 
-        .growth-container { background: linear-gradient(135deg, #F0FDF4 0%, #E0F2FE 100%); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 4rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+        /* 5. Master Categories & Subcategories Section */
+        .categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .category-card {
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);
+            padding: 2.5rem 1.5rem; text-align: center; box-shadow: var(--shadow-card); cursor: pointer; transition: var(--transition);
+            display: flex; flex-direction: column; align-items: center; gap: 1rem;
+        }
+        .category-card:hover { transform: translateY(-6px); border-color: var(--brand-green); box-shadow: var(--shadow-subtle); }
+        .category-icon { font-size: 3rem; background: var(--brand-green-light); width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+
+        .drilldown-container { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 3rem; margin: 2rem 0; box-shadow: var(--shadow-card); }
+        .breadcrumb-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); }
+        .back-btn { background: var(--bg-main); border: 1px solid var(--border-color); font-weight: 600; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; }
+        .pets-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .pet-card {
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);
+            overflow: hidden; box-shadow: var(--shadow-card); transition: var(--transition); cursor: pointer; display: flex; flex-direction: column;
+        }
+        .pet-card:hover { transform: translateY(-5px); border-color: var(--brand-green); }
+        .pet-img-container { width: 100%; height: 180px; background: #E2E8F0; }
+        .pet-img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .pet-card-content { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem; justify-content: space-between; flex-grow: 1; }
+        .pet-subcat { font-size: 0.72rem; text-transform: uppercase; font-weight: 700; color: var(--brand-green-dark); }
+        .pet-price-tag { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; color: #D97706; }
+
+        /* 6. Pet Growth / Level System */
+        .growth-container { background: linear-gradient(135deg, #F0FDF4 0%, #E0F2FE 100%); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 4rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; box-shadow: var(--shadow-card); }
         .never-dies-badge { background: #FEE2E2; color: #991B1B; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; width: fit-content; }
         .growth-timeline { display: flex; flex-direction: column; gap: 1rem; background: var(--bg-card); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
         .timeline-step { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.95rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border-color); }
 
-        .emotional-banner { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; border-radius: var(--radius-lg); padding: 5rem 4rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        /* 7. Pet Home Preview Section */
+        .home-preview-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 4rem; text-align: center; box-shadow: var(--shadow-card); }
+        .room-scene { font-size: 5rem; margin: 2rem 0; display: flex; justify-content: center; gap: 2rem; align-items: center; }
+        .customization-tags { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
+        .custom-tag { background: var(--bg-main); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; }
+
+        /* 8. Features Ecosystem Grid */
+        .features-grid-small { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .feature-mini-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow-card); display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+        .mini-icon { font-size: 2rem; background: var(--brand-green-light); width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); }
+
+        /* 9. Coins Section */
+        .coins-section-box { background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); border: 1px solid #FDE68A; border-radius: var(--radius-lg); padding: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; box-shadow: var(--shadow-card); }
+        .wallet-display { background: var(--bg-card); border: 1px solid #FCD34D; padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); display: flex; flex-direction: column; gap: 1.2rem; }
+        .wallet-amount { font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; color: #B45309; display: flex; align-items: center; gap: 0.5rem; }
+        .wallet-mission { display: flex; justify-content: space-between; align-items: center; background: var(--bg-main); padding: 0.8rem 1.2rem; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border-color); }
+
+        /* 10. Emotional Banner */
+        .emotional-banner { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; border-radius: var(--radius-lg); padding: 5rem 4rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; box-shadow: var(--shadow-subtle); }
         .emotional-banner h2 { font-size: 3rem; color: white; }
         .btn-white { background: white; color: var(--brand-green-dark); padding: 0.8rem 2rem; border-radius: var(--radius-sm); font-weight: 700; text-decoration: none; }
+
+        /* 11. Final CTA */
+        .final-cta { text-align: center; padding: 6rem 2rem; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; align-items: center; }
+        .final-cta h2 { font-size: 3rem; }
 
         /* Modal */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: var(--transition); padding: 1.5rem; }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-container { background: var(--bg-card); border-radius: var(--radius-lg); width: 100%; max-width: 700px; box-shadow: 0 25px 50px rgba(0,0,0,0.25); overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
-        .modal-img-side { background: #E2E8F0; position: relative; min-height: 280px; }
-        .modal-img-side img { width: 100%; height: 100%; object-fit: cover; }
-        .modal-content-side { padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; }
-        .close-modal-x { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.5); color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; }
+        .pet-modal-container { background: var(--bg-card); border-radius: var(--radius-lg); width: 100%; max-width: 700px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; box-shadow: 0 25px 50px rgba(0,0,0,0.25); position: relative; }
+        .pet-img-side { background: #E2E8F0; position: relative; min-height: 280px; }
+        .pet-img-side img { width: 100%; height: 100%; object-fit: cover; }
+        .pet-content-side { padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; }
+        .close-btn { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.5); color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; }
 
         /* Toast Alert */
-        .toast-alert { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #1E293B; color: white; padding: 0.9rem 1.8rem; border-radius: 50px; font-weight: 600; font-size: 0.95rem; z-index: 3000; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; align-items: center; gap: 0.6rem; }
+        .toast-alert { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #1E293B; color: white; padding: 0.9rem 1.8rem; border-radius: 50px; font-weight: 600; font-size: 0.95rem; z-index: 3000; transition: transform 0.4s; display: flex; align-items: center; gap: 0.6rem; }
         .toast-alert.show { transform: translateX(-50%) translateY(0); }
         .toast-alert.success { background: #059669; }
         .toast-alert.error { background: #DC2626; }
 
+        /* 12. Footer */
         footer { border-top: 1px solid var(--border-color); background: var(--bg-card); padding: 4rem 2rem 2rem 2rem; }
         .footer-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; }
         .footer-bottom { border-top: 1px solid var(--border-color); margin-top: 3rem; padding-top: 2rem; display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.9rem; }
 
-        @media (max-width: 1024px) {
-            .hero { grid-template-columns: 1fr; text-align: center; }
-            .hero-content { align-items: center; }
-            .hero-cta { justify-content: center; }
-            .categories-grid, .pets-grid, .features-grid, .steps-container { grid-template-columns: repeat(2, 1fr); }
-            .growth-container { grid-template-columns: 1fr; }
-            .modal-container { grid-template-columns: 1fr; max-width: 450px; }
-        }
-        @media (max-width: 768px) {
-            .nav-links, .btn-login { display: none; }
-            .hamburger { display: block; }
-            .hero h1 { font-size: 2.5rem; }
-            .categories-grid, .pets-grid, .features-grid, .steps-container { grid-template-columns: 1fr; }
-        }
         .hidden { display: none !important; }
 
-        .mobile-menu { display: none; position: fixed; top: 73px; left: 0; width: 100%; background: var(--bg-card); border-bottom: 1px solid var(--border-color); padding: 2rem; z-index: 999; flex-direction: column; gap: 1.5rem; text-align: center; }
-        .mobile-menu.active { display: flex; }
-        .mobile-menu a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 1.1rem; }
+        @media (max-width: 1024px) {
+            .hero, .growth-container, .coins-section-box { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { align-items: center; }
+            .hero-cta { justify-content: center; }
+            .categories-grid, .pets-grid, .features-grid, .steps-container, .features-grid-small, .strip-grid { grid-template-columns: repeat(2, 1fr); }
+            .pet-modal-container { grid-template-columns: 1fr; max-width: 450px; }
+        }
+        @media (max-width: 768px) {
+            .categories-grid, .pets-grid, .features-grid, .steps-container, .features-grid-small, .strip-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -556,17 +240,9 @@
                 <li><a href="#categoriesSection">Categories</a></li>
                 <li><a href="#features">Features</a></li>
             </ul>
-            <div class="nav-actions">
-                <a href="login.html" class="btn-login" id="loginBtn">🔒 Login</a>
-                <a href="#categoriesSection" class="btn-primary">Start Your Pet</a>
-                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">☰</button>
+            <div class="nav-actions" id="navActionsContainer">
+                <a href="login.html" class="btn-login" id="authButton">🔒 Login</a>
             </div>
-        </div>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#home" class="mob-link">Home</a>
-            <a href="#how-it-works" class="mob-link">How It Works</a>
-            <a href="#categoriesSection" class="mob-link">Categories</a>
-            <a href="#features" class="mob-link">Features</a>
         </div>
     </header>
 
@@ -575,7 +251,7 @@
         <div class="hero-content">
             <div class="badge">🐾 Your Digital Pet Starts Here</div>
             <h1>Your Pet. Your World. Forever.</h1>
-            <p>Love having a pet but don't have the time, space, or freedom for a real one? Meet your digital companion. Choose from a vast world of animals and build your bond.</p>
+            <p>Love having a pet but don't have the time, space, or freedom for a real one? Meet your digital companion. Choose a pet, care for it, play with it, and watch your bond grow.</p>
             <div class="hero-cta">
                 <a href="#categoriesSection" class="btn-primary">Explore Categories →</a>
                 <a href="#how-it-works" class="btn-secondary">How It Works</a>
@@ -590,48 +266,17 @@
         </div>
     </section>
 
-    <!-- 3. Concept Strip -->
+    <!-- 3. Trust / Concept Strip -->
     <div class="concept-strip">
         <div class="strip-grid">
-            <div class="strip-item"><div class="strip-icon">🐾</div><span>Choose a Category</span></div>
+            <div class="strip-item"><div class="strip-icon">🐾</div><span>Choose a Pet</span></div>
             <div class="strip-item"><div class="strip-icon">❤️</div><span>Build a Bond</span></div>
             <div class="strip-item"><div class="strip-icon">⭐</div><span>Level Up</span></div>
             <div class="strip-item"><div class="strip-icon">♾️</div><span>Never Lose Your Pet</span></div>
         </div>
     </div>
 
-    <!-- 4. Interactive Categories Section -->
-    <section id="categoriesSection">
-        <div class="section-header">
-            <h2>Explore Pet Categories</h2>
-            <p>Click on any category below to browse its subcategories, breeds, and companion options.</p>
-        </div>
-
-        <!-- Main Categories Grid View -->
-        <div id="mainCategoriesView">
-            <div class="categories-grid" id="categoriesGrid">
-                <!-- Populated via JavaScript -->
-            </div>
-        </div>
-
-        <!-- Subcategory / Pets Drilldown View (Hidden by default) -->
-        <div id="subcategoriesView" class="hidden">
-            <div class="drilldown-container">
-                <div class="breadcrumb-bar">
-                    <div>
-                        <button class="back-btn" onclick="showMainCategories()">← Back to Categories</button>
-                        <h3 id="selectedCategoryTitle" style="display:inline-block; margin-left:1rem; font-size: 1.3rem;">Category</h3>
-                    </div>
-                    <div style="font-size: 0.85rem; color: var(--text-muted);" id="subcategorySubCount">Subcategories & Breeds</div>
-                </div>
-                <div class="pets-grid" id="subcategoriesPetsGrid">
-                    <!-- Populated via JavaScript -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. "Why DiPet?" Section -->
+    <!-- 4. "Why DiPet?" Section -->
     <section id="features">
         <div class="section-header">
             <h2>A Pet That Fits Your Life</h2>
@@ -651,7 +296,7 @@
         </div>
     </section>
 
-    <!-- 6. How It Works -->
+    <!-- 5. How It Works -->
     <section id="how-it-works">
         <div class="section-header">
             <h2>Meet Your New Best Friend</h2>
@@ -662,6 +307,31 @@
             <div class="step-card"><div class="step-number">02</div><h3>Name</h3><p>Give your new companion a special name.</p></div>
             <div class="step-card"><div class="step-number">03</div><h3>Care</h3><p>Feed, play, pet and take care of your companion.</p></div>
             <div class="step-card"><div class="step-number">04</div><h3>Grow</h3><p>Earn XP, level up and build your bond.</p></div>
+        </div>
+    </section>
+
+    <!-- 6. Master Categories & Subcategories Section -->
+    <section id="categoriesSection">
+        <div class="section-header">
+            <h2>Explore Pet Categories</h2>
+            <p>Click on any category below to browse subcategories, breeds, and companion options.</p>
+        </div>
+
+        <div id="mainCategoriesView">
+            <div class="categories-grid" id="categoriesGrid"></div>
+        </div>
+
+        <div id="subcategoriesView" class="hidden">
+            <div class="drilldown-container">
+                <div class="breadcrumb-bar">
+                    <div>
+                        <button class="back-btn" onclick="showMainCategories()">← Back to Categories</button>
+                        <h3 id="selectedCategoryTitle" style="display:inline-block; margin-left:1rem; font-size: 1.3rem;">Category</h3>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">Subcategories & Breeds</div>
+                </div>
+                <div class="pets-grid" id="subcategoriesPetsGrid"></div>
+            </div>
         </div>
     </section>
 
@@ -681,7 +351,55 @@
         </div>
     </section>
 
-    <!-- 8. Emotional Section -->
+    <!-- 8. Pet Home Preview Section -->
+    <section>
+        <div class="home-preview-box">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2>Give Your Pet a Home</h2>
+                <p>"Customize your pet's world and make it feel like home."</p>
+            </div>
+            <div class="room-scene">
+                <span>🪴</span><span>🛏️</span><span>🐶</span><span>🦴</span><span>🎾</span>
+            </div>
+            <div class="customization-tags">
+                <span class="custom-tag">✨ New Toy</span>
+                <span class="custom-tag">🛏️ New Bed</span>
+                <span class="custom-tag">🎩 New Outfit</span>
+                <span class="custom-tag">🪴 New Decoration</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Features Ecosystem Section -->
+    <section>
+        <div class="section-header">
+            <h2>Everything Your Pet Needs</h2>
+            <p>An immersive virtual ecosystem designed for interaction and engagement.</p>
+        </div>
+        <div class="features-grid-small">
+            <div class="feature-mini-card"><div class="mini-icon">❤️</div><h3>Friendship</h3><p>Lifelong emotional connection.</p></div>
+            <div class="feature-mini-card"><div class="mini-icon">🍖</div><h3>Feeding</h3><p>Treat your pet to snacks.</p></div>
+            <div class="feature-mini-card"><div class="mini-icon">🎾</div><h3>Playing</h3><p>Interactive mini-games.</p></div>
+            <div class="feature-mini-card"><div class="mini-icon">🛁</div><h3>Grooming</h3><p>Keep your pet spotless.</p></div>
+        </div>
+    </section>
+
+    <!-- 10. Coins & Rewards Section -->
+    <section>
+        <div class="coins-section-box">
+            <div class="growth-info">
+                <h2>Earn. Play. Upgrade.</h2>
+                <p style="color: var(--text-muted); line-height: 1.6;">"Earn coins by caring for your pet, completing missions and coming back every day. Use them to unlock food, toys, outfits and more."</p>
+            </div>
+            <div class="wallet-display">
+                <div class="wallet-amount">🪙 2,450 Coins</div>
+                <div class="wallet-mission"><span>Daily Reward Check-in</span><span>+100 Coins</span></div>
+                <div class="wallet-mission"><span>Mission Complete: Play Catch</span><span>+250 Coins</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Emotional Section -->
     <section>
         <div class="emotional-banner">
             <h2>Some Pets Are Forever.</h2>
@@ -690,31 +408,23 @@
         </div>
     </section>
 
-    <!-- 9. Footer -->
-    <footer>
-        <div class="footer-container">
-            <div>
-                <a href="#home" class="logo"><div class="logo-icon">🐾</div>DiPet</a>
-                <p style="color: var(--text-muted); margin-top:0.5rem;">"Your Pet. Your World. Forever."</p>
-            </div>
-            <div>
-                <h4 style="margin-bottom:0.8rem;">Legal & Disclaimer</h4>
-                <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 350px;">DiPet provides virtual digital companions only. No real animals are sold, adopted, or delivered.</p>
-            </div>
+    <!-- 12. Final CTA Section -->
+    <section class="final-cta" id="adopt">
+        <h2>Ready to Meet Your Pet?</h2>
+        <p>Choose your companion. Give them a name. Start your journey together.</p>
+        <div style="margin-top: 1rem;">
+            <a href="#categoriesSection" class="btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Adopt Your First Pet 🐾</a>
         </div>
-        <div class="footer-bottom">
-            <div>© 2026 DiPet. All rights reserved.</div>
-        </div>
-    </footer>
+    </section>
 
     <!-- Pet Preview Modal -->
     <div class="modal-overlay" id="petModal">
-        <div class="modal-container">
-            <div class="modal-img-side">
-                <button class="close-modal-x" onclick="closeModal()">×</button>
+        <div class="pet-modal-container">
+            <button class="close-btn" onclick="closePetModal()">×</button>
+            <div class="pet-img-side">
                 <img id="modalPetImg" src="" alt="Pet Preview">
             </div>
-            <div class="modal-content-side">
+            <div class="pet-content-side">
                 <div>
                     <span id="modalPetSubcat" class="pet-subcat">Subcategory</span>
                     <h3 id="modalPetName" style="font-size: 1.6rem; margin-top: 0.2rem;">Pet Name</h3>
@@ -735,22 +445,48 @@
         <span id="toastMsg">Please login first!</span>
     </div>
 
-    <!-- JavaScript Data & Logic -->
-    <script>
-        let isLoggedIn = false;
-        let selectedPet = null;
+    <!-- 13. Footer -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <a href="#home" class="logo"><div class="logo-icon">🐾</div>DiPet</a>
+                <p style="color: var(--text-muted); margin-top:0.5rem;">"Your Pet. Your World. Forever."</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom:0.8rem;">Legal & Disclaimer</h4>
+                <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 350px;">DiPet provides virtual digital companions only. No real animals are sold, adopted, or delivered.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2026 DiPet. All rights reserved.</div>
+        </div>
+    </footer>
 
-        function toggleLogin() {
-            isLoggedIn = !isLoggedIn;
-            const btn = document.getElementById('loginBtn');
-            if (isLoggedIn) {
-                btn.textContent = '👤 Account (Active)';
-                btn.classList.add('logged-in');
-                showToast("Successfully logged in to DiPet!", "success");
+    <!-- JavaScript Logic -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const userEmail = localStorage.getItem("dipet_user_email");
+            const navActions = document.getElementById('navActionsContainer');
+
+            if (userEmail) {
+                const username = userEmail.split('@')[0];
+                const firstLetter = username.charAt(0).toUpperCase();
+
+                navActions.innerHTML = `
+                    <div class="user-profile-pill" onclick="handleLogout()" title="Click to Logout">
+                        <div class="user-avatar">${firstLetter}</div>
+                        <span class="user-name">${username}</span>
+                    </div>
+                `;
             } else {
-                btn.textContent = '🔒 Login';
-                btn.classList.remove('logged-in');
-                showToast("Logged out successfully.", "error");
+                navActions.innerHTML = `<a href="login.html" class="btn-login" id="authButton">🔒 Login</a>`;
+            }
+        });
+
+        function handleLogout() {
+            if (confirm("Do you want to log out of your account?")) {
+                localStorage.removeItem("dipet_user_email");
+                window.location.reload();
             }
         }
 
@@ -762,64 +498,24 @@
             setTimeout(() => { toast.classList.remove('show'); }, 3500);
         }
 
-        // Master Categories & Subcategories Database
         const petsData = [
-            // Dogs
             { name: "Chihuahua", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 600 Coins", image: "https://images.unsplash.com/photo-1591768793439-1f6e2b69f4c3?auto=format&fit=crop&w=800&q=80" },
             { name: "Pomeranian", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 750 Coins", image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80" },
-            { name: "Shih Tzu", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 650 Coins", image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80" },
-            { name: "Dachshund", category: "Dogs", subcategory: "Small Breeds", price: "🪙 600 Coins", image: "https://images.unsplash.com/photo-1612536057832-2ff7799196b8?auto=format&fit=crop&w=800&q=80" },
-            { name: "Beagle", category: "Dogs", subcategory: "Small Breeds", price: "🪙 700 Coins", image: "https://images.unsplash.com/photo-1505628346881-b72b27e84530?auto=format&fit=crop&w=800&q=80" },
-            { name: "Border Collie", category: "Dogs", subcategory: "Medium Breeds", price: "🪙 1,000 Coins", image: "https://images.unsplash.com/photo-1503256207526-0d5d9fcfa2d1?auto=format&fit=crop&w=800&q=80" },
             { name: "German Shepherd", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,300 Coins", image: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=800&q=80" },
             { name: "Golden Retriever", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,250 Coins", image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80" },
-            { name: "Great Dane", category: "Dogs", subcategory: "Giant Breeds", price: "💎 300 Gems", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
-
-            // Cats
             { name: "Domestic Shorthair", category: "Cats", subcategory: "Short Hair", price: "🪙 400 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
-            { name: "British Shorthair", category: "Cats", subcategory: "Short Hair", price: "🪙 850 Coins", image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=800&q=80" },
-            { name: "Bengal", category: "Cats", subcategory: "Short Hair", price: "🪙 1,300 Coins", image: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=800&q=80" },
             { name: "Persian", category: "Cats", subcategory: "Long Hair", price: "🪙 900 Coins", image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=80" },
-            { name: "Maine Coon", category: "Cats", subcategory: "Long Hair", price: "🪙 1,100 Coins", image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=800&q=80" },
-            { name: "Sphynx", category: "Cats", subcategory: "Hairless", price: "🪙 1,500 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
-
-            // Rabbits
-            { name: "Netherland Dwarf", category: "Rabbits", subcategory: "Dwarf", price: "🪙 450 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
             { name: "Holland Lop", category: "Rabbits", subcategory: "Lop", price: "🪙 500 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
-            { name: "Lionhead", category: "Rabbits", subcategory: "Long Hair", price: "🪙 700 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
-
-            // Birds
-            { name: "Budgerigar", category: "Birds", subcategory: "Small Parrots", price: "🪙 350 Coins", image: "https://images.unsplash.com/photo-1522858541180-82c3f567f677?auto=format&fit=crop&w=800&q=80" },
-            { name: "Cockatiel", category: "Birds", subcategory: "Medium Parrots", price: "🪙 650 Coins", image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" },
-            { name: "African Grey", category: "Birds", subcategory: "Large Parrots", price: "💎 180 Gems", image: "https://images.unsplash.com/photo-1522858541180-82c3f567f677?auto=format&fit=crop&w=800&q=80" },
-
-            // Fish
-            { name: "Guppy", category: "Fish", subcategory: "Freshwater", price: "🪙 150 Coins", image: "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80" },
-            { name: "Betta Fish", category: "Fish", subcategory: "Bettas", price: "🪙 350 Coins", image: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=800&q=80" },
-            { name: "Japanese Koi", category: "Fish", subcategory: "Goldfish", price: "🪙 600 Coins", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" },
-
-            // Reptiles
-            { name: "Red-Eared Slider", category: "Reptiles", subcategory: "Turtles", price: "🪙 400 Coins", image: "https://images.unsplash.com/photo-1437622368342-9a3d7b3d487c?auto=format&fit=crop&w=800&q=80" },
-            { name: "Leopard Gecko", category: "Reptiles", subcategory: "Lizards", price: "🪙 500 Coins", image: "https://images.unsplash.com/photo-1574870111867-089730e5a72b?auto=format&fit=crop&w=800&q=80" },
-            { name: "Ball Python", category: "Reptiles", subcategory: "Snakes", price: "🪙 950 Coins", image: "https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?auto=format&fit=crop&w=800&q=80" },
-
-            // Farm & Wild
-            { name: "Arabian Horse", category: "Farm & Wild", subcategory: "Horses", price: "💎 150 Gems", image: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80" },
-            { name: "Pygmy Goat", category: "Farm & Wild", subcategory: "Goats", price: "🪙 700 Coins", image: "https://images.unsplash.com/photo-1524024973431-2ad96784584d?auto=format&fit=crop&w=800&q=80" },
-            { name: "Red Fox", category: "Farm & Wild", subcategory: "Wild Animals", price: "🪙 1,800 Coins", image: "https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=800&q=80" }
+            { name: "Budgerigar", category: "Birds", subcategory: "Small Parrots", price: "🪙 350 Coins", image: "https://images.unsplash.com/photo-1522858541180-82c3f567f677?auto=format&fit=crop&w=800&q=80" }
         ];
 
         const mainCategories = [
             { name: "Dogs", icon: "🐶", desc: "Toy, Small, Medium, Large & Giant Breeds" },
             { name: "Cats", icon: "🐱", desc: "Short hair, Long hair, Hairless & Exotics" },
             { name: "Rabbits", icon: "🐰", desc: "Dwarf, Lop & Long hair breeds" },
-            { name: "Birds", icon: "🐦", desc: "Parrots, Finches & Canaries" },
-            { name: "Fish", icon: "🐠", desc: "Freshwater, Bettas & Goldfish" },
-            { name: "Reptiles", icon: "🐢", desc: "Turtles, Lizards & Snakes" },
-            { name: "Farm & Wild", icon: "🐎", desc: "Horses, Goats & Wild Animals" }
+            { name: "Birds", icon: "🐦", desc: "Parrots, Finches & Canaries" }
         ];
 
-        // Render Categories
         const categoriesGrid = document.getElementById('categoriesGrid');
         function renderCategories() {
             categoriesGrid.innerHTML = '';
@@ -863,17 +559,15 @@
                     <div class="pet-card-content">
                         <div>
                             <span class="pet-subcat">${pet.subcategory}</span>
-                            <h4>${pet.name}</h4>
+                            <h4 style="margin-top:0.2rem;">${pet.name}</h4>
                             <div class="pet-price-tag">${pet.price}</div>
                         </div>
                         <div style="font-size:0.85rem; font-weight:700; color:var(--brand-green); margin-top:0.4rem;">Meet Pet →</div>
                     </div>
                 `;
-                pCard.addEventListener('click', () => openModal(pet));
+                pCard.addEventListener('click', () => openPetModal(pet));
                 grid.appendChild(pCard);
             });
-
-            window.scrollTo({ top: document.getElementById('categoriesSection').offsetTop - 100, behavior: 'smooth' });
         }
 
         function showMainCategories() {
@@ -881,40 +575,35 @@
             document.getElementById('mainCategoriesView').classList.remove('hidden');
         }
 
-        // Modal Logic
-        const modal = document.getElementById('petModal');
-        function openModal(pet) {
+        const petModal = document.getElementById('petModal');
+        function openPetModal(pet) {
             selectedPet = pet;
             document.getElementById('modalPetName').textContent = pet.name;
             document.getElementById('modalPetSubcat').textContent = `${pet.category} → ${pet.subcategory}`;
             document.getElementById('modalPetPrice').textContent = pet.price;
             document.getElementById('modalPetImg').src = pet.image;
-            modal.classList.add('active');
+            petModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            modal.classList.remove('active');
+        function closePetModal() {
+            petModal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
 
-        modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+        petModal.addEventListener('click', (e) => { if(e.target === petModal) closePetModal(); });
 
         function attemptAdopt() {
-            if (!isLoggedIn) {
-                closeModal();
+            const userEmail = localStorage.getItem("dipet_user_email");
+            if (!userEmail) {
+                closePetModal();
                 showToast("Please login first to adopt your pet!", "error");
-                document.getElementById('loginBtn').focus();
+                setTimeout(() => { window.location.href = "login.html"; }, 1200);
                 return;
             }
-            alert(`🎉 Success! Redirecting to dashboard to name and bond with your new ${selectedPet.name}!`);
-            window.location.href = `/adopt?pet=${encodeURIComponent(selectedPet.name)}`;
+            alert(`🎉 Success! ${selectedPet.name} has been adopted to your dashboard!`);
+            closePetModal();
         }
-
-        // Mobile Menu
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('active'));
     </script>
 </body>
 </html>
