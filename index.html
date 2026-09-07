@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiPet — Your Pet. Your World. Forever.</title>
+    <meta name="description" content="A premium virtual pet platform for people who love animals. Choose your digital companion, care for it, level it up, and build a lifelong bond. Pets never die.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #F8FAF9;
+            --bg-card: #FFFFFF;
+            --brand-green: #10B981;
+            --brand-green-light: #D1FAE5;
+            --brand-green-dark: #047857;
+            --accent-blue: #38BDF8;
+            --accent-yellow: #FBBF24;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --shadow-subtle: 0 10px 30px -5px rgba(16, 185, 129, 0.08);
+            --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* Navigation Bar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(248, 250, 249, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .logo-icon {
+            background: var(--brand-green);
+            color: white;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-green);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-login {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.6rem 1.2rem;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--brand-green);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--brand-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 5rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--brand-green-light);
+            color: var(--brand-green-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 520px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        /* Hero Visual Scene */
+        .hero-visual {
+            position: relative;
+            background: linear-gradient(135deg, #E6F4EA 0%, #E0F2FE 100%);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 440px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .pet-stage {
+            font-size: 7rem;
+            animation: floatPet 4s ease-in-out infinite;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
+            cursor: pointer;
+        }
+
+        @keyframes floatPet {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .floating-ui-card {
+            position: absolute;
+            background: var(--bg-card);
+            padding: 0.75rem 1.2rem;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .card-level { top: 25px; left: 25px; }
+        .card-happy { top: 25px; right: 25px; }
+        .card-energy { bottom: 35px; left: 25px; }
+        .card-xp { bottom: 35px; right: 25px; }
+
+        /* Trust / Concept Strip */
+        .concept-strip {
+            max-width: 1280px;
+            margin: 2rem auto 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .strip-grid {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .strip-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .strip-icon {
+            font-size: 1.5rem;
+            background: var(--brand-green-light);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+        }
+
+        /* Section Generic */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 4rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.75rem;
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Why DiPet Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-subtle);
+            border-color: var(--brand-green);
+        }
+
+        .feature-icon-box {
+            font-size: 2rem;
+            background: var(--brand-green-light);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.35rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* How It Works Section */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .step-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--brand-green);
+        }
+
+        .step-card h3 {
+            font-size: 1.25rem;
+        }
+
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Explore Pets Section */
+        .pets-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .pet-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-subtle);
+            border-color: var(--brand-green);
+        }
+
+        .pet-avatar {
+            font-size: 5rem;
+            background: var(--bg-main);
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 0.5rem;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .pet-card h3 {
+            font-size: 1.4rem;
+        }
+
+        .pet-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .btn-pet-choose {
+            margin-top: 0.5rem;
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.6rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .pet-card:hover .btn-pet-choose {
+            background: var(--brand-green);
+            color: white;
+            border-color: var(--brand-green);
+        }
+
+        .pets-footer-text {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+
+        /* Pet Growth / Level System */
+        .growth-container {
+            background: linear-gradient(135deg, #F0FDF4 0%, #E0F2FE 100%);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 4rem;
+            box-shadow: var(--shadow-card);
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .growth-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .growth-info h2 {
+            font-size: 2.5rem;
+        }
+
+        .never-dies-badge {
+            background: #FEE2E2;
+            color: #991B1B;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            width: fit-content;
+        }
+
+        .growth-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+        }
+
+        .timeline-step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .timeline-step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .timeline-step span:last-child {
+            color: var(--brand-green);
+            background: var(--brand-green-light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .xp-preview-box {
+            margin-top: 1rem;
+            background: var(--bg-main);
+            padding: 1.2rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .xp-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .xp-bar-bg {
+            background: var(--border-color);
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .xp-bar-fill {
+            background: var(--brand-green);
+            height: 100%;
+            width: 78%;
+            border-radius: 5px;
+        }
+
+        /* Pet Home Preview */
+        .home-preview-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 4rem;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .room-scene {
+            font-size: 6rem;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .customization-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .custom-tag {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        /* Features Section */
+        .features-grid-small {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature-mini-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .feature-mini-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--brand-green);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .mini-icon {
+            font-size: 2rem;
+            background: var(--brand-green-light);
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+        }
+
+        .feature-mini-card h3 {
+            font-size: 1.1rem;
+        }
+
+        .feature-mini-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        /* Coins Section */
+        .coins-section-box {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%);
+            border: 1px solid #FDE68A;
+            border-radius: var(--radius-lg);
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            box-shadow: var(--shadow-card);
+        }
+
+        .wallet-display {
+            background: var(--bg-card);
+            border: 1px solid #FCD34D;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-subtle);
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .wallet-amount {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #B45309;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .wallet-mission {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-main);
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+        }
+
+        .wallet-mission span:last-child {
+            color: #047857;
+            background: #D1FAE5;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        /* Emotional Section */
+        .emotional-banner {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 5rem 4rem;
+            text-align: center;
+            box-shadow: var(--shadow-subtle);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .emotional-banner h2 {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .emotional-banner p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--brand-green-dark);
+            padding: 0.8rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            background: #F8FAF9;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            text-align: center;
+            padding: 6rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+        }
+
+        .final-cta p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+        }
+
+        .final-subtext {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-card);
+            padding: 4rem 2rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links-group {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--brand-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 8rem;
+                gap: 3rem;
+            }
+            .hero-content {
+                align-items: center;
+            }
+            .hero-cta {
+                justify-content: center;
+            }
+            .strip-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .features-grid, .pets-grid, .features-grid-small {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .steps-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .growth-container, .coins-section-box {
+                grid-template-columns: 1fr;
+                padding: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .btn-login {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-header h2, .growth-info h2, .emotional-banner h2, .final-cta h2 {
+                font-size: 2.1rem;
+            }
+            .strip-grid, .features-grid, .pets-grid, .features-grid-small, .steps-container {
+                grid-template-columns: 1fr;
+            }
+            .footer-links-group {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .footer-top {
+                flex-direction: column;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Mobile Nav Drawer State */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 73px;
+            left: 0;
+            width: 100%;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            z-index: 999;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🐾</div>
+                DiPet
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pets">Pets</a></li>
+                <li><a href="#features">Features</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#login" class="btn-login">Login</a>
+                <a href="#adopt" class="btn-primary">Start Your Pet</a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">☰</button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home" class="mob-link">Home</a>
+            <a href="#how-it-works" class="mob-link">How It Works</a>
+            <a href="#pets" class="mob-link">Pets</a>
+            <a href="#features" class="mob-link">Features</a>
+            <a href="#adopt" class="btn-primary" style="justify-content: center; margin-top: 0.5rem;">Start Your Pet</a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="badge">
+                🐾 Your Digital Pet Starts Here
+            </div>
+            <h1>Your Pet. Your World. Forever.</h1>
+            <p>
+                Love having a pet but don't have the time, space, or freedom for a real one? Meet your digital companion. Choose a pet, care for it, play with it, and watch your bond grow.
+            </p>
+            <div class="hero-cta">
+                <a href="#pets" class="btn-primary">Adopt Your Pet →</a>
+                <a href="#how-it-works" class="btn-secondary">Explore Pets</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="pet-stage" title="Tap to pet!">🐶</div>
+            <div class="floating-ui-card card-level">⭐ Level 7</div>
+            <div class="floating-ui-card card-happy">❤️ Happiness 92%</div>
+            <div class="floating-ui-card card-energy">⚡ Energy 78%</div>
+            <div class="floating-ui-card card-xp">🎯 XP 640/800</div>
+        </div>
+    </section>
+
+    <div class="concept-strip">
+        <div class="strip-grid">
+            <div class="strip-item">
+                <div class="strip-icon">🐾</div>
+                <span>Choose a Pet</span>
+            </div>
+            <div class="strip-item">
+                <div class="strip-icon">❤️</div>
+                <span>Build a Bond</span>
+            </div>
+            <div class="strip-item">
+                <div class="strip-icon">⭐</div>
+                <span>Level Up</span>
+            </div>
+            <div class="strip-item">
+                <div class="strip-icon">♾️</div>
+                <span>Never Lose Your Pet</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="features">
+        <div class="section-header">
+            <h2>A Pet That Fits Your Life</h2>
+            <p>Real pets need time, space and daily care. DiPet gives you the joy of having a companion without the pressure.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-box">⏳</div>
+                <h3>No Time?</h3>
+                <p>"Care for your pet whenever you have a moment. Your companion waits patiently for your return."</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box">🏡</div>
+                <h3>No Space?</h3>
+                <p>"Your pet lives in your digital world. Perfect for apartments, dorms, and busy urban lifestyles."</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box">🛡️</div>
+                <h3>Afraid of Pets?</h3>
+                <p>"Experience the joy and warmth of pet ownership comfortably and securely at your own pace."</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box">✨</div>
+                <h3>Always With You</h3>
+                <p>"Your digital companion stays with you wherever you go, accessible right from your browser or phone."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <div class="section-header">
+            <h2>Meet Your New Best Friend</h2>
+            <p>Four simple steps to start your lifelong digital bond.</p>
+        </div>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <h3>Choose</h3>
+                <p>Pick the animal you love most from our curated collection of digital companions.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <h3>Name</h3>
+                <p>Give your new companion a special name that means something to you.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <h3>Care</h3>
+                <p>Feed, play, pet and take care of your companion to keep their happiness high.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">04</div>
+                <h3>Grow</h3>
+                <p>Earn XP, level up through rewarding milestones and build an unbreakable bond.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pets">
+        <div class="section-header">
+            <h2>Which Pet Will You Choose?</h2>
+            <p>Select your favorite character and begin your journey today.</p>
+        </div>
+        <div class="pets-grid">
+            <div class="pet-card">
+                <div class="pet-avatar">🐶</div>
+                <h3>Puppy</h3>
+                <p class="pet-desc">Playful • Loyal • Energetic</p>
+                <button class="btn-pet-choose">Choose Puppy</button>
+            </div>
+            <div class="pet-card">
+                <div class="pet-avatar">🐱</div>
+                <h3>Cat</h3>
+                <p class="pet-desc">Curious • Independent • Cozy</p>
+                <button class="btn-pet-choose">Choose Cat</button>
+            </div>
+            <div class="pet-card">
+                <div class="pet-avatar">🐰</div>
+                <h3>Rabbit</h3>
+                <p class="pet-desc">Gentle • Swift • Cheerful</p>
+                <button class="btn-pet-choose">Choose Rabbit</button>
+            </div>
+            <div class="pet-card">
+                <div class="pet-avatar">🐹</div>
+                <h3>Hamster</h3>
+                <p class="pet-desc">Active • Cute • Curious</p>
+                <button class="btn-pet-choose">Choose Hamster</button>
+            </div>
+            <div class="pet-card">
+                <div class="pet-avatar">🐦</div>
+                <h3>Bird</h3>
+                <p class="pet-desc">Joyful • Cheerful • Free</p>
+                <button class="btn-pet-choose">Choose Bird</button>
+            </div>
+            <div class="pet-card">
+                <div class="pet-avatar">🐢</div>
+                <h3>Turtle</h3>
+                <p class="pet-desc">Wise • Calm • Steady</p>
+                <button class="btn-pet-choose">Choose Turtle</button>
+            </div>
+        </div>
+        <div class="pets-footer-text">
+            More pets coming soon in future updates...
+        </div>
+    </section>
+
+    <section>
+        <div class="growth-container">
+            <div class="growth-info">
+                <div class="never-dies-badge">❤️ Your pet never dies.</div>
+                <h2>They Grow With You</h2>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    "Your pet's level represents your journey together. The more you care, play and interact, the stronger your bond becomes. No accidents, no heartbreak—just continuous companionship."
+                </p>
+                <div class="xp-preview-box">
+                    <div class="xp-header">
+                        <span>Bruno (Puppy) — Level 12</span>
+                        <span>780 / 1000 XP</span>
+                    </div>
+                    <div class="xp-bar-bg">
+                        <div class="xp-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="growth-timeline">
+                <div class="timeline-step">
+                    <span>Level 1 — Baby Pet</span>
+                    <span>Start</span>
+                </div>
+                <div class="timeline-step">
+                    <span>Level 5 — Happy Companion</span>
+                    <span>Unlocked</span>
+                </div>
+                <div class="timeline-step">
+                    <span>Level 10 — Best Friend</span>
+                    <span>Unlocked</span>
+                </div>
+                <div class="timeline-step">
+                    <span>Level 25 — Super Companion</span>
+                    <span>Milestone</span>
+                </div>
+                <div class="timeline-step">
+                    <span>Level 50 — Legendary Pet</span>
+                    <span>Ultimate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="home-preview-box">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2>Give Your Pet a Home</h2>
+                <p>"Customize your pet's world and make it feel like home."</p>
+            </div>
+            <div class="room-scene">
+                <span>🪴</span>
+                <span>🛏️</span>
+                <span>🐶</span>
+                <span>🦴</span>
+                <span>🎾</span>
+            </div>
+            <div class="customization-tags">
+                <span class="custom-tag">✨ New Toy</span>
+                <span class="custom-tag">🛏️ New Bed</span>
+                <span class="custom-tag">🎩 New Outfit</span>
+                <span class="custom-tag">🪴 New Decoration</span>
+            </div>
+            <div style="margin-top: 2rem;">
+                <a href="#adopt" class="btn-primary">Create Your Pet Home</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header">
+            <h2>Everything Your Pet Needs</h2>
+            <p>An immersive virtual ecosystem designed for interaction and engagement.</p>
+        </div>
+        <div class="features-grid-small">
+            <div class="feature-mini-card">
+                <div class="mini-icon">❤️</div>
+                <h3>Friendship</h3>
+                <p>Build lifelong emotional connection.</p>
+            </div>
+            <div class="feature-mini-card">
+                <div class="mini-icon">🍖</div>
+                <h3>Feeding</h3>
+                <p>Treat your pet to delicious snacks.</p>
+            </div>
+            <div class="feature-mini-card">
+                <div class="mini-icon">🎾</div>
+                <h3>Playing</h3>
+                <p>Interactive mini-games and fun toys.</p>
+            </div>
+            <div class="feature-mini-card">
+                <div class="mini-icon">🛁</div>
+                <h3>Grooming</h3>
+                <p>Keep your pet looking spotless.</p>
+            </div>
+            <div class="feature-mini-card">
+                <div class="mini-icon">⭐</div>
+                <h3>Level System</h3>
+                <p>Progress and unlock new features.</p>
+            </div>
+            <div class="feature-mini-card">
+                <div class="mini-icon">🪙</div>
+                <h3>Coins</h3>
+                <p>Earn currency through active care.</p>
+            </div>
+            <div class="feature-mini-card">
+                <div class="mini-icon">🎁</div>
+                <h3>Daily Rewards</h3>
+                <p>Special bonuses for daily check-ins.</p>
+            </div>
+            <div class="feature-mini-card">
+                <div class="mini-icon">🏆</div>
+                <h3>Achievements</h3>
+                <p>Collect badges for milestone care.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="coins-section-box">
+            <div class="growth-info">
+                <h2>Earn. Play. Upgrade.</h2>
+                <p style="color: var(--text-muted); line-height: 1.6;">
+                    "Earn coins by caring for your pet, completing missions and coming back every day. Use them to unlock food, toys, outfits, decorations and more."
+                </p>
+                <div style="margin-top: 0.5rem;">
+                    <a href="#adopt" class="btn-primary">Start Earning Rewards</a>
+                </div>
+            </div>
+            <div class="wallet-display">
+                <div class="wallet-amount">
+                    🪙 2,450 Coins
+                </div>
+                <div class="wallet-mission">
+                    <span>Daily Reward Check-in</span>
+                    <span>+100 Coins</span>
+                </div>
+                <div class="wallet-mission">
+                    <span>Mission Complete: Play Catch</span>
+                    <span>+250 Coins</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="emotional-banner">
+            <h2>Some Pets Are Forever.</h2>
+            <p>
+                Life gets busy. Plans change. But your digital companion is always there when you come back, waiting with a wagging tail and unconditional love.
+            </p>
+            <a href="#adopt" class="btn-white">Start Your Journey →</a>
+        </div>
+    </section>
+
+    <section class="final-cta" id="adopt">
+        <h2>Ready to Meet Your Pet?</h2>
+        <p>Choose your companion. Give them a name. Start your journey together.</p>
+        <div style="margin-top: 1rem;">
+            <a href="#" class="btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Adopt Your First Pet 🐾</a>
+        </div>
+        <div class="final-subtext">Free to start • No pet ever dies</div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">🐾</div>
+                        DiPet
+                    </a>
+                    <p>"Your Pet. Your World. Forever."</p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Navigation</h4>
+                        <a href="#home">About</a>
+                        <a href="#how-it-works">How It Works</a>
+                        <a href="#pets">Pets</a>
+                        <a href="#features">Features</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Support</h4>
+                        <a href="#">Help Center</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 DiPet. All rights reserved.</div>
+                <div class="social-icons">
+                    <span title="Twitter">🌐</span>
+                    <span title="Discord">💬</span>
+                    <span title="Instagram">📸</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobLinks = document.querySelectorAll('.mob-link');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Interactive Pet Greeting in Hero
+        const petStage = document.querySelector('.pet-stage');
+        const greetings = ['🐶 Woof!', '🐾 ❤️', '🦴 Yay!', '✨ Hello!'];
+        let greetingIndex = 0;
+
+        petStage.addEventListener('click', () => {
+            greetingIndex = (greetingIndex + 1) % greetings.length;
+            petStage.style.transform = 'scale(1.15) translateY(-10px)';
+            setTimeout(() => {
+                petStage.style.transform = 'scale(1) translateY(0)';
+            }, 200);
+        });
+
+        // Smooth Scrolling enhancement for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
