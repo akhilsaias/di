@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Your Pet — DiPet</title>
-    <meta name="description" content="Choose your digital companion on DiPet. Secure login required to adopt and grow your virtual pet.">
-    <!-- Google Fonts for Premium Typography -->
+    <title>DiPet — Ultimate Digital Animal Universe</title>
+    <meta name="description" content="Explore the massive DiPet digital companion platform. Browse dogs, cats, exotic pets, farm animals, and more.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -59,7 +58,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(248, 250, 249, 0.85);
+            background-color: rgba(248, 250, 249, 0.88);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
@@ -212,14 +211,14 @@
             max-width: 650px;
         }
 
-        /* Controls / Search & Filters Bar */
+        /* Controls / Search & Filters */
         .controls-section {
             max-width: 1280px;
             margin: 2rem auto;
             padding: 0 2rem;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
         .search-sort-bar {
@@ -289,7 +288,7 @@
             border-color: var(--brand-green);
         }
 
-        /* Category Navigation */
+        /* Category Scroll Bar */
         .category-scroll {
             display: flex;
             gap: 0.75rem;
@@ -364,7 +363,7 @@
 
         .pet-img-container {
             width: 100%;
-            height: 220px;
+            height: 200px;
             overflow: hidden;
             background: #E2E8F0;
             position: relative;
@@ -385,21 +384,23 @@
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.5rem;
             flex-grow: 1;
             justify-content: space-between;
         }
 
-        .pet-info-top h3 {
-            font-size: 1.25rem;
-            color: var(--text-main);
-            margin-bottom: 0.2rem;
+        .pet-subcat {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--brand-green-dark);
+            letter-spacing: 0.05em;
         }
 
-        .pet-traits {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 500;
+        .pet-info-top h3 {
+            font-size: 1.15rem;
+            color: var(--text-main);
+            margin-bottom: 0.1rem;
         }
 
         .pet-price-tag {
@@ -418,21 +419,22 @@
             align-items: center;
             justify-content: space-between;
             border-top: 1px solid var(--border-color);
-            padding-top: 1rem;
-            margin-top: 0.5rem;
+            padding-top: 0.8rem;
+            margin-top: 0.4rem;
         }
 
         .pet-difficulty {
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            color: var(--brand-green-dark);
-            background: var(--brand-green-light);
-            padding: 0.2rem 0.6rem;
+            color: var(--text-muted);
+            background: var(--bg-main);
+            padding: 0.2rem 0.5rem;
             border-radius: 6px;
+            border: 1px solid var(--border-color);
         }
 
         .meet-link {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 700;
             color: var(--brand-green);
             display: inline-flex;
@@ -481,7 +483,7 @@
             max-width: 550px;
         }
 
-        /* Pet Preview Modal */
+        /* Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -490,7 +492,6 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
             z-index: 2000;
             display: flex;
             align-items: center;
@@ -551,12 +552,6 @@
             margin-bottom: 0.3rem;
         }
 
-        .modal-personality {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
         .modal-price-display {
             font-family: 'Outfit', sans-serif;
             font-size: 1.3rem;
@@ -588,13 +583,6 @@
             color: var(--brand-green-dark);
         }
 
-        .modal-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-            font-style: italic;
-        }
-
         .modal-actions {
             display: flex;
             flex-direction: column;
@@ -610,10 +598,6 @@
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
-        }
-
-        .btn-modal-back:hover {
-            color: var(--text-main);
         }
 
         .close-modal-x {
@@ -632,14 +616,9 @@
             align-items: center;
             justify-content: center;
             z-index: 10;
-            transition: var(--transition);
         }
 
-        .close-modal-x:hover {
-            background: rgba(0,0,0,0.8);
-        }
-
-        /* Toast Alert Banner */
+        /* Toast Alert */
         .toast-alert {
             position: fixed;
             bottom: 30px;
@@ -663,13 +642,8 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        .toast-alert.error {
-            background: #DC2626;
-        }
-
-        .toast-alert.success {
-            background: #059669;
-        }
+        .toast-alert.error { background: #DC2626; }
+        .toast-alert.success { background: #059669; }
 
         /* Footer */
         footer {
@@ -700,35 +674,6 @@
             font-size: 0.95rem;
         }
 
-        .footer-links-group {
-            display: flex;
-            gap: 4rem;
-        }
-
-        .footer-col {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .footer-col h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-col a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .footer-col a:hover {
-            color: var(--brand-green);
-        }
-
         .footer-bottom {
             border-top: 1px solid var(--border-color);
             padding-top: 2rem;
@@ -739,58 +684,17 @@
             font-size: 0.9rem;
         }
 
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            font-size: 1.2rem;
-        }
-
         @media (max-width: 1024px) {
-            .pets-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .modal-container {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-            }
-            .modal-img-side {
-                height: 220px;
-                min-height: auto;
-            }
+            .pets-grid { grid-template-columns: repeat(2, 1fr); }
+            .modal-container { grid-template-columns: 1fr; max-width: 500px; }
         }
 
         @media (max-width: 768px) {
-            .nav-links, .nav-actions .btn-login-container {
-                display: none;
-            }
-            .hamburger {
-                display: block;
-            }
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            .pets-grid {
-                grid-template-columns: 1fr;
-            }
-            .search-sort-bar {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .filters-group {
-                justify-content: space-between;
-            }
-            .footer-links-group {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .footer-top {
-                flex-direction: column;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
+            .nav-links, .nav-actions .btn-login { display: none; }
+            .hamburger { display: block; }
+            .hero h1 { font-size: 2.3rem; }
+            .pets-grid { grid-template-columns: 1fr; }
+            .search-sort-bar { flex-direction: column; align-items: stretch; }
         }
 
         .mobile-menu {
@@ -808,22 +712,12 @@
             gap: 1.5rem;
             text-align: center;
         }
-
-        .mobile-menu.active {
-            display: flex;
-        }
-
-        .mobile-menu a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 1.1rem; }
     </style>
 </head>
 <body>
 
-    <!-- 1. Navigation -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">
@@ -832,9 +726,8 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#" class="active">Pets</a></li>
+                <li><a href="#" class="active">Pets Universe</a></li>
                 <li><a href="#">How It Works</a></li>
-                <li><a href="#">Features</a></li>
             </ul>
             <div class="nav-actions">
                 <button class="btn-login" id="loginBtn" onclick="toggleLogin()">🔒 Login</button>
@@ -842,234 +735,293 @@
                 <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">☰</button>
             </div>
         </div>
-        <!-- Mobile Menu Drawer -->
         <div class="mobile-menu" id="mobileMenu">
             <a href="#" class="mob-link">Home</a>
-            <a href="#" class="mob-link active">Pets</a>
+            <a href="#" class="mob-link active">Pets Universe</a>
             <a href="#" class="mob-link">How It Works</a>
-            <a href="#" class="mob-link">Features</a>
             <a href="#adopt" class="btn-primary" style="justify-content: center; margin-top: 0.5rem;" onclick="handleStartPet(event)">Start Your Pet</a>
         </div>
     </header>
 
-    <!-- 2. Hero Section -->
     <section class="hero">
-        <div class="badge">
-            🐾 DIPET ANIMAL COLLECTION
-        </div>
+        <div class="badge">🐾 DIPET MASTER CATALOG</div>
         <h1>Find Your Perfect Companion</h1>
-        <p>
-            Choose from a growing world of digital animals. Login to adopt your companion, build your bond, and watch them grow forever.
-        </p>
+        <p>Explore our comprehensive digital animal collection from Dogs and Cats to Reptiles, Birds, Farm Animals, and Exotic Species.</p>
     </section>
 
-    <!-- Search & Filters Bar -->
     <div class="controls-section">
         <div class="search-sort-bar">
             <div class="search-box">
                 <span class="search-icon-pos">🔍</span>
-                <input type="text" id="searchInput" placeholder="Search for an animal (e.g. Lion, Puppy, Fish)...">
+                <input type="text" id="searchInput" placeholder="Search by breed name, subcategory or type (e.g. Chihuahua, Persian, Goldfish)...">
             </div>
             <div class="filters-group">
                 <select id="sortSelect" class="filter-dropdown">
                     <option value="recommended">Sort by: Recommended</option>
-                    <option value="popular">Popular</option>
-                    <option value="beginner">Beginner Friendly</option>
-                    <option value="rare">Advanced / Rare</option>
-                </select>
-                <select id="difficultySelect" class="filter-dropdown">
-                    <option value="all">Difficulty: All</option>
-                    <option value="Beginner">Easy</option>
-                    <option value="Intermediate">Medium</option>
-                    <option value="Advanced">Advanced</option>
+                    <option value="name">Name (A-Z)</option>
+                    <option value="price-low">Price: Low to High</option>
                 </select>
             </div>
         </div>
 
-        <!-- Category Navigation -->
         <div class="category-scroll" id="categoryScroll">
-            <button class="cat-btn active" data-category="All">🐾 All Animals</button>
+            <button class="cat-btn active" data-category="All">🐾 All Categories</button>
             <button class="cat-btn" data-category="Dogs">🐶 Dogs</button>
             <button class="cat-btn" data-category="Cats">🐱 Cats</button>
-            <button class="cat-btn" data-category="Small Pets">🐰 Small & Cute</button>
+            <button class="cat-btn" data-category="Rabbits">🐰 Rabbits</button>
+            <button class="cat-btn" data-category="Hamsters">🐹 Hamsters</button>
+            <button class="cat-btn" data-category="Mice & Rats">🐁 Mice & Rats</button>
+            <button class="cat-btn" data-category="Guinea Pigs">🐹 Guinea Pigs</button>
             <button class="cat-btn" data-category="Birds">🐦 Birds</button>
             <button class="cat-btn" data-category="Fish">🐠 Fish</button>
-            <button class="cat-btn" data-category="Reptiles">🐢 Reptiles</button>
-            <button class="cat-btn" data-category="Farm Animals">🐮 Farm Animals</button>
-            <button class="cat-btn" data-category="Wild Animals">🦊 Wild Animals</button>
-            <button class="cat-btn" data-category="Big Animals">🦁 Big Animals</button>
-            <button class="cat-btn" data-category="Ocean Animals">🌊 Ocean Animals</button>
-            <button class="cat-btn" data-category="Tiny Creatures">🦋 Tiny Creatures</button>
+            <button class="cat-btn" data-category="Turtles & Tortoises">🐢 Turtles & Tortoises</button>
+            <button class="cat-btn" data-category="Lizards">🦎 Lizards</button>
+            <button class="cat-btn" data-category="Snakes">🐍 Snakes</button>
+            <button class="cat-btn" data-category="Amphibians">🐸 Amphibians</button>
+            <button class="cat-btn" data-category="Small Exotic Mammals">🦔 Small Exotic Mammals</button>
+            <button class="cat-btn" data-category="Invertebrates">🕷️ Invertebrates</button>
+            <button class="cat-btn" data-category="Farm & Large Animals">🐎 Farm & Large Animals</button>
+            <button class="cat-btn" data-category="Poultry">🐓 Poultry</button>
+            <button class="cat-btn" data-category="Other Pets">🦀 Other Pets</button>
         </div>
     </div>
 
-    <!-- Animal Collection Grid -->
     <section class="pets-section">
-        <div class="pets-grid" id="petsGrid">
-            <!-- Populated dynamically via JS -->
-        </div>
+        <div class="pets-grid" id="petsGrid"></div>
     </section>
 
-    <!-- Digital Pet Disclaimer -->
     <div class="digital-disclaimer">
         "DiPet provides virtual digital companions only. No real animals are sold, adopted, delivered, traded, or transferred through DiPet."
     </div>
 
-    <!-- Bottom CTA -->
     <section class="bottom-cta-section" id="adopt">
         <h2>Ready to Meet Your Pet?</h2>
-        <p>Login to choose your companion, give them a name, and start your journey together.</p>
+        <p>Login to adopt your companion, give them a custom name, and start your virtual bond.</p>
         <div style="margin-top: 0.5rem;">
-            <button onclick="handleStartPet(event)" class="btn-primary" style="padding: 0.9rem 2.5rem; font-size: 1.1rem;">Adopt Your First Pet 🐾</button>
+            <button onclick="handleStartPet(event)" class="btn-primary" style="padding: 0.9rem 2.5rem; font-size: 1.1rem;">Adopt Your Companion 🐾</button>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <div class="logo-icon">🐾</div>
-                        DiPet
-                    </a>
+                    <a href="#" class="logo"><div class="logo-icon">🐾</div>DiPet</a>
                     <p>"Your Pet. Your World. Forever."</p>
-                </div>
-                <div class="footer-links-group">
-                    <div class="footer-col">
-                        <h4>Product</h4>
-                        <a href="#">Pets</a>
-                        <a href="#">Features</a>
-                        <a href="#">How It Works</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Legal</h4>
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Disclaimer</a>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div>© 2026 DiPet. All rights reserved.</div>
-                <div class="social-icons">
-                    <span title="Twitter">🌐</span>
-                    <span title="Discord">💬</span>
-                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Pet Preview Modal -->
     <div class="modal-overlay" id="petModal">
         <div class="modal-container">
             <div class="modal-img-side">
-                <button class="close-modal-x" id="closeModalBtn" aria-label="Close modal">×</button>
+                <button class="close-modal-x" id="closeModalBtn" onclick="closeModal()">×</button>
                 <img id="modalPetImg" src="" alt="Pet Preview">
             </div>
             <div class="modal-content-side">
                 <div class="modal-header">
+                    <span id="modalPetSubcat" class="pet-subcat" style="font-size: 0.85rem;">Subcategory</span>
                     <h3 id="modalPetName">Pet Name</h3>
-                    <div class="modal-personality" id="modalPetTraits">Traits</div>
                     <div class="modal-price-display" id="modalPetPrice" style="margin-top: 0.4rem;">🪙 500 Coins</div>
                 </div>
                 <div class="modal-stats">
-                    <div class="modal-stat-item">
-                        <span>Difficulty</span>
-                        <span id="modalPetDifficulty">Beginner</span>
-                    </div>
-                    <div class="modal-stat-item">
-                        <span>❤️ Starting Happiness</span>
-                        <span>100%</span>
-                    </div>
-                    <div class="modal-stat-item">
-                        <span>⭐ Starting XP</span>
-                        <span>0</span>
-                    </div>
+                    <div class="modal-stat-item"><span>Category</span><span id="modalPetCat">Category</span></div>
+                    <div class="modal-stat-item"><span>❤️ Happiness</span><span>100%</span></div>
+                    <div class="modal-stat-item"><span>⭐ Starting XP</span><span>0</span></div>
                 </div>
-                <p class="modal-desc" id="modalPetDesc">"Description here."</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; font-style: italic;">"A wonderful virtual companion ready to grow with you in your digital world."</p>
                 <div class="modal-actions">
-                    <button onclick="attemptAdopt()" id="adoptModalBtn" class="btn-primary" style="justify-content: center; width: 100%;">Adopt This Pet →</button>
-                    <button class="btn-modal-back" id="backToPetsBtn">← Back</button>
+                    <button onclick="attemptAdopt()" class="btn-primary" style="justify-content: center; width: 100%;">Adopt This Pet →</button>
+                    <button class="btn-modal-back" onclick="closeModal()">← Back</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Toast Notification Element -->
     <div class="toast-alert" id="toastAlert">
         <span id="toastIcon">⚠️</span>
         <span id="toastMsg">Please login first!</span>
     </div>
 
-    <!-- JavaScript Application Logic -->
     <script>
-        // Authentication State Simulation
         let isLoggedIn = false;
-        let selectedPetForAdoption = null;
+        let selectedPet = null;
 
         function toggleLogin() {
             isLoggedIn = !isLoggedIn;
-            const loginBtn = document.getElementById('loginBtn');
+            const btn = document.getElementById('loginBtn');
             if (isLoggedIn) {
-                loginBtn.textContent = '👤 Account (Logged In)';
-                loginBtn.classList.add('logged-in');
+                btn.textContent = '👤 Account (Active)';
+                btn.classList.add('logged-in');
                 showToast("Successfully logged in to DiPet!", "success");
             } else {
-                loginBtn.textContent = '🔒 Login';
-                loginBtn.classList.remove('logged-in');
+                btn.textContent = '🔒 Login';
+                btn.classList.remove('logged-in');
                 showToast("Logged out successfully.", "error");
             }
         }
 
         function showToast(message, type = "error") {
             const toast = document.getElementById('toastAlert');
-            const toastMsg = document.getElementById('toastMsg');
-            const toastIcon = document.getElementById('toastIcon');
-            
-            toastMsg.textContent = message;
+            document.getElementById('toastMsg').textContent = message;
             toast.className = `toast-alert show ${type}`;
-            toastIcon.textContent = type === "success" ? "✅" : "⚠️";
-
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3500);
+            document.getElementById('toastIcon').textContent = type === "success" ? "✅" : "⚠️";
+            setTimeout(() => { toast.classList.remove('show'); }, 3500);
         }
 
-        // Comprehensive Animal Database with Prices (Coins/Gems)
-        const animalsData = [
-            { name: "Golden Retriever", category: "Dogs", price: "🪙 850 Coins", traits: ["Loyal", "Friendly", "Playful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80", description: "Friendly, playful and always ready to be your companion. Known for warm loyalty and boundless positive energy." },
-            { name: "Persian Cat", category: "Cats", price: "🪙 750 Coins", traits: ["Calm", "Elegant", "Affectionate"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=80", description: "A serene and luxurious feline friend with silky fur and expressive eyes, perfect for quiet and cozy virtual spaces." },
-            { name: "Holland Lop Rabbit", category: "Small Pets", price: "🪙 500 Coins", traits: ["Gentle", "Quiet", "Friendly"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80", description: "A sweet-natured bunny with adorable floppy ears. Gentle, quiet, and wonderfully peaceful for a relaxing companion experience." },
-            { name: "African Grey Parrot", category: "Birds", price: "🪙 1,200 Coins", traits: ["Genius", "Talkative", "Clever"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1522858541180-82c3f567f677?auto=format&fit=crop&w=800&q=80", description: "An exceptionally intelligent bird capable of learning advanced words and solving interactive puzzles." },
-            { name: "Goldfish", category: "Fish", price: "🪙 250 Coins", traits: ["Peaceful", "Calm", "Graceful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=800&q=80", description: "A classic, shimmering orange swimmer that brings tranquility to any virtual aquarium." },
-            { name: "Red-Eared Slider Turtle", category: "Reptiles", price: "🪙 400 Coins", traits: ["Calm", "Relaxed", "Peaceful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1437622368342-9a3d7b3d487c?auto=format&fit=crop&w=800&q=80", description: "A wise, steady and relaxed aquatic friend that adds a serene, zen atmosphere to your virtual ecosystem." },
-            { name: "Appaloosa Horse", category: "Farm Animals", price: "🪙 2,500 Coins", traits: ["Noble", "Strong", "Loyal"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80", description: "A magnificent equine companion with striking spotted coat and free-spirited gallop." },
-            { name: "Red Fox", category: "Wild Animals", price: "🪙 1,800 Coins", traits: ["Clever", "Swift", "Cunning"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=800&q=80", description: "A remarkably clever and graceful woodland dweller with fiery orange fur and bright eyes." },
-            { name: "African Lion", category: "Big Animals", price: "💎 500 Gems", traits: ["Brave", "Loyal", "Powerful"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=800&q=80", description: "Strong, loyal and majestic king of the virtual savanna, always ready to be your fierce protector." },
-            { name: "Bottlenose Dolphin", category: "Ocean Animals", price: "🪙 2,200 Coins", traits: ["Joyful", "Smart", "Friendly"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1602677093926-223d9bc46e92?auto=format&fit=crop&w=800&q=80", description: "An exceptionally intelligent and joyful ocean swimmer that loves performing playful leaps." },
-            { name: "Monarch Butterfly", category: "Tiny Creatures", price: "🪙 300 Coins", traits: ["Graceful", "Vibrant", "Free"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1508595111327-2b46b76c9df2?auto=format&fit=crop&w=800&q=80", description: "A delicate winged beauty that dances gracefully among virtual flowers." }
+        // Full dataset mapping requested categories, subcategories, and breeds
+        const petsData = [
+            // DOGS
+            { name: "Chihuahua", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 600 Coins", image: "https://images.unsplash.com/photo-1591768793439-1f6e2b69f4c3?auto=format&fit=crop&w=800&q=80" },
+            { name: "Pomeranian", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 750 Coins", image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80" },
+            { name: "Yorkshire Terrier", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 700 Coins", image: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=800&q=80" },
+            { name: "Shih Tzu", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 650 Coins", image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80" },
+            { name: "Maltese", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 680 Coins", image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80" },
+            { name: "Toy Poodle", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 900 Coins", image: "https://images.unsplash.com/photo-1563460718833-2a4e26f37f39?auto=format&fit=crop&w=800&q=80" },
+            { name: "Papillon", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 800 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Pekingese", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 550 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Pug", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 850 Coins", image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80" },
+            { name: "Japanese Chin", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 720 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+
+            { name: "Dachshund", category: "Dogs", subcategory: "Small Breeds", price: "🪙 600 Coins", image: "https://images.unsplash.com/photo-1612536057832-2ff7799196b8?auto=format&fit=crop&w=800&q=80" },
+            { name: "Beagle", category: "Dogs", subcategory: "Small Breeds", price: "🪙 700 Coins", image: "https://images.unsplash.com/photo-1505628346881-b72b27e84530?auto=format&fit=crop&w=800&q=80" },
+            { name: "French Bulldog", category: "Dogs", subcategory: "Small Breeds", price: "🪙 1,200 Coins", image: "https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?auto=format&fit=crop&w=800&q=80" },
+            { name: "Cocker Spaniel", category: "Dogs", subcategory: "Small Breeds", price: "🪙 800 Coins", image: "https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?auto=format&fit=crop&w=800&q=80" },
+            { name: "Miniature Schnauzer", category: "Dogs", subcategory: "Small Breeds", price: "🪙 750 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Boston Terrier", category: "Dogs", subcategory: "Small Breeds", price: "🪙 700 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Jack Russell Terrier", category: "Dogs", subcategory: "Small Breeds", price: "🪙 650 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Cavalier King Charles Spaniel", category: "Dogs", subcategory: "Small Breeds", price: "🪙 950 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+
+            { name: "Border Collie", category: "Dogs", subcategory: "Medium Breeds", price: "🪙 1,000 Coins", image: "https://images.unsplash.com/photo-1503256207526-0d5d9fcfa2d1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Corgi", category: "Dogs", subcategory: "Medium Breeds", price: "🪙 1,100 Coins", image: "https://images.unsplash.com/photo-1612536057832-2ff7799196b8?auto=format&fit=crop&w=800&q=80" },
+            { name: "Australian Shepherd", category: "Dogs", subcategory: "Medium Breeds", price: "🪙 950 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "English Bulldog", category: "Dogs", subcategory: "Medium Breeds", price: "🪙 1,250 Coins", image: "https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?auto=format&fit=crop&w=800&q=80" },
+            { name: "Dalmatian", category: "Dogs", subcategory: "Medium Breeds", price: "🪙 1,000 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Indian Pariah Dog", category: "Dogs", subcategory: "Medium Breeds", price: "🪙 300 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Shiba Inu", category: "Dogs", subcategory: "Medium Breeds", price: "🪙 1,400 Coins", image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80" },
+
+            { name: "German Shepherd", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,300 Coins", image: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=800&q=80" },
+            { name: "Labrador Retriever", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,200 Coins", image: "https://images.unsplash.com/photo-1593134257782-e89567b7718a?auto=format&fit=crop&w=800&q=80" },
+            { name: "Golden Retriever", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,250 Coins", image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80" },
+            { name: "Rottweiler", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,400 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Doberman", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,350 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Boxer", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,100 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Siberian Husky", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,400 Coins", image: "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?auto=format&fit=crop&w=800&q=80" },
+            { name: "Akita", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,500 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Belgian Malinois", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,450 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+
+            { name: "Great Dane", category: "Dogs", subcategory: "Giant Breeds", price: "💎 300 Gems", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Saint Bernard", category: "Dogs", subcategory: "Giant Breeds", price: "💎 350 Gems", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Mastiff", category: "Dogs", subcategory: "Giant Breeds", price: "💎 320 Gems", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Newfoundland", category: "Dogs", subcategory: "Giant Breeds", price: "💎 340 Gems", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Bernese Mountain Dog", category: "Dogs", subcategory: "Giant Breeds", price: "💎 330 Gems", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Irish Wolfhound", category: "Dogs", subcategory: "Giant Breeds", price: "💎 360 Gems", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Tibetan Mastiff", category: "Dogs", subcategory: "Giant Breeds", price: "💎 400 Gems", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+
+            { name: "Labradoodle", category: "Dogs", subcategory: "Mixed/Designer", price: "🪙 1,150 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Goldendoodle", category: "Dogs", subcategory: "Mixed/Designer", price: "🪙 1,200 Coins", image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80" },
+            { name: "Cockapoo", category: "Dogs", subcategory: "Mixed/Designer", price: "🪙 950 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Cavapoo", category: "Dogs", subcategory: "Mixed/Designer", price: "🪙 980 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Pomsky", category: "Dogs", subcategory: "Mixed/Designer", price: "🪙 1,300 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Puggle", category: "Dogs", subcategory: "Mixed/Designer", price: "🪙 850 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Maltipoo", category: "Dogs", subcategory: "Mixed/Designer", price: "🪙 900 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Mixed Breed", category: "Dogs", subcategory: "Mixed/Designer", price: "🪙 400 Coins", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" },
+
+            // CATS
+            { name: "Domestic Shorthair", category: "Cats", subcategory: "Short Hair", price: "🪙 400 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+            { name: "American Shorthair", category: "Cats", subcategory: "Short Hair", price: "🪙 600 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+            { name: "British Shorthair", category: "Cats", subcategory: "Short Hair", price: "🪙 850 Coins", image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=800&q=80" },
+            { name: "Bengal", category: "Cats", subcategory: "Short Hair", price: "🪙 1,300 Coins", image: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=800&q=80" },
+            { name: "Siamese", category: "Cats", subcategory: "Short Hair", price: "🪙 900 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+            { name: "Russian Blue", category: "Cats", subcategory: "Short Hair", price: "🪙 950 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+            { name: "Bombay", category: "Cats", subcategory: "Short Hair", price: "🪙 750 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+            { name: "Abyssinian", category: "Cats", subcategory: "Short Hair", price: "🪙 880 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+            { name: "Burmese", category: "Cats", subcategory: "Short Hair", price: "🪙 820 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+
+            { name: "Persian", category: "Cats", subcategory: "Long Hair", price: "🪙 900 Coins", image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=80" },
+            { name: "Maine Coon", category: "Cats", subcategory: "Long Hair", price: "🪙 1,100 Coins", image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=800&q=80" },
+            { name: "Ragdoll", category: "Cats", subcategory: "Long Hair", price: "🪙 1,050 Coins", image: "https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?auto=format&fit=crop&w=800&q=80" },
+            { name: "Norwegian Forest Cat", category: "Cats", subcategory: "Long Hair", price: "🪙 1,000 Coins", image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=800&q=80" },
+            { name: "Siberian", category: "Cats", subcategory: "Long Hair", price: "🪙 950 Coins", image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=800&q=80" },
+            { name: "Turkish Angora", category: "Cats", subcategory: "Long Hair", price: "🪙 850 Coins", image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=800&q=80" },
+            { name: "Himalayan", category: "Cats", subcategory: "Long Hair", price: "🪙 900 Coins", image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=800&q=80" },
+
+            { name: "Sphynx", category: "Cats", subcategory: "Hairless", price: "🪙 1,500 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+            { name: "Peterbald", category: "Cats", subcategory: "Hairless", price: "🪙 1,400 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+            { name: "Donskoy", category: "Cats", subcategory: "Hairless", price: "🪙 1,350 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+
+            { name: "Savannah", category: "Cats", subcategory: "Exotic", price: "💎 250 Gems", image: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=800&q=80" },
+            { name: "Toyger", category: "Cats", subcategory: "Exotic", price: "💎 200 Gems", image: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=800&q=80" },
+            { name: "Scottish Fold", category: "Cats", subcategory: "Exotic", price: "🪙 1,200 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+            { name: "Munchkin", category: "Cats", subcategory: "Exotic", price: "🪙 1,100 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+            { name: "Exotic Shorthair", category: "Cats", subcategory: "Exotic", price: "🪙 950 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
+
+            // RABBITS
+            { name: "Netherland Dwarf", category: "Rabbits", subcategory: "Dwarf", price: "🪙 450 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
+            { name: "Britannia Petite", category: "Rabbits", subcategory: "Dwarf", price: "🪙 480 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
+            { name: "Holland Lop", category: "Rabbits", subcategory: "Dwarf", price: "🪙 500 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
+            { name: "Mini Rex", category: "Rabbits", subcategory: "Dwarf", price: "🪙 520 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
+            { name: "Mini Lop", category: "Rabbits", subcategory: "Lop", price: "🪙 500 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
+            { name: "English Lop", category: "Rabbits", subcategory: "Lop", price: "🪙 550 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
+            { name: "French Lop", category: "Rabbits", subcategory: "Lop", price: "🪙 600 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
+            { name: "Angora", category: "Rabbits", subcategory: "Long Hair", price: "🪙 650 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
+            { name: "Lionhead", category: "Rabbits", subcategory: "Long Hair", price: "🪙 700 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
+            { name: "Flemish Giant", category: "Rabbits", subcategory: "Large", price: "🪙 850 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
+
+            // HAMSTERS
+            { name: "Golden Hamster", category: "Hamsters", subcategory: "Syrian", price: "🪙 250 Coins", image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=800&q=80" },
+            { name: "Teddy Bear Hamster", category: "Hamsters", subcategory: "Syrian", price: "🪙 280 Coins", image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=800&q=80" },
+            { name: "Campbell's Dwarf", category: "Hamsters", subcategory: "Dwarf", price: "🪙 220 Coins", image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=800&q=80" },
+            { name: "Winter White", category: "Hamsters", subcategory: "Dwarf", price: "🪙 240 Coins", image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=800&q=80" },
+            { name: "Roborovski", category: "Hamsters", subcategory: "Dwarf", price: "🪙 300 Coins", image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=800&q=80" },
+
+            // BIRDS
+            { name: "Budgerigar / Budgie", category: "Birds", subcategory: "Small Parrots", price: "🪙 350 Coins", image: "https://images.unsplash.com/photo-1522858541180-82c3f567f677?auto=format&fit=crop&w=800&q=80" },
+            { name: "Lovebird", category: "Birds", subcategory: "Small Parrots", price: "🪙 450 Coins", image: "https://images.unsplash.com/photo-1574068468668-a0af011f0c15?auto=format&fit=crop&w=800&q=80" },
+            { name: "Cockatiel", category: "Birds", subcategory: "Medium Parrots", price: "🪙 650 Coins", image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" },
+            { name: "African Grey", category: "Birds", subcategory: "Large Parrots", price: "💎 180 Gems", image: "https://images.unsplash.com/photo-1522858541180-82c3f567f677?auto=format&fit=crop&w=800&q=80" },
+            { name: "Macaw", category: "Birds", subcategory: "Large Parrots", price: "💎 250 Gems", image: "https://images.unsplash.com/photo-1555169062-013468b47731?auto=format&fit=crop&w=800&q=80" },
+            { name: "Zebra Finch", category: "Birds", subcategory: "Finches", price: "🪙 300 Coins", image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" },
+            { name: "Domestic Canary", category: "Birds", subcategory: "Canaries", price: "🪙 400 Coins", image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=800&q=80" },
+
+            // FISH
+            { name: "Guppy", category: "Fish", subcategory: "Freshwater Community", price: "🪙 150 Coins", image: "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80" },
+            { name: "Betta Fish (Halfmoon)", category: "Fish", subcategory: "Bettas", price: "🪙 350 Coins", image: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=800&q=80" },
+            { name: "Common Goldfish", category: "Fish", subcategory: "Goldfish", price: "🪙 200 Coins", image: "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=800&q=80" },
+            { name: "Japanese Koi", category: "Fish", subcategory: "Goldfish", price: "🪙 600 Coins", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" },
+            { name: "Clownfish", category: "Fish", subcategory: "Saltwater Marine", price: "🪙 500 Coins", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" },
+
+            // REPTILES & AMPHIBIANS
+            { name: "Red-Eared Slider", category: "Turtles & Tortoises", subcategory: "Aquatic", price: "🪙 400 Coins", image: "https://images.unsplash.com/photo-1437622368342-9a3d7b3d487c?auto=format&fit=crop&w=800&q=80" },
+            { name: "Sulcata Tortoise", category: "Turtles & Tortoises", subcategory: "Large", price: "🪙 900 Coins", image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=800&q=80" },
+            { name: "Leopard Gecko", category: "Lizards", subcategory: "Geckos", price: "🪙 500 Coins", image: "https://images.unsplash.com/photo-1574870111867-089730e5a72b?auto=format&fit=crop&w=800&q=80" },
+            { name: "Bearded Dragon", category: "Lizards", subcategory: "Agamas", price: "🪙 850 Coins", image: "https://images.unsplash.com/photo-1504450758481-7338eba75249?auto=format&fit=crop&w=800&q=80" },
+            { name: "Corn Snake", category: "Snakes", subcategory: "Colubrids", price: "🪙 600 Coins", image: "https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?auto=format&fit=crop&w=800&q=80" },
+            { name: "Ball Python", category: "Snakes", subcategory: "Pythons", price: "🪙 950 Coins", image: "https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?auto=format&fit=crop&w=800&q=80" },
+            { name: "Axolotl", category: "Amphibians", subcategory: "Salamanders", price: "🪙 1,100 Coins", image: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80" },
+
+            // FARM & WILD & OTHER
+            { name: "Arabian Horse", category: "Farm & Large Animals", subcategory: "Horses", price: "💎 150 Gems", image: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80" },
+            { name: "Pygmy Goat", category: "Farm & Large Animals", subcategory: "Goats", price: "🪙 700 Coins", image: "https://images.unsplash.com/photo-1524024973431-2ad96784584d?auto=format&fit=crop&w=800&q=80" },
+            { name: "African Pygmy Hedgehog", category: "Small Exotic Mammals", subcategory: "Hedgehogs", price: "🪙 800 Coins", image: "https://images.unsplash.com/photo-1568572933382-74d440642117?auto=format&fit=crop&w=800&q=80" },
+            { name: "Chilean Rose Tarantula", category: "Invertebrates", subcategory: "Tarantulas", price: "🪙 450 Coins", image: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80" },
+            { name: "Rhode Island Red Chicken", category: "Poultry", subcategory: "Chickens", price: "🪙 300 Coins", image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" },
+            { name: "Land Hermit Crab", category: "Other Pets", subcategory: "Hermit Crabs", price: "🪙 200 Coins", image: "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=800&q=80" }
         ];
 
         // Mobile Menu Toggle
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobLinks = document.querySelectorAll('.mob-link');
-
-        hamburgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
+        document.getElementById('hamburgerBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('active');
         });
 
-        mobLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Render Animal Grid
+        // Render Cards
         const petsGrid = document.getElementById('petsGrid');
-        
-        function renderAnimals(items) {
+
+        function renderPets(items) {
             petsGrid.innerHTML = '';
             if (items.length === 0) {
                 petsGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-muted);"><h3>No animals found matching your search.</h3></div>`;
@@ -1079,60 +1031,54 @@
             items.forEach(pet => {
                 const card = document.createElement('div');
                 card.className = 'pet-card';
-                card.setAttribute('data-category', pet.category);
-
-                const difficultyDisplay = pet.difficulty === 'Beginner' ? '⭐ Beginner Friendly' : (pet.difficulty === 'Intermediate' ? '⚡ Intermediate' : '⭐ Advanced Companion');
-
                 card.innerHTML = `
                     <div class="pet-img-container">
                         <img src="${pet.image}" alt="${pet.name}" loading="lazy">
                     </div>
                     <div class="pet-card-content">
-                        <div class="pet-info-top">
+                        <div>
+                            <span class="pet-subcat">${pet.subcategory}</span>
                             <h3>${pet.name}</h3>
-                            <div class="pet-traits">${pet.traits.join(' • ')}</div>
                             <div class="pet-price-tag">${pet.price}</div>
                         </div>
                         <div class="pet-card-footer">
-                            <span class="pet-difficulty">${difficultyDisplay}</span>
+                            <span class="pet-difficulty">${pet.category}</span>
                             <span class="meet-link">Meet Pet →</span>
                         </div>
                     </div>
                 `;
-
-                card.addEventListener('click', () => {
-                    openModal(pet);
-                });
-
+                card.addEventListener('click', () => openModal(pet));
                 petsGrid.appendChild(card);
             });
         }
 
-        renderAnimals(animalsData);
+        renderPets(petsData);
 
-        // Filters & Search
+        // Filter Logic
         let activeCategory = 'All';
         let searchQuery = '';
         let currentSort = 'recommended';
-        let currentDifficulty = 'all';
 
         const categoryButtons = document.querySelectorAll('.cat-btn');
         const searchInput = document.getElementById('searchInput');
         const sortSelect = document.getElementById('sortSelect');
-        const difficultySelect = document.getElementById('difficultySelect');
 
-        function filterAndSortAnimals() {
-            let filtered = animalsData.filter(pet => {
-                const matchesCategory = activeCategory === 'All' || pet.category === activeCategory;
-                const matchesSearch = pet.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                                      pet.traits.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        function filterAndSort() {
+            let filtered = petsData.filter(pet => {
+                const matchesCat = activeCategory === 'All' || pet.category === activeCategory;
+                const matchesSearch = pet.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                      pet.subcategory.toLowerCase().includes(searchQuery.toLowerCase()) ||
                                       pet.category.toLowerCase().includes(searchQuery.toLowerCase());
-                const matchesDifficulty = currentDifficulty === 'all' || pet.difficulty === currentDifficulty;
-
-                return matchesCategory && matchesSearch && matchesDifficulty;
+                return matchesCat && matchesSearch;
             });
 
-            renderAnimals(filtered);
+            if (currentSort === 'name') {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (currentSort === 'price-low') {
+                filtered.sort((a, b) => a.price.localeCompare(b.price));
+            }
+
+            renderPets(filtered);
         }
 
         categoryButtons.forEach(btn => {
@@ -1140,76 +1086,51 @@
                 categoryButtons.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 activeCategory = btn.getAttribute('data-category');
-                filterAndSortAnimals();
+                filterAndSort();
             });
         });
 
         searchInput.addEventListener('input', (e) => {
             searchQuery = e.target.value.trim();
-            filterAndSortAnimals();
+            filterAndSort();
         });
 
         sortSelect.addEventListener('change', (e) => {
             currentSort = e.target.value;
-            filterAndSortAnimals();
+            filterAndSort();
         });
 
-        difficultySelect.addEventListener('change', (e) => {
-            currentDifficulty = e.target.value;
-            filterAndSortAnimals();
-        });
-
-        // Modal Logic
-        const petModal = document.getElementById('petModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const backToPetsBtn = document.getElementById('backToPetsBtn');
-
-        const modalPetImg = document.getElementById('modalPetImg');
-        const modalPetName = document.getElementById('modalPetName');
-        const modalPetTraits = document.getElementById('modalPetTraits');
-        const modalPetPrice = document.getElementById('modalPetPrice');
-        const modalPetDifficulty = document.getElementById('modalPetDifficulty');
-        const modalPetDesc = document.getElementById('modalPetDesc');
-
+        // Modal Control
+        const modal = document.getElementById('petModal');
         function openModal(pet) {
-            selectedPetForAdoption = pet;
-            modalPetName.textContent = pet.name;
-            modalPetTraits.textContent = pet.traits.join(' • ');
-            modalPetPrice.textContent = pet.price;
-            modalPetDifficulty.textContent = pet.difficulty === 'Beginner' ? '⭐ Beginner Friendly' : (pet.difficulty === 'Intermediate' ? '⚡ Intermediate Companion' : '⭐ Advanced Companion');
-            modalPetDesc.textContent = `"${pet.description}"`;
-            modalPetImg.src = pet.image;
-
-            petModal.classList.add('active');
+            selectedPet = pet;
+            document.getElementById('modalPetName').textContent = pet.name;
+            document.getElementById('modalPetSubcat').textContent = `${pet.category} → ${pet.subcategory}`;
+            document.getElementById('modalPetCat').textContent = pet.category;
+            document.getElementById('modalPetPrice').textContent = pet.price;
+            document.getElementById('modalPetImg').src = pet.image;
+            modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            petModal.classList.remove('active');
+            modal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
 
-        closeModalBtn.addEventListener('click', closeModal);
-        backToPetsBtn.addEventListener('click', closeModal);
-        petModal.addEventListener('click', (e) => {
-            if (e.target === petModal) {
-                closeModal();
-            }
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeModal();
         });
 
-        // Handle Purchase / Adoption Flow with Authentication Guard
         function attemptAdopt() {
             if (!isLoggedIn) {
                 closeModal();
                 showToast("Please login first to adopt your pet!", "error");
-                // Optional: scroll or focus login button
                 document.getElementById('loginBtn').focus();
                 return;
             }
-
-            // If logged in
-            alert(`🎉 Success! Redirecting to dashboard to name and care for your new ${selectedPetForAdoption.name}!`);
-            window.location.href = `/adopt?pet=${encodeURIComponent(selectedPetForAdoption.name)}`;
+            alert(`🎉 Success! Redirecting to dashboard to name and bond with your new ${selectedPet.name}!`);
+            window.location.href = `/adopt?pet=${encodeURIComponent(selectedPet.name)}`;
         }
 
         function handleStartPet(e) {
@@ -1219,7 +1140,7 @@
                 document.getElementById('loginBtn').focus();
             } else {
                 window.scrollTo({ top: 400, behavior: 'smooth' });
-                showToast("Choose your favorite companion below!", "success");
+                showToast("Choose your favorite companion from the list!", "success");
             }
         }
     </script>
