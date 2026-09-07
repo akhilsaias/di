@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Pet — DiPet</title>
+    <meta name="description" content="From tiny companions to wild hearts — find the digital animal you want to grow with. Explore the massive DiPet virtual companion universe.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #F8FAF9;
+            --bg-card: #FFFFFF;
+            --brand-green: #10B981;
+            --brand-green-light: #D1FAE5;
+            --brand-green-dark: #047857;
+            --accent-blue: #38BDF8;
+            --accent-yellow: #FBBF24;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --shadow-subtle: 0 10px 30px -5px rgba(16, 185, 129, 0.08);
+            --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* Navigation Bar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(248, 250, 249, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .logo-icon {
+            background: var(--brand-green);
+            color: white;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--brand-green);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-login {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.6rem 1.2rem;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--brand-green);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--brand-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 9rem 2rem 2rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--brand-green-light);
+            color: var(--brand-green-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 650px;
+        }
+
+        /* Controls / Search & Filters Bar */
+        .controls-section {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .search-sort-bar {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.8rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--brand-green);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+        }
+
+        .search-icon-pos {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .filters-group {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-dropdown {
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+
+        .filter-dropdown:focus {
+            outline: none;
+            border-color: var(--brand-green);
+        }
+
+        /* Category Navigation */
+        .category-scroll {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .category-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .cat-btn:hover {
+            border-color: var(--brand-green);
+            color: var(--brand-green);
+        }
+
+        .cat-btn.active {
+            background: var(--brand-green);
+            color: white;
+            border-color: var(--brand-green);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+        }
+
+        /* Animal Collection Grid */
+        .pets-section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem 5rem 2rem;
+        }
+
+        .pets-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .pet-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-subtle);
+            border-color: var(--brand-green);
+        }
+
+        .pet-img-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #E2E8F0;
+            position: relative;
+        }
+
+        .pet-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .pet-card:hover .pet-img-container img {
+            transform: scale(1.05);
+        }
+
+        .pet-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .pet-info-top h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+
+        .pet-traits {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .pet-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .pet-difficulty {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--brand-green-dark);
+            background: var(--brand-green-light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .meet-link {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--brand-green);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: var(--transition);
+        }
+
+        .pet-card:hover .meet-link {
+            gap: 0.5rem;
+        }
+
+        /* Rare Section */
+        .rare-section {
+            max-width: 1280px;
+            margin: 2rem auto 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .rare-header {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .rare-header h2 {
+            font-size: 2rem;
+        }
+
+        .rare-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .rare-card {
+            background: var(--bg-card);
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .rare-avatar {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .rare-card h4 {
+            font-size: 1.15rem;
+        }
+
+        .unlock-badge {
+            background: #FEF3C7;
+            color: #B45309;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            margin-top: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* Coming Soon Silhouettes */
+        .coming-section {
+            max-width: 1280px;
+            margin: 0 auto 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .coming-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .coming-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+            text-align: center;
+            opacity: 0.7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .coming-sil {
+            font-size: 2rem;
+            filter: grayscale(100%) opacity(0.6);
+        }
+
+        .coming-item h5 {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .coming-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* Disclaimer & Bottom CTA */
+        .digital-disclaimer {
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+            line-height: 1.5;
+            padding: 0 1rem;
+        }
+
+        .bottom-cta-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto 6rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: center;
+            background: linear-gradient(135deg, #F0FDF4 0%, #E0F2FE 100%);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+        }
+
+        .bottom-cta-section h2 {
+            font-size: 2.75rem;
+        }
+
+        .bottom-cta-section p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 550px;
+        }
+
+        /* Pet Preview Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-container {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 750px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-height: 90vh;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0);
+        }
+
+        .modal-img-side {
+            background: #E2E8F0;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .modal-img-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-content-side {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .modal-header h3 {
+            font-size: 1.75rem;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-personality {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .modal-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            background: var(--bg-main);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-stat-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .modal-stat-item span:last-child {
+            color: var(--brand-green-dark);
+        }
+
+        .modal-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .btn-modal-back {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-modal-back:hover {
+            color: var(--text-main);
+        }
+
+        .close-modal-x {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .close-modal-x:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-card);
+            padding: 4rem 2rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links-group {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--brand-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .pets-grid, .rare-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .coming-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .modal-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            .modal-img-side {
+                height: 220px;
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .btn-login {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .pets-grid, .rare-grid, .coming-grid {
+                grid-template-columns: 1fr;
+            }
+            .search-sort-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .filters-group {
+                justify-content: space-between;
+            }
+            .footer-links-group {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .footer-top {
+                flex-direction: column;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Mobile Menu Drawer */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 73px;
+            left: 0;
+            width: 100%;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            z-index: 999;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🐾</div>
+                DiPet
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#" class="active">Pets</a></li>
+                <li><a href="#">How It Works</a></li>
+                <li><a href="#">Features</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-login">Login</a>
+                <a href="#adopt" class="btn-primary">Start Your Pet</a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">☰</button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#" class="mob-link">Home</a>
+            <a href="#" class="mob-link active">Pets</a>
+            <a href="#" class="mob-link">How It Works</a>
+            <a href="#" class="mob-link">Features</a>
+            <a href="#adopt" class="btn-primary" style="justify-content: center; margin-top: 0.5rem;">Start Your Pet</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="badge">
+            🐾 DIPET ANIMAL COLLECTION
+        </div>
+        <h1>Find Your Perfect Companion</h1>
+        <p>
+            Choose from a growing world of digital animals — from colorful fish to majestic lions. Explore the DiPet collection and choose a digital companion that feels right for you.
+        </p>
+    </section>
+
+    <div class="controls-section">
+        <div class="search-sort-bar">
+            <div class="search-box">
+                <span class="search-icon-pos">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search for an animal (e.g. Lion, Puppy, Fish, Parrot)...">
+            </div>
+            <div class="filters-group">
+                <select id="sortSelect" class="filter-dropdown">
+                    <option value="recommended">Sort by: Recommended</option>
+                    <option value="popular">Popular</option>
+                    <option value="beginner">Beginner Friendly</option>
+                    <option value="rare">Rare / Advanced</option>
+                </select>
+                <select id="difficultySelect" class="filter-dropdown">
+                    <option value="all">Difficulty: All</option>
+                    <option value="Beginner">Easy</option>
+                    <option value="Intermediate">Medium</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="category-scroll" id="categoryScroll">
+            <button class="cat-btn active" data-category="All">🐾 All Animals</button>
+            <button class="cat-btn" data-category="Dogs">🐶 Dogs</button>
+            <button class="cat-btn" data-category="Cats">🐱 Cats</button>
+            <button class="cat-btn" data-category="Small Pets">🐰 Small & Cute</button>
+            <button class="cat-btn" data-category="Birds">🐦 Birds</button>
+            <button class="cat-btn" data-category="Fish">🐠 Fish</button>
+            <button class="cat-btn" data-category="Reptiles">🐢 Reptiles</button>
+            <button class="cat-btn" data-category="Farm Animals">🐮 Farm Animals</button>
+            <button class="cat-btn" data-category="Wild Animals">🦊 Wild Animals</button>
+            <button class="cat-btn" data-category="Big Animals">🦁 Big Animals</button>
+            <button class="cat-btn" data-category="Ocean Animals">🌊 Ocean Animals</button>
+            <button class="cat-btn" data-category="Tiny Creatures">🦋 Tiny Creatures</button>
+        </div>
+    </div>
+
+    <section class="pets-section">
+        <div class="pets-grid" id="petsGrid">
+            </div>
+    </section>
+
+    <section class="rare-section">
+        <div class="rare-header">
+            <div>
+                <h2>Rare Companions</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.3rem;">Special digital animals unlocked through levels, achievements, and events.</p>
+            </div>
+        </div>
+        <div class="rare-grid">
+            <div class="rare-card">
+                <div class="rare-avatar">🦁</div>
+                <h4>Golden Lion</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Royal • Majestic • Legendary</p>
+                <div class="unlock-badge">🔒 Unlock at Level 50</div>
+            </div>
+            <div class="rare-card">
+                <div class="rare-avatar">🐉</div>
+                <h4>Crystal Dragon</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Mystical • Wise • Eternal</p>
+                <div class="unlock-badge">🔒 Special Event Reward</div>
+            </div>
+            <div class="rare-card">
+                <div class="rare-avatar">🦊</div>
+                <h4>Arctic Spirit Fox</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Swift • Ethereal • Clever</p>
+                <div class="unlock-badge">🔒 Unlock at Level 30</div>
+            </div>
+            <div class="rare-card">
+                <div class="rare-avatar">🦄</div>
+                <h4>Starlight Unicorn</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Graceful • Pure • Magical</p>
+                <div class="unlock-badge">🔒 Achievement Master</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="coming-section">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+            <h3>More Animals Are Coming</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">"Our animal universe is always growing."</p>
+        </div>
+        <div class="coming-grid">
+            <div class="coming-item">
+                <div class="coming-sil">🦘</div>
+                <h5>Kangaroo</h5>
+                <span class="coming-label">Coming Soon</span>
+            </div>
+            <div class="coming-item">
+                <div class="coming-sil">🦥</div>
+                <h5>Sloth</h5>
+                <span class="coming-label">Coming Soon</span>
+            </div>
+            <div class="coming-item">
+                <div class="coming-sil">🦒</div>
+                <h5>Giraffe</h5>
+                <span class="coming-label">Coming Soon</span>
+            </div>
+            <div class="coming-item">
+                <div class="coming-sil">🦭</div>
+                <h5>Seal</h5>
+                <span class="coming-label">Coming Soon</span>
+            </div>
+            <div class="coming-item">
+                <div class="coming-sil">🦚</div>
+                <h5>Peacock</h5>
+                <span class="coming-label">Coming Soon</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="digital-disclaimer">
+        "DiPet provides virtual digital companions only. No real animals are sold, adopted, delivered, traded, or transferred through DiPet."
+    </div>
+
+    <section class="bottom-cta-section" id="adopt">
+        <h2>Ready to Meet Your Pet?</h2>
+        <p>Choose your companion. Give them a name. Start your journey together.</p>
+        <div style="margin-top: 0.5rem;">
+            <a href="/adopt" class="btn-primary" style="padding: 0.9rem 2.5rem; font-size: 1.1rem;">Adopt Your First Pet 🐾</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">🐾</div>
+                        DiPet
+                    </a>
+                    <p>"Your Pet. Your World. Forever."</p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="#">Pets</a>
+                        <a href="#">Features</a>
+                        <a href="#">How It Works</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="#">About</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Refund Policy</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 DiPet. All rights reserved.</div>
+                <div class="social-icons">
+                    <span title="Twitter">🌐</span>
+                    <span title="Discord">💬</span>
+                    <span title="Instagram">📸</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="petModal">
+        <div class="modal-container">
+            <div class="modal-img-side">
+                <button class="close-modal-x" id="closeModalBtn" aria-label="Close modal">×</button>
+                <img id="modalPetImg" src="" alt="Pet Preview">
+            </div>
+            <div class="modal-content-side">
+                <div class="modal-header">
+                    <h3 id="modalPetName">Pet Name</h3>
+                    <div class="modal-personality" id="modalPetTraits">Traits</div>
+                </div>
+                <div class="modal-stats">
+                    <div class="modal-stat-item">
+                        <span>Difficulty</span>
+                        <span id="modalPetDifficulty">Beginner</span>
+                    </div>
+                    <div class="modal-stat-item">
+                        <span>❤️ Happiness</span>
+                        <span>100</span>
+                    </div>
+                    <div class="modal-stat-item">
+                        <span>⚡ Energy</span>
+                        <span>100</span>
+                    </div>
+                    <div class="modal-stat-item">
+                        <span>⭐ Starting XP</span>
+                        <span>0</span>
+                    </div>
+                </div>
+                <p class="modal-desc" id="modalPetDesc">"Description here."</p>
+                <div class="modal-actions">
+                    <a href="/adopt" class="btn-primary" style="justify-content: center; width: 100%;">Adopt This Pet →</a>
+                    <button class="btn-modal-back" id="backToPetsBtn">← Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Comprehensive Animal Database Array
+        const animalsData = [
+            // Dogs
+            { name: "Golden Retriever", category: "Dogs", traits: ["Loyal", "Friendly", "Playful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80", description: "Friendly, playful and always ready to be your companion. Known for warm loyalty and boundless positive energy." },
+            { name: "Labrador Retriever", category: "Dogs", traits: ["Energetic", "Loving", "Social"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1593134257782-e89567b7718a?auto=format&fit=crop&w=800&q=80", description: "An enthusiastic and affectionate companion who loves interactive games and brings constant joy to your daily life." },
+            { name: "German Shepherd", category: "Dogs", traits: ["Courageous", "Smart", "Protective"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=800&q=80", description: "Highly intelligent and noble companion with a strong protective bond and deep intuitive awareness." },
+            { name: "Siberian Husky", category: "Dogs", traits: ["Adventurous", "Outgoing", "Alert"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?auto=format&fit=crop&w=800&q=80", description: "A striking, energetic companion that loves snowy environments and vibrant digital outdoor exploration." },
+            { name: "Beagle", category: "Dogs", traits: ["Curious", "Friendly", "Merry"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1505628346881-b72b27e84530?auto=format&fit=crop&w=800&q=80", description: "A cheerful, easygoing hound with an incredible knack for uncovering virtual secrets and treasures." },
+            { name: "Pug", category: "Dogs", traits: ["Charming", "Loving", "Clever"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80", description: "A delightfully quirky and affectionate companion that brings immense personality and warmth to your screen." },
+            { name: "Shih Tzu", category: "Dogs", traits: ["Affectionate", "Playful", "Outgoing"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80", description: "A sweet, majestic little companion that loves resting beside your digital workstation." },
+            { name: "Dachshund", category: "Dogs", traits: ["Clever", "Spunky", "Brave"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1612536057832-2ff7799196b8?auto=format&fit=crop&w=800&q=80", description: "A courageous, clever little explorer with a distinct personality and delightful energy." },
+
+            // Cats
+            { name: "Persian Cat", category: "Cats", traits: ["Calm", "Elegant", "Affectionate"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=80", description: "A serene and luxurious feline friend with silky fur and expressive eyes, perfect for quiet and cozy virtual spaces." },
+            { name: "Bengal Cat", category: "Cats", traits: ["Curious", "Active", "Playful"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=800&q=80", description: "An agile and intelligent cat with striking patterns. Always curious, alert, and ready to explore new items in your digital home." },
+            { name: "Siamese Cat", category: "Cats", traits: ["Vocal", "Intelligent", "Social"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80", description: "An interactive, highly social feline companion that loves conversing and hanging out near your virtual desk." },
+            { name: "Maine Coon", category: "Cats", traits: ["Gentle", "Friendly", "Large"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=800&q=80", description: "A gentle giant among cats, featuring magnificent tufted ears and a warm, affectionate heart." },
+            { name: "Ragdoll", category: "Cats", traits: ["Docile", "Loving", "Relaxed"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?auto=format&fit=crop&w=800&q=80", description: "Extremely docile and affectionate, melting into happiness whenever you interact with them." },
+            { name: "British Shorthair", category: "Cats", traits: ["Dignified", "Calm", "Loyal"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=800&q=80", description: "A sturdy, calm companion with plush silver coat and steady, reassuring presence." },
+
+            // Small Pets
+            { name: "Holland Lop Rabbit", category: "Small Pets", traits: ["Gentle", "Quiet", "Friendly"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80", description: "A sweet-natured bunny with adorable floppy ears. Gentle, quiet, and wonderfully peaceful for a relaxing companion experience." },
+            { name: "Syrian Hamster", category: "Small Pets", traits: ["Cute", "Curious", "Playful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=800&q=80", description: "A tiny, active little explorer that packs immense cuteness and delightful interactive animations into your virtual space." },
+            { name: "Guinea Pig", category: "Small Pets", traits: ["Social", "Gentle", "Cheerful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=800&q=80", description: "A sweet squeaky companion that loves sharing snacks and living in cozy habitats." },
+            { name: "Hedgehog", category: "Small Pets", traits: ["Quiet", "Inquisitive", "Gentle"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1568572933382-74d440642117?auto=format&fit=crop&w=800&q=80", description: "A charming nocturnal explorer with soft quills and an endearing curious nose." },
+            { name: "Ferret", category: "Small Pets", traits: ["Playful", "Energetic", "Clever"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1508896693867-28d1c420c26a?auto=format&fit=crop&w=800&q=80", description: "An energetic little acrobat that keeps your virtual environment full of surprise and fun." },
+
+            // Birds
+            { name: "African Grey Parrot", category: "Birds", traits: ["Genius", "Talkative", "Clever"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1522858541180-82c3f567f677?auto=format&fit=crop&w=800&q=80", description: "An exceptionally intelligent bird capable of learning advanced words and solving interactive puzzles." },
+            { name: "Cockatiel", category: "Birds", traits: ["Social", "Cheerful", "Intelligent"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80", description: "A joyful and intelligent feathered companion known for cheerful chirps and affectionate social interaction." },
+            { name: "Scarlet Macaw", category: "Birds", traits: ["Vibrant", "Social", "Bold"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1555169062-013468b47731?auto=format&fit=crop&w=800&q=80", description: "A breathtakingly colorful and lively parrot that brightens up any virtual jungle room." },
+            { name: "Lovebird", category: "Birds", traits: ["Affectionate", "Devoted", "Active"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1574068468668-a0af011f0c15?auto=format&fit=crop&w=800&q=80", description: "A tiny affectionate bird that forms an inseparable bond with its companion." },
+            { name: "Canary", category: "Birds", traits: ["Melodic", "Peaceful", "Bright"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=800&q=80", description: "Sings beautiful morning melodies that elevate your focus and mood throughout the day." },
+            { name: "Snowy Owl", category: "Birds", traits: ["Wise", "Serene", "Majestic"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1543596735-861c0da6cae5?auto=format&fit=crop&w=800&q=80", description: "A breathtaking, wise nocturnal bird with golden eyes and silent majestic flight." },
+            { name: "Golden Eagle", category: "Birds", traits: ["Noble", "Brave", "Free"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1611689342806-0863700ce1e4?auto=format&fit=crop&w=800&q=80", description: "A magnificent raptor symbolizing freedom, keen vision, and soaring spirit." },
+
+            // Fish
+            { name: "Goldfish", category: "Fish", traits: ["Peaceful", "Calm", "Graceful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=800&q=80", description: "A classic, shimmering orange swimmer that brings tranquility to any virtual aquarium." },
+            { name: "Betta Fish", category: "Fish", traits: ["Vibrant", "Proud", "Active"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=800&q=80", description: "Features flowing jewel-toned fins and an engaging, alert personality." },
+            { name: "Guppy", category: "Fish", traits: ["Colorful", "Active", "Social"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80", description: "Small, radiant, and constantly swimming in joyous colorful schools." },
+            { name: "Japanese Koi", category: "Fish", traits: ["Wise", "Serene", "Lucky"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80", description: "A majestic pond swimmer symbolizing peace, resilience, and good fortune." },
+            { name: "Angelfish", category: "Fish", traits: ["Graceful", "Elegant", "Calm"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80", description: "Glides effortlessly through water with striking triangular fins and gentle grace." },
+            { name: "Clownfish", category: "Fish", traits: ["Playful", "Brave", "Cheery"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80", description: "Cheery orange reef dweller that loves weaving through sea anemones." },
+            { name: "Blue Tang", category: "Fish", traits: ["Vibrant", "Curious", "Active"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80", description: "Stunning electric blue reef swimmer with boundless curiosity." },
+            { name: "Neon Tetra", category: "Fish", traits: ["Glowing", "Peaceful", "Social"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=800&q=80", description: "Tiny neon-lit swimmers that illuminate your digital underwater ecosystem." },
+
+            // Reptiles
+            { name: "Red-Eared Slider Turtle", category: "Reptiles", traits: ["Calm", "Relaxed", "Peaceful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1437622368342-9a3d7b3d487c?auto=format&fit=crop&w=800&q=80", description: "A wise, steady and relaxed aquatic friend that adds a serene, zen atmosphere to your virtual ecosystem." },
+            { name: "Sulcata Tortoise", category: "Reptiles", traits: ["Patient", "Wise", "Gentle"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=800&q=80", description: "A patient land traveler that reminds you to enjoy every steady step of your journey." },
+            { name: "Leopard Gecko", category: "Reptiles", traits: ["Docile", "Gentle", "Curious"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1574870111867-089730e5a72b?auto=format&fit=crop&w=800&q=80", description: "A friendly desert dweller with a gentle smile and stunning patterned skin." },
+            { name: "Veiled Chameleon", category: "Reptiles", traits: ["Unique", "Observant", "Calm"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1504450758481-7338eba75249?auto=format&fit=crop&w=800&q=80", description: "A fascinating observant master of camouflage that shifts colors based on its happiness." },
+            { name: "Green Iguana", category: "Reptiles", traits: ["Majestic", "Peaceful", "Dignified"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=800&q=80", description: "A prehistoric-looking emerald friend with a peaceful, sun-loving personality." },
+            { name: "Corn Snake", category: "Reptiles", traits: ["Gentle", "Smooth", "Calm"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?auto=format&fit=crop&w=800&q=80", description: "A smooth, gentle, and fascinating companion with gorgeous warm patterns." },
+
+            // Farm Animals
+            { name: "Appaloosa Horse", category: "Farm Animals", traits: ["Noble", "Strong", "Loyal"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80", description: "A magnificent equine companion with striking spotted coat and free-spirited gallop." },
+            { name: "Shetland Pony", category: "Farm Animals", traits: ["Friendly", "Playful", "Sturdy"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=800&q=80", description: "A stout, incredibly friendly pony that brings countryside charm to your digital estate." },
+            { name: "Highland Cow", category: "Farm Animals", traits: ["Gentle", "Fluffy", "Calm"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=800&q=80", description: "An adorable, shaggy-haired gentle giant with peaceful and heartwarming demeanor." },
+            { name: "Pygmy Goat", category: "Farm Animals", traits: ["Playful", "Curious", "Active"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1524024973431-2ad96784584d?auto=format&fit=crop&w=800&q=80", description: "A mischievous and lively little goat that loves hopping on rocks and playing games." },
+            { name: "Merino Sheep", category: "Farm Animals", traits: ["Gentle", "Soft", "Peaceful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1484557074812-480b3762fda3?auto=format&fit=crop&w=800&q=80", description: "Super fluffy, peaceful meadow companion with clouds of soft wool." },
+            { name: "Mallard Duck", category: "Farm Animals", traits: ["Cheery", "Social", "Calm"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?auto=format&fit=crop&w=800&q=80", description: "A delightful pond dweller that waddles happily and quacks with cheerful spirit." },
+
+            // Wild Animals
+            { name: "Red Fox", category: "Wild Animals", traits: ["Clever", "Swift", "Cunning"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=800&q=80", description: "A remarkably clever and graceful woodland dweller with fiery orange fur and bright eyes." },
+            { name: "Gray Wolf", category: "Wild Animals", traits: ["Loyal", "Brave", "Wise"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=800&q=80", description: "A noble pack leader embodying unwavering loyalty, instinct, and wild freedom." },
+            { name: "Red Deer", category: "Wild Animals", traits: ["Graceful", "Gentle", "Swift"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1484406573264-08fe6672ca81?auto=format&fit=crop&w=800&q=80", description: "A majestic woodland stag with magnificent antlers and serene, gentle presence." },
+            { name: "Giant Panda", category: "Wild Animals", traits: ["Peaceful", "Gentle", "Playful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=800&q=80", description: "An iconic, bamboo-loving gentle giant that radiates calm and heartwarming joy." },
+            { name: "Plains Zebra", category: "Wild Animals", traits: ["Bold", "Social", "Free"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1508873696983-2df5c920ac2c?auto=format&fit=crop&w=800&q=80", description: "Striking black and white striped savanna traveler with high energetic spirit." },
+            { name: "Reticulated Giraffe", category: "Wild Animals", traits: ["Gentle", "Tall", "Curious"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80", description: "A towering, gentle savanna giant with a curious perspective on the world." },
+            { name: "Snow Monkey", category: "Wild Animals", traits: ["Playful", "Clever", "Social"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?auto=format&fit=crop&w=800&q=80", description: "A highly intelligent, mischievous primate that loves interactive enrichment toys." },
+
+            // Big Animals
+            { name: "African Lion", category: "Big Animals", traits: ["Brave", "Loyal", "Powerful"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=800&q=80", description: "Strong, loyal and majestic king of the virtual savanna, always ready to be your fierce protector." },
+            { name: "Bengal Tiger", category: "Big Animals", traits: ["Fierce", "Noble", "Majestic"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1543946207-3914c68a1d2a?auto=format&fit=crop&w=800&q=80", description: "A striking big cat with magnificent orange stripes, powerful grace, and deep digital bond." },
+            { name: "Leopard", category: "Big Animals", traits: ["Agile", "Swift", "Stealthy"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=800&q=80", description: "An astonishingly agile and elegant spotted hunter with lightning-fast reflexes." },
+            { name: "Cheetah", category: "Big Animals", traits: ["Swift", "Graceful", "Alert"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80", description: "The fastest runner on earth, embodying sleek speed and sleek determination." },
+            { name: "Grizzly Bear", category: "Big Animals", traits: ["Strong", "Protective", "Warm"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&w=800&q=80", description: "A powerful woodland protector with a surprisingly gentle and cozy side." },
+            { name: "Polar Bear", category: "Big Animals", traits: ["Resilient", "Calm", "Majestic"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=800&q=80", description: "A stunning arctic wanderer embodying strength, endurance, and snowy grace." },
+            { name: "African Elephant", category: "Big Animals", traits: ["Wise", "Gentle", "Loyal"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=800&q=80", description: "A magnificent, intelligent giant with a lifelong memory and unwavering loyalty." },
+
+            // Ocean Animals
+            { name: "Bottlenose Dolphin", category: "Ocean Animals", traits: ["Joyful", "Smart", "Friendly"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1602677093926-223d9bc46e92?auto=format&fit=crop&w=800&q=80", description: "An exceptionally intelligent and joyful ocean swimmer that loves performing playful leaps." },
+            { name: "Humpback Whale", category: "Ocean Animals", traits: ["Wise", "Serene", "Majestic"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1559827291-72ee739d0d9a?auto=format&fit=crop&w=800&q=80", description: "A gentle giant of the deep blue singing soothing ocean lullabies across virtual waters." },
+            { name: "Great White Shark", category: "Ocean Animals", traits: ["Powerful", "Swift", "Bold"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1560275619-4d6232185ef7?auto=format&fit=crop&w=800&q=80", description: "The ultimate apex ocean ruler reimagined as a sleek and powerful digital companion." },
+            { name: "Giant Pacific Octopus", category: "Ocean Animals", traits: ["Genius", "Curious", "Clever"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?auto=format&fit=crop&w=800&q=80", description: "A brilliant master of problem-solving with eight arms and incredible intellect." },
+            { name: "Harbor Seal", category: "Ocean Animals", traits: ["Playful", "Cute", "Friendly"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80", description: "An adorable, whiskered swimmer that loves sliding on ice and splashing playfully." },
+            { name: "Sea Turtle", category: "Ocean Animals", traits: ["Wise", "Peaceful", "Steady"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1437622368342-9a3d7b3d487c?auto=format&fit=crop&w=800&q=80", description: "An ancient ocean navigator gliding smoothly through turquoise currents." },
+
+            // Tiny Creatures
+            { name: "Monarch Butterfly", category: "Tiny Creatures", traits: ["Graceful", "Vibrant", "Free"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1508595111327-2b46b76c9df2?auto=format&fit=crop&w=800&q=80", description: "A delicate winged beauty that dances gracefully among virtual flowers." },
+            { name: "Honey Bee", category: "Tiny Creatures", traits: ["Diligent", "Cheerful", "Sweet"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80", description: "A busy, industrious little friend that brings sweetness and floral harmony to your ecosystem." },
+            { name: "Ladybug", category: "Tiny Creatures", traits: ["Lucky", "Charming", "Bright"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?auto=format&fit=crop&w=800&q=80", description: "A tiny spotted talisman of good fortune sitting comfortably on your virtual leaves." },
+            { name: "Praying Mantis", category: "Tiny Creatures", traits: ["Observant", "Calm", "Focused"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80", description: "A peaceful, laser-focused little green master of stillness and attention." }
+        ];
+
+        // Mobile Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobLinks = document.querySelectorAll('.mob-link');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Render Animal Collection Grid
+        const petsGrid = document.getElementById('petsGrid');
+        
+        function renderAnimals(items) {
+            petsGrid.innerHTML = '';
+            if (items.length === 0) {
+                petsGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-muted);"><h3>No animals found matching your search.</h3><p style="margin-top:0.5rem;">Try searching for something else like "Lion", "Puppy", or "Fish".</p></div>`;
+                return;
+            }
+
+            items.forEach(pet => {
+                const card = document.createElement('div');
+                card.className = 'pet-card';
+                card.setAttribute('data-category', pet.category);
+
+                const difficultyDisplay = pet.difficulty === 'Beginner' ? '⭐ Beginner Friendly' : (pet.difficulty === 'Intermediate' ? '⚡ Intermediate' : '⭐ Advanced Companion');
+
+                card.innerHTML = `
+                    <div class="pet-img-container">
+                        <img src="${pet.image}" alt="${pet.name}" loading="lazy">
+                    </div>
+                    <div class="pet-card-content">
+                        <div class="pet-info-top">
+                            <h3>${pet.name}</h3>
+                            <div class="pet-traits">${pet.traits.join(' • ')}</div>
+                        </div>
+                        <div class="pet-card-footer">
+                            <span class="pet-difficulty">${difficultyDisplay}</span>
+                            <span class="meet-link">Meet Pet →</span>
+                        </div>
+                    </div>
+                `;
+
+                // Click event to open preview modal
+                card.addEventListener('click', () => {
+                    openModal(pet);
+                });
+
+                petsGrid.appendChild(card);
+            });
+        }
+
+        // Initial render
+        renderAnimals(animalsData);
+
+        // Filtering & Search State
+        let activeCategory = 'All';
+        let searchQuery = '';
+        let currentSort = 'recommended';
+        let currentDifficulty = 'all';
+
+        const categoryButtons = document.querySelectorAll('.cat-btn');
+        const searchInput = document.getElementById('searchInput');
+        const sortSelect = document.getElementById('sortSelect');
+        const difficultySelect = document.getElementById('difficultySelect');
+
+        function filterAndSortAnimals() {
+            let filtered = animalsData.filter(pet => {
+                const matchesCategory = activeCategory === 'All' || pet.category === activeCategory;
+                const matchesSearch = pet.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      pet.traits.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                                      pet.category.toLowerCase().includes(searchQuery.toLowerCase());
+                const matchesDifficulty = currentDifficulty === 'all' || pet.difficulty === currentDifficulty;
+
+                return matchesCategory && matchesSearch && matchesDifficulty;
+            });
+
+            // Sorting logic
+            if (currentSort === 'beginner') {
+                filtered.sort((a, b) => (a.difficulty === 'Beginner' ? -1 : 1));
+            } else if (currentSort === 'rare') {
+                filtered.sort((a, b) => (a.difficulty === 'Advanced' ? -1 : 1));
+            } else if (currentSort === 'popular') {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            }
+
+            renderAnimals(filtered);
+        }
+
+        // Category click handlers
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.getAttribute('data-category');
+                filterAndSortAnimals();
+            });
+        });
+
+        // Search input handler
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            filterAndSortAnimals();
+        });
+
+        // Sort select handler
+        sortSelect.addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            filterAndSortAnimals();
+        });
+
+        // Difficulty filter handler
+        difficultySelect.addEventListener('change', (e) => {
+            currentDifficulty = e.target.value;
+            filterAndSortAnimals();
+        });
+
+        // Pet Preview Modal Logic
+        const petModal = document.getElementById('petModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const backToPetsBtn = document.getElementById('backToPetsBtn');
+
+        const modalPetImg = document.getElementById('modalPetImg');
+        const modalPetName = document.getElementById('modalPetName');
+        const modalPetTraits = document.getElementById('modalPetTraits');
+        const modalPetDifficulty = document.getElementById('modalPetDifficulty');
+        const modalPetDesc = document.getElementById('modalPetDesc');
+
+        function openModal(pet) {
+            modalPetName.textContent = pet.name;
+            modalPetTraits.textContent = pet.traits.join(' • ');
+            modalPetDifficulty.textContent = pet.difficulty === 'Beginner' ? '⭐ Beginner Friendly' : (pet.difficulty === 'Intermediate' ? '⚡ Intermediate Companion' : '⭐ Advanced Companion');
+            modalPetDesc.textContent = `"${pet.description}"`;
+            modalPetImg.src = pet.image;
+
+            petModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            petModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        backToPetsBtn.addEventListener('click', closeModal);
+        petModal.addEventListener('click', (e) => {
+            if (e.target === petModal) {
+                closeModal();
+            }
+        });
+
+        // Smooth Scrolling enhancement
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
