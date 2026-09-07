@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DiPet — Your Pet. Your World. Forever.</title>
-    <meta name="description" content="A premium virtual pet platform for people who love animals. Choose your digital companion, care for it, level it up, and build a lifelong bond. Pets never die.">
+    <title>Select Your Pet — DiPet</title>
+    <meta name="description" content="Choose your digital companion on DiPet. Secure login required to adopt and grow your virtual pet.">
+    <!-- Google Fonts for Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -46,7 +47,6 @@
             overflow-x: hidden;
         }
 
-        /* Typography */
         h1, h2, h3, h4 {
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
@@ -115,7 +115,7 @@
             transition: var(--transition);
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover, .nav-links a.active {
             color: var(--brand-green);
         }
 
@@ -126,12 +126,21 @@
         }
 
         .btn-login {
-            text-decoration: none;
+            background: transparent;
+            border: 1px solid var(--border-color);
             color: var(--text-main);
             font-weight: 600;
             font-size: 0.95rem;
             padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
             transition: var(--transition);
+        }
+
+        .btn-login.logged-in {
+            background: var(--brand-green-light);
+            color: var(--brand-green-dark);
+            border-color: var(--brand-green);
         }
 
         .btn-primary {
@@ -168,19 +177,14 @@
 
         /* Hero Section */
         .hero {
-            padding: 10rem 2rem 5rem 2rem;
-            max-width: 1280px;
+            padding: 9rem 2rem 2rem 2rem;
+            max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content {
+            text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
+            align-items: center;
         }
 
         .badge {
@@ -197,248 +201,146 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
+            font-size: 3rem;
             color: var(--text-main);
         }
 
         .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            max-width: 520px;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 0.7rem 1.5rem;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--text-main);
-            background-color: rgba(0,0,0,0.02);
-        }
-
-        /* Hero Visual Scene */
-        .hero-visual {
-            position: relative;
-            background: linear-gradient(135deg, #E6F4EA 0%, #E0F2FE 100%);
-            border-radius: var(--radius-lg);
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 440px;
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .pet-stage {
-            font-size: 7rem;
-            animation: floatPet 4s ease-in-out infinite;
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
-            cursor: pointer;
-        }
-
-        @keyframes floatPet {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-
-        .floating-ui-card {
-            position: absolute;
-            background: var(--bg-card);
-            padding: 0.75rem 1.2rem;
-            border-radius: var(--radius-sm);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .card-level { top: 25px; left: 25px; }
-        .card-happy { top: 25px; right: 25px; }
-        .card-energy { bottom: 35px; left: 25px; }
-        .card-xp { bottom: 35px; right: 25px; }
-
-        /* Trust / Concept Strip */
-        .concept-strip {
-            max-width: 1280px;
-            margin: 2rem auto 5rem auto;
-            padding: 0 2rem;
-        }
-
-        .strip-grid {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            box-shadow: var(--shadow-card);
-        }
-
-        .strip-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--text-main);
-        }
-
-        .strip-icon {
-            font-size: 1.5rem;
-            background: var(--brand-green-light);
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--radius-sm);
-        }
-
-        /* Section Generic */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 4rem auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.75rem;
-            color: var(--text-main);
-        }
-
-        .section-header p {
             font-size: 1.1rem;
             color: var(--text-muted);
             line-height: 1.6;
+            max-width: 650px;
         }
 
-        /* Why DiPet Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-card);
-            transition: var(--transition);
+        /* Controls / Search & Filters Bar */
+        .controls-section {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 2rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-subtle);
-            border-color: var(--brand-green);
-        }
-
-        .feature-icon-box {
-            font-size: 2rem;
-            background: var(--brand-green-light);
-            width: 60px;
-            height: 60px;
+        .search-sort-bar {
             display: flex;
+            gap: 1rem;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.8rem;
             border-radius: var(--radius-sm);
-            margin-bottom: 0.5rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
         }
 
-        .feature-card h3 {
-            font-size: 1.35rem;
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--brand-green);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
         }
 
-        .feature-card p {
+        .search-icon-pos {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
             color: var(--text-muted);
-            line-height: 1.6;
             font-size: 1rem;
         }
 
-        /* How It Works Section */
-        .steps-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            position: relative;
+        .filters-group {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        .step-card {
-            background: var(--bg-card);
+        .filter-dropdown {
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--radius-sm);
             border: 1px solid var(--border-color);
-            padding: 2.5rem 2rem;
-            border-radius: var(--radius-md);
+            background: var(--bg-card);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            cursor: pointer;
             box-shadow: var(--shadow-card);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            position: relative;
             transition: var(--transition);
         }
 
-        .step-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-subtle);
+        .filter-dropdown:focus {
+            outline: none;
+            border-color: var(--brand-green);
         }
 
-        .step-number {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
+        /* Category Navigation */
+        .category-scroll {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .category-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .cat-btn:hover {
+            border-color: var(--brand-green);
             color: var(--brand-green);
         }
 
-        .step-card h3 {
-            font-size: 1.25rem;
+        .cat-btn.active {
+            background: var(--brand-green);
+            color: white;
+            border-color: var(--brand-green);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
         }
 
-        .step-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.5;
+        /* Animal Collection Grid */
+        .pets-section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem 5rem 2rem;
         }
 
-        /* Explore Pets Section */
         .pets-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
         }
 
@@ -446,383 +348,327 @@
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
-            padding: 2rem;
-            text-align: center;
+            overflow: hidden;
             box-shadow: var(--shadow-card);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 1rem;
+            cursor: pointer;
         }
 
         .pet-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-subtle);
             border-color: var(--brand-green);
         }
 
-        .pet-avatar {
-            font-size: 5rem;
-            background: var(--bg-main);
-            width: 120px;
-            height: 120px;
+        .pet-img-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #E2E8F0;
+            position: relative;
+        }
+
+        .pet-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .pet-card:hover .pet-img-container img {
+            transform: scale(1.05);
+        }
+
+        .pet-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .pet-info-top h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+
+        .pet-traits {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .pet-price-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #D97706;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.2rem;
+        }
+
+        .pet-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .pet-difficulty {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--brand-green-dark);
+            background: var(--brand-green-light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .meet-link {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--brand-green);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: var(--transition);
+        }
+
+        .pet-card:hover .meet-link {
+            gap: 0.5rem;
+        }
+
+        /* Disclaimer & Bottom CTA */
+        .digital-disclaimer {
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+            line-height: 1.5;
+            padding: 0 1rem;
+        }
+
+        .bottom-cta-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto 6rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: center;
+            background: linear-gradient(135deg, #F0FDF4 0%, #E0F2FE 100%);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+        }
+
+        .bottom-cta-section h2 {
+            font-size: 2.75rem;
+        }
+
+        .bottom-cta-section p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 550px;
+        }
+
+        /* Pet Preview Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 2000;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            margin-bottom: 0.5rem;
-            box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            padding: 1.5rem;
         }
 
-        .pet-card h3 {
-            font-size: 1.4rem;
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
         }
 
-        .pet-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        .modal-container {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 750px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-height: 90vh;
         }
 
-        .btn-pet-choose {
-            margin-top: 0.5rem;
-            background: var(--bg-main);
-            border: 1px solid var(--border-color);
+        .modal-overlay.active .modal-container {
+            transform: translateY(0);
+        }
+
+        .modal-img-side {
+            background: #E2E8F0;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .modal-img-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-content-side {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.2rem;
+            overflow-y: auto;
+        }
+
+        .modal-header h3 {
+            font-size: 1.75rem;
             color: var(--text-main);
-            padding: 0.6rem 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-personality {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .modal-price-display {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #D97706;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .modal-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            background: var(--bg-main);
+            padding: 1rem;
             border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-stat-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .modal-stat-item span:last-child {
+            color: var(--brand-green-dark);
+        }
+
+        .modal-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        .modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .btn-modal-back {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
             font-weight: 600;
             font-size: 0.9rem;
             cursor: pointer;
             transition: var(--transition);
-            width: 100%;
-        }
-
-        .pet-card:hover .btn-pet-choose {
-            background: var(--brand-green);
-            color: white;
-            border-color: var(--brand-green);
-        }
-
-        .pets-footer-text {
             text-align: center;
-            margin-top: 3rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 1.05rem;
         }
 
-        /* Pet Growth / Level System */
-        .growth-container {
-            background: linear-gradient(135deg, #F0FDF4 0%, #E0F2FE 100%);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 4rem;
-            box-shadow: var(--shadow-card);
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        .btn-modal-back:hover {
+            color: var(--text-main);
         }
 
-        .growth-info {
+        .close-modal-x {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: var(--transition);
         }
 
-        .growth-info h2 {
-            font-size: 2.5rem;
+        .close-modal-x:hover {
+            background: rgba(0,0,0,0.8);
         }
 
-        .never-dies-badge {
-            background: #FEE2E2;
-            color: #991B1B;
-            padding: 0.5rem 1rem;
+        /* Toast Alert Banner */
+        .toast-alert {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #1E293B;
+            color: white;
+            padding: 0.9rem 1.8rem;
             border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            width: fit-content;
-        }
-
-        .growth-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-card);
-        }
-
-        .timeline-step {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             font-weight: 600;
             font-size: 0.95rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .timeline-step:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .timeline-step span:last-child {
-            color: var(--brand-green);
-            background: var(--brand-green-light);
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-        }
-
-        .xp-preview-box {
-            margin-top: 1rem;
-            background: var(--bg-main);
-            padding: 1.2rem;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border-color);
-        }
-
-        .xp-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .xp-bar-bg {
-            background: var(--border-color);
-            height: 10px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .xp-bar-fill {
-            background: var(--brand-green);
-            height: 100%;
-            width: 78%;
-            border-radius: 5px;
-        }
-
-        /* Pet Home Preview */
-        .home-preview-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 4rem;
-            text-align: center;
-            box-shadow: var(--shadow-card);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .room-scene {
-            font-size: 6rem;
-            margin: 2rem 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .customization-tags {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin: 1.5rem 0;
-        }
-
-        .custom-tag {
-            background: var(--bg-main);
-            border: 1px solid var(--border-color);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-main);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-        }
-
-        /* Features Section */
-        .features-grid-small {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .feature-mini-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 2rem 1.5rem;
-            border-radius: var(--radius-md);
-            text-align: center;
-            box-shadow: var(--shadow-card);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .feature-mini-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--brand-green);
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .mini-icon {
-            font-size: 2rem;
-            background: var(--brand-green-light);
-            width: 54px;
-            height: 54px;
+            z-index: 3000;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: var(--radius-sm);
+            gap: 0.6rem;
         }
 
-        .feature-mini-card h3 {
-            font-size: 1.1rem;
+        .toast-alert.show {
+            transform: translateX(-50%) translateY(0);
         }
 
-        .feature-mini-card p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            line-height: 1.4;
+        .toast-alert.error {
+            background: #DC2626;
         }
 
-        /* Coins Section */
-        .coins-section-box {
-            background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%);
-            border: 1px solid #FDE68A;
-            border-radius: var(--radius-lg);
-            padding: 4rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            box-shadow: var(--shadow-card);
-        }
-
-        .wallet-display {
-            background: var(--bg-card);
-            border: 1px solid #FCD34D;
-            padding: 2rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-subtle);
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .wallet-amount {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #B45309;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .wallet-mission {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--bg-main);
-            padding: 0.8rem 1.2rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: 1px solid var(--border-color);
-        }
-
-        .wallet-mission span:last-child {
-            color: #047857;
-            background: #D1FAE5;
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-        }
-
-        /* Emotional Section */
-        .emotional-banner {
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            color: white;
-            border-radius: var(--radius-lg);
-            padding: 5rem 4rem;
-            text-align: center;
-            box-shadow: var(--shadow-subtle);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .emotional-banner h2 {
-            font-size: 3rem;
-            color: white;
-        }
-
-        .emotional-banner p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-        }
-
-        .btn-white {
-            background: white;
-            color: var(--brand-green-dark);
-            padding: 0.8rem 2rem;
-            border-radius: var(--radius-sm);
-            font-weight: 700;
-            font-size: 1rem;
-            text-decoration: none;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: var(--transition);
-            margin-top: 1rem;
-        }
-
-        .btn-white:hover {
-            transform: translateY(-3px);
-            background: #F8FAF9;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        /* Final CTA Section */
-        .final-cta {
-            text-align: center;
-            padding: 6rem 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .final-cta h2 {
-            font-size: 3rem;
-        }
-
-        .final-cta p {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-        }
-
-        .final-subtext {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
+        .toast-alert.success {
+            background: #059669;
         }
 
         /* Footer */
@@ -899,50 +745,39 @@
             font-size: 1.2rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 1024px) {
-            .hero {
+            .pets-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .modal-container {
                 grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 8rem;
-                gap: 3rem;
+                max-width: 500px;
             }
-            .hero-content {
-                align-items: center;
-            }
-            .hero-cta {
-                justify-content: center;
-            }
-            .strip-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .features-grid, .pets-grid, .features-grid-small {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .steps-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .growth-container, .coins-section-box {
-                grid-template-columns: 1fr;
-                padding: 2.5rem;
+            .modal-img-side {
+                height: 220px;
+                min-height: auto;
             }
         }
 
         @media (max-width: 768px) {
-            .nav-links, .nav-actions .btn-login {
+            .nav-links, .nav-actions .btn-login-container {
                 display: none;
             }
             .hamburger {
                 display: block;
             }
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
-            .section-header h2, .growth-info h2, .emotional-banner h2, .final-cta h2 {
-                font-size: 2.1rem;
-            }
-            .strip-grid, .features-grid, .pets-grid, .features-grid-small, .steps-container {
+            .pets-grid {
                 grid-template-columns: 1fr;
+            }
+            .search-sort-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .filters-group {
+                justify-content: space-between;
             }
             .footer-links-group {
                 flex-direction: column;
@@ -958,7 +793,6 @@
             }
         }
 
-        /* Mobile Nav Drawer State */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -989,6 +823,7 @@
 </head>
 <body>
 
+    <!-- 1. Navigation -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">
@@ -996,339 +831,100 @@
                 DiPet
             </a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="pets.html">Pets</a></li>
-                <li><a href="#features">Features</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#" class="active">Pets</a></li>
+                <li><a href="#">How It Works</a></li>
+                <li><a href="#">Features</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="#login" class="btn-login">Login</a>
-                <a href="pets.html" class="btn-primary">Start Your Pet</a>
+                <button class="btn-login" id="loginBtn" onclick="toggleLogin()">🔒 Login</button>
+                <a href="#adopt" class="btn-primary" onclick="handleStartPet(event)">Start Your Pet</a>
                 <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">☰</button>
             </div>
         </div>
+        <!-- Mobile Menu Drawer -->
         <div class="mobile-menu" id="mobileMenu">
-            <a href="#home" class="mob-link">Home</a>
-            <a href="#how-it-works" class="mob-link">How It Works</a>
-            <a href="pets.html" class="mob-link">Pets</a>
-            <a href="#features" class="mob-link">Features</a>
-            <a href="#adopt" class="btn-primary" style="justify-content: center; margin-top: 0.5rem;">Start Your Pet</a>
+            <a href="#" class="mob-link">Home</a>
+            <a href="#" class="mob-link active">Pets</a>
+            <a href="#" class="mob-link">How It Works</a>
+            <a href="#" class="mob-link">Features</a>
+            <a href="#adopt" class="btn-primary" style="justify-content: center; margin-top: 0.5rem;" onclick="handleStartPet(event)">Start Your Pet</a>
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="badge">
-                🐾 Your Digital Pet Starts Here
-            </div>
-            <h1>Your Pet. Your World. Forever.</h1>
-            <p>
-                Love having a pet but don't have the time, space, or freedom for a real one? Meet your digital companion. Choose a pet, care for it, play with it, and watch your bond grow.
-            </p>
-            <div class="hero-cta">
-                <a href="#pets" class="btn-primary">Adopt Your Pet →</a>
-                <a href="#how-it-works" class="btn-secondary">Explore Pets</a>
-            </div>
+    <!-- 2. Hero Section -->
+    <section class="hero">
+        <div class="badge">
+            🐾 DIPET ANIMAL COLLECTION
         </div>
-        <div class="hero-visual">
-            <div class="pet-stage" title="Tap to pet!">🐶</div>
-            <div class="floating-ui-card card-level">⭐ Level 7</div>
-            <div class="floating-ui-card card-happy">❤️ Happiness 92%</div>
-            <div class="floating-ui-card card-energy">⚡ Energy 78%</div>
-            <div class="floating-ui-card card-xp">🎯 XP 640/800</div>
-        </div>
+        <h1>Find Your Perfect Companion</h1>
+        <p>
+            Choose from a growing world of digital animals. Login to adopt your companion, build your bond, and watch them grow forever.
+        </p>
     </section>
 
-    <div class="concept-strip">
-        <div class="strip-grid">
-            <div class="strip-item">
-                <div class="strip-icon">🐾</div>
-                <span>Choose a Pet</span>
+    <!-- Search & Filters Bar -->
+    <div class="controls-section">
+        <div class="search-sort-bar">
+            <div class="search-box">
+                <span class="search-icon-pos">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search for an animal (e.g. Lion, Puppy, Fish)...">
             </div>
-            <div class="strip-item">
-                <div class="strip-icon">❤️</div>
-                <span>Build a Bond</span>
+            <div class="filters-group">
+                <select id="sortSelect" class="filter-dropdown">
+                    <option value="recommended">Sort by: Recommended</option>
+                    <option value="popular">Popular</option>
+                    <option value="beginner">Beginner Friendly</option>
+                    <option value="rare">Advanced / Rare</option>
+                </select>
+                <select id="difficultySelect" class="filter-dropdown">
+                    <option value="all">Difficulty: All</option>
+                    <option value="Beginner">Easy</option>
+                    <option value="Intermediate">Medium</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
             </div>
-            <div class="strip-item">
-                <div class="strip-icon">⭐</div>
-                <span>Level Up</span>
-            </div>
-            <div class="strip-item">
-                <div class="strip-icon">♾️</div>
-                <span>Never Lose Your Pet</span>
-            </div>
+        </div>
+
+        <!-- Category Navigation -->
+        <div class="category-scroll" id="categoryScroll">
+            <button class="cat-btn active" data-category="All">🐾 All Animals</button>
+            <button class="cat-btn" data-category="Dogs">🐶 Dogs</button>
+            <button class="cat-btn" data-category="Cats">🐱 Cats</button>
+            <button class="cat-btn" data-category="Small Pets">🐰 Small & Cute</button>
+            <button class="cat-btn" data-category="Birds">🐦 Birds</button>
+            <button class="cat-btn" data-category="Fish">🐠 Fish</button>
+            <button class="cat-btn" data-category="Reptiles">🐢 Reptiles</button>
+            <button class="cat-btn" data-category="Farm Animals">🐮 Farm Animals</button>
+            <button class="cat-btn" data-category="Wild Animals">🦊 Wild Animals</button>
+            <button class="cat-btn" data-category="Big Animals">🦁 Big Animals</button>
+            <button class="cat-btn" data-category="Ocean Animals">🌊 Ocean Animals</button>
+            <button class="cat-btn" data-category="Tiny Creatures">🦋 Tiny Creatures</button>
         </div>
     </div>
 
-    <section id="features">
-        <div class="section-header">
-            <h2>A Pet That Fits Your Life</h2>
-            <p>Real pets need time, space and daily care. DiPet gives you the joy of having a companion without the pressure.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon-box">⏳</div>
-                <h3>No Time?</h3>
-                <p>"Care for your pet whenever you have a moment. Your companion waits patiently for your return."</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon-box">🏡</div>
-                <h3>No Space?</h3>
-                <p>"Your pet lives in your digital world. Perfect for apartments, dorms, and busy urban lifestyles."</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon-box">🛡️</div>
-                <h3>Afraid of Pets?</h3>
-                <p>"Experience the joy and warmth of pet ownership comfortably and securely at your own pace."</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon-box">✨</div>
-                <h3>Always With You</h3>
-                <p>"Your digital companion stays with you wherever you go, accessible right from your browser or phone."</p>
-            </div>
+    <!-- Animal Collection Grid -->
+    <section class="pets-section">
+        <div class="pets-grid" id="petsGrid">
+            <!-- Populated dynamically via JS -->
         </div>
     </section>
 
-    <section id="how-it-works">
-        <div class="section-header">
-            <h2>Meet Your New Best Friend</h2>
-            <p>Four simple steps to start your lifelong digital bond.</p>
-        </div>
-        <div class="steps-container">
-            <div class="step-card">
-                <div class="step-number">01</div>
-                <h3>Choose</h3>
-                <p>Pick the animal you love most from our curated collection of digital companions.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">02</div>
-                <h3>Name</h3>
-                <p>Give your new companion a special name that means something to you.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">03</div>
-                <h3>Care</h3>
-                <p>Feed, play, pet and take care of your companion to keep their happiness high.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">04</div>
-                <h3>Grow</h3>
-                <p>Earn XP, level up through rewarding milestones and build an unbreakable bond.</p>
-            </div>
-        </div>
-    </section>
+    <!-- Digital Pet Disclaimer -->
+    <div class="digital-disclaimer">
+        "DiPet provides virtual digital companions only. No real animals are sold, adopted, delivered, traded, or transferred through DiPet."
+    </div>
 
-    <section id="pets">
-        <div class="section-header">
-            <h2>Which Pet Will You Choose?</h2>
-            <p>Select your favorite character and begin your journey today.</p>
-        </div>
-        <div class="pets-grid">
-            <div class="pet-card">
-                <div class="pet-avatar">🐶</div>
-                <h3>Puppy</h3>
-                <p class="pet-desc">Playful • Loyal • Energetic</p>
-                <button class="btn-pet-choose">Choose Puppy</button>
-            </div>
-            <div class="pet-card">
-                <div class="pet-avatar">🐱</div>
-                <h3>Cat</h3>
-                <p class="pet-desc">Curious • Independent • Cozy</p>
-                <button class="btn-pet-choose">Choose Cat</button>
-            </div>
-            <div class="pet-card">
-                <div class="pet-avatar">🐰</div>
-                <h3>Rabbit</h3>
-                <p class="pet-desc">Gentle • Swift • Cheerful</p>
-                <button class="btn-pet-choose">Choose Rabbit</button>
-            </div>
-            <div class="pet-card">
-                <div class="pet-avatar">🐹</div>
-                <h3>Hamster</h3>
-                <p class="pet-desc">Active • Cute • Curious</p>
-                <button class="btn-pet-choose">Choose Hamster</button>
-            </div>
-            <div class="pet-card">
-                <div class="pet-avatar">🐦</div>
-                <h3>Bird</h3>
-                <p class="pet-desc">Joyful • Cheerful • Free</p>
-                <button class="btn-pet-choose">Choose Bird</button>
-            </div>
-            <div class="pet-card">
-                <div class="pet-avatar">🐢</div>
-                <h3>Turtle</h3>
-                <p class="pet-desc">Wise • Calm • Steady</p>
-                <button class="btn-pet-choose">Choose Turtle</button>
-            </div>
-        </div>
-        <div class="pets-footer-text">
-            More pets coming soon in future updates...
-        </div>
-    </section>
-
-    <section>
-        <div class="growth-container">
-            <div class="growth-info">
-                <div class="never-dies-badge">❤️ Your pet never dies.</div>
-                <h2>They Grow With You</h2>
-                <p style="color: var(--text-muted); line-height: 1.6;">
-                    "Your pet's level represents your journey together. The more you care, play and interact, the stronger your bond becomes. No accidents, no heartbreak—just continuous companionship."
-                </p>
-                <div class="xp-preview-box">
-                    <div class="xp-header">
-                        <span>Bruno (Puppy) — Level 12</span>
-                        <span>780 / 1000 XP</span>
-                    </div>
-                    <div class="xp-bar-bg">
-                        <div class="xp-bar-fill"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="growth-timeline">
-                <div class="timeline-step">
-                    <span>Level 1 — Baby Pet</span>
-                    <span>Start</span>
-                </div>
-                <div class="timeline-step">
-                    <span>Level 5 — Happy Companion</span>
-                    <span>Unlocked</span>
-                </div>
-                <div class="timeline-step">
-                    <span>Level 10 — Best Friend</span>
-                    <span>Unlocked</span>
-                </div>
-                <div class="timeline-step">
-                    <span>Level 25 — Super Companion</span>
-                    <span>Milestone</span>
-                </div>
-                <div class="timeline-step">
-                    <span>Level 50 — Legendary Pet</span>
-                    <span>Ultimate</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="home-preview-box">
-            <div class="section-header" style="margin-bottom: 2rem;">
-                <h2>Give Your Pet a Home</h2>
-                <p>"Customize your pet's world and make it feel like home."</p>
-            </div>
-            <div class="room-scene">
-                <span>🪴</span>
-                <span>🛏️</span>
-                <span>🐶</span>
-                <span>🦴</span>
-                <span>🎾</span>
-            </div>
-            <div class="customization-tags">
-                <span class="custom-tag">✨ New Toy</span>
-                <span class="custom-tag">🛏️ New Bed</span>
-                <span class="custom-tag">🎩 New Outfit</span>
-                <span class="custom-tag">🪴 New Decoration</span>
-            </div>
-            <div style="margin-top: 2rem;">
-                <a href="#adopt" class="btn-primary">Create Your Pet Home</a>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="section-header">
-            <h2>Everything Your Pet Needs</h2>
-            <p>An immersive virtual ecosystem designed for interaction and engagement.</p>
-        </div>
-        <div class="features-grid-small">
-            <div class="feature-mini-card">
-                <div class="mini-icon">❤️</div>
-                <h3>Friendship</h3>
-                <p>Build lifelong emotional connection.</p>
-            </div>
-            <div class="feature-mini-card">
-                <div class="mini-icon">🍖</div>
-                <h3>Feeding</h3>
-                <p>Treat your pet to delicious snacks.</p>
-            </div>
-            <div class="feature-mini-card">
-                <div class="mini-icon">🎾</div>
-                <h3>Playing</h3>
-                <p>Interactive mini-games and fun toys.</p>
-            </div>
-            <div class="feature-mini-card">
-                <div class="mini-icon">🛁</div>
-                <h3>Grooming</h3>
-                <p>Keep your pet looking spotless.</p>
-            </div>
-            <div class="feature-mini-card">
-                <div class="mini-icon">⭐</div>
-                <h3>Level System</h3>
-                <p>Progress and unlock new features.</p>
-            </div>
-            <div class="feature-mini-card">
-                <div class="mini-icon">🪙</div>
-                <h3>Coins</h3>
-                <p>Earn currency through active care.</p>
-            </div>
-            <div class="feature-mini-card">
-                <div class="mini-icon">🎁</div>
-                <h3>Daily Rewards</h3>
-                <p>Special bonuses for daily check-ins.</p>
-            </div>
-            <div class="feature-mini-card">
-                <div class="mini-icon">🏆</div>
-                <h3>Achievements</h3>
-                <p>Collect badges for milestone care.</p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="coins-section-box">
-            <div class="growth-info">
-                <h2>Earn. Play. Upgrade.</h2>
-                <p style="color: var(--text-muted); line-height: 1.6;">
-                    "Earn coins by caring for your pet, completing missions and coming back every day. Use them to unlock food, toys, outfits, decorations and more."
-                </p>
-                <div style="margin-top: 0.5rem;">
-                    <a href="#adopt" class="btn-primary">Start Earning Rewards</a>
-                </div>
-            </div>
-            <div class="wallet-display">
-                <div class="wallet-amount">
-                    🪙 2,450 Coins
-                </div>
-                <div class="wallet-mission">
-                    <span>Daily Reward Check-in</span>
-                    <span>+100 Coins</span>
-                </div>
-                <div class="wallet-mission">
-                    <span>Mission Complete: Play Catch</span>
-                    <span>+250 Coins</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="emotional-banner">
-            <h2>Some Pets Are Forever.</h2>
-            <p>
-                Life gets busy. Plans change. But your digital companion is always there when you come back, waiting with a wagging tail and unconditional love.
-            </p>
-            <a href="#adopt" class="btn-white">Start Your Journey →</a>
-        </div>
-    </section>
-
-    <section class="final-cta" id="adopt">
+    <!-- Bottom CTA -->
+    <section class="bottom-cta-section" id="adopt">
         <h2>Ready to Meet Your Pet?</h2>
-        <p>Choose your companion. Give them a name. Start your journey together.</p>
-        <div style="margin-top: 1rem;">
-            <a href="#" class="btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Adopt Your First Pet 🐾</a>
+        <p>Login to choose your companion, give them a name, and start your journey together.</p>
+        <div style="margin-top: 0.5rem;">
+            <button onclick="handleStartPet(event)" class="btn-primary" style="padding: 0.9rem 2.5rem; font-size: 1.1rem;">Adopt Your First Pet 🐾</button>
         </div>
-        <div class="final-subtext">Free to start • No pet ever dies</div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-top">
@@ -1341,17 +937,16 @@
                 </div>
                 <div class="footer-links-group">
                     <div class="footer-col">
-                        <h4>Navigation</h4>
-                        <a href="#home">About</a>
-                        <a href="#how-it-works">How It Works</a>
-                        <a href="#pets">Pets</a>
-                        <a href="#features">Features</a>
+                        <h4>Product</h4>
+                        <a href="#">Pets</a>
+                        <a href="#">Features</a>
+                        <a href="#">How It Works</a>
                     </div>
                     <div class="footer-col">
-                        <h4>Support</h4>
-                        <a href="#">Help Center</a>
-                        <a href="#">Privacy Policy</a>
+                        <h4>Legal</h4>
                         <a href="#">Terms of Service</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Disclaimer</a>
                     </div>
                 </div>
             </div>
@@ -1360,13 +955,102 @@
                 <div class="social-icons">
                     <span title="Twitter">🌐</span>
                     <span title="Discord">💬</span>
-                    <span title="Instagram">📸</span>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Pet Preview Modal -->
+    <div class="modal-overlay" id="petModal">
+        <div class="modal-container">
+            <div class="modal-img-side">
+                <button class="close-modal-x" id="closeModalBtn" aria-label="Close modal">×</button>
+                <img id="modalPetImg" src="" alt="Pet Preview">
+            </div>
+            <div class="modal-content-side">
+                <div class="modal-header">
+                    <h3 id="modalPetName">Pet Name</h3>
+                    <div class="modal-personality" id="modalPetTraits">Traits</div>
+                    <div class="modal-price-display" id="modalPetPrice" style="margin-top: 0.4rem;">🪙 500 Coins</div>
+                </div>
+                <div class="modal-stats">
+                    <div class="modal-stat-item">
+                        <span>Difficulty</span>
+                        <span id="modalPetDifficulty">Beginner</span>
+                    </div>
+                    <div class="modal-stat-item">
+                        <span>❤️ Starting Happiness</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="modal-stat-item">
+                        <span>⭐ Starting XP</span>
+                        <span>0</span>
+                    </div>
+                </div>
+                <p class="modal-desc" id="modalPetDesc">"Description here."</p>
+                <div class="modal-actions">
+                    <button onclick="attemptAdopt()" id="adoptModalBtn" class="btn-primary" style="justify-content: center; width: 100%;">Adopt This Pet →</button>
+                    <button class="btn-modal-back" id="backToPetsBtn">← Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Element -->
+    <div class="toast-alert" id="toastAlert">
+        <span id="toastIcon">⚠️</span>
+        <span id="toastMsg">Please login first!</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
     <script>
+        // Authentication State Simulation
+        let isLoggedIn = false;
+        let selectedPetForAdoption = null;
+
+        function toggleLogin() {
+            isLoggedIn = !isLoggedIn;
+            const loginBtn = document.getElementById('loginBtn');
+            if (isLoggedIn) {
+                loginBtn.textContent = '👤 Account (Logged In)';
+                loginBtn.classList.add('logged-in');
+                showToast("Successfully logged in to DiPet!", "success");
+            } else {
+                loginBtn.textContent = '🔒 Login';
+                loginBtn.classList.remove('logged-in');
+                showToast("Logged out successfully.", "error");
+            }
+        }
+
+        function showToast(message, type = "error") {
+            const toast = document.getElementById('toastAlert');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = document.getElementById('toastIcon');
+            
+            toastMsg.textContent = message;
+            toast.className = `toast-alert show ${type}`;
+            toastIcon.textContent = type === "success" ? "✅" : "⚠️";
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3500);
+        }
+
+        // Comprehensive Animal Database with Prices (Coins/Gems)
+        const animalsData = [
+            { name: "Golden Retriever", category: "Dogs", price: "🪙 850 Coins", traits: ["Loyal", "Friendly", "Playful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80", description: "Friendly, playful and always ready to be your companion. Known for warm loyalty and boundless positive energy." },
+            { name: "Persian Cat", category: "Cats", price: "🪙 750 Coins", traits: ["Calm", "Elegant", "Affectionate"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=80", description: "A serene and luxurious feline friend with silky fur and expressive eyes, perfect for quiet and cozy virtual spaces." },
+            { name: "Holland Lop Rabbit", category: "Small Pets", price: "🪙 500 Coins", traits: ["Gentle", "Quiet", "Friendly"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80", description: "A sweet-natured bunny with adorable floppy ears. Gentle, quiet, and wonderfully peaceful for a relaxing companion experience." },
+            { name: "African Grey Parrot", category: "Birds", price: "🪙 1,200 Coins", traits: ["Genius", "Talkative", "Clever"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1522858541180-82c3f567f677?auto=format&fit=crop&w=800&q=80", description: "An exceptionally intelligent bird capable of learning advanced words and solving interactive puzzles." },
+            { name: "Goldfish", category: "Fish", price: "🪙 250 Coins", traits: ["Peaceful", "Calm", "Graceful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=800&q=80", description: "A classic, shimmering orange swimmer that brings tranquility to any virtual aquarium." },
+            { name: "Red-Eared Slider Turtle", category: "Reptiles", price: "🪙 400 Coins", traits: ["Calm", "Relaxed", "Peaceful"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1437622368342-9a3d7b3d487c?auto=format&fit=crop&w=800&q=80", description: "A wise, steady and relaxed aquatic friend that adds a serene, zen atmosphere to your virtual ecosystem." },
+            { name: "Appaloosa Horse", category: "Farm Animals", price: "🪙 2,500 Coins", traits: ["Noble", "Strong", "Loyal"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80", description: "A magnificent equine companion with striking spotted coat and free-spirited gallop." },
+            { name: "Red Fox", category: "Wild Animals", price: "🪙 1,800 Coins", traits: ["Clever", "Swift", "Cunning"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=800&q=80", description: "A remarkably clever and graceful woodland dweller with fiery orange fur and bright eyes." },
+            { name: "African Lion", category: "Big Animals", price: "💎 500 Gems", traits: ["Brave", "Loyal", "Powerful"], difficulty: "Advanced", image: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=800&q=80", description: "Strong, loyal and majestic king of the virtual savanna, always ready to be your fierce protector." },
+            { name: "Bottlenose Dolphin", category: "Ocean Animals", price: "🪙 2,200 Coins", traits: ["Joyful", "Smart", "Friendly"], difficulty: "Intermediate", image: "https://images.unsplash.com/photo-1602677093926-223d9bc46e92?auto=format&fit=crop&w=800&q=80", description: "An exceptionally intelligent and joyful ocean swimmer that loves performing playful leaps." },
+            { name: "Monarch Butterfly", category: "Tiny Creatures", price: "🪙 300 Coins", traits: ["Graceful", "Vibrant", "Free"], difficulty: "Beginner", image: "https://images.unsplash.com/photo-1508595111327-2b46b76c9df2?auto=format&fit=crop&w=800&q=80", description: "A delicate winged beauty that dances gracefully among virtual flowers." }
+        ];
+
         // Mobile Menu Toggle
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1382,34 +1066,162 @@
             });
         });
 
-        // Interactive Pet Greeting in Hero
-        const petStage = document.querySelector('.pet-stage');
-        const greetings = ['🐶 Woof!', '🐾 ❤️', '🦴 Yay!', '✨ Hello!'];
-        let greetingIndex = 0;
+        // Render Animal Grid
+        const petsGrid = document.getElementById('petsGrid');
+        
+        function renderAnimals(items) {
+            petsGrid.innerHTML = '';
+            if (items.length === 0) {
+                petsGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-muted);"><h3>No animals found matching your search.</h3></div>`;
+                return;
+            }
 
-        petStage.addEventListener('click', () => {
-            greetingIndex = (greetingIndex + 1) % greetings.length;
-            petStage.style.transform = 'scale(1.15) translateY(-10px)';
-            setTimeout(() => {
-                petStage.style.transform = 'scale(1) translateY(0)';
-            }, 200);
-        });
+            items.forEach(pet => {
+                const card = document.createElement('div');
+                card.className = 'pet-card';
+                card.setAttribute('data-category', pet.category);
 
-        // Smooth Scrolling enhancement for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    e.preventDefault();
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const difficultyDisplay = pet.difficulty === 'Beginner' ? '⭐ Beginner Friendly' : (pet.difficulty === 'Intermediate' ? '⚡ Intermediate' : '⭐ Advanced Companion');
+
+                card.innerHTML = `
+                    <div class="pet-img-container">
+                        <img src="${pet.image}" alt="${pet.name}" loading="lazy">
+                    </div>
+                    <div class="pet-card-content">
+                        <div class="pet-info-top">
+                            <h3>${pet.name}</h3>
+                            <div class="pet-traits">${pet.traits.join(' • ')}</div>
+                            <div class="pet-price-tag">${pet.price}</div>
+                        </div>
+                        <div class="pet-card-footer">
+                            <span class="pet-difficulty">${difficultyDisplay}</span>
+                            <span class="meet-link">Meet Pet →</span>
+                        </div>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => {
+                    openModal(pet);
+                });
+
+                petsGrid.appendChild(card);
+            });
+        }
+
+        renderAnimals(animalsData);
+
+        // Filters & Search
+        let activeCategory = 'All';
+        let searchQuery = '';
+        let currentSort = 'recommended';
+        let currentDifficulty = 'all';
+
+        const categoryButtons = document.querySelectorAll('.cat-btn');
+        const searchInput = document.getElementById('searchInput');
+        const sortSelect = document.getElementById('sortSelect');
+        const difficultySelect = document.getElementById('difficultySelect');
+
+        function filterAndSortAnimals() {
+            let filtered = animalsData.filter(pet => {
+                const matchesCategory = activeCategory === 'All' || pet.category === activeCategory;
+                const matchesSearch = pet.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      pet.traits.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                                      pet.category.toLowerCase().includes(searchQuery.toLowerCase());
+                const matchesDifficulty = currentDifficulty === 'all' || pet.difficulty === currentDifficulty;
+
+                return matchesCategory && matchesSearch && matchesDifficulty;
+            });
+
+            renderAnimals(filtered);
+        }
+
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.getAttribute('data-category');
+                filterAndSortAnimals();
             });
         });
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            filterAndSortAnimals();
+        });
+
+        sortSelect.addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            filterAndSortAnimals();
+        });
+
+        difficultySelect.addEventListener('change', (e) => {
+            currentDifficulty = e.target.value;
+            filterAndSortAnimals();
+        });
+
+        // Modal Logic
+        const petModal = document.getElementById('petModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const backToPetsBtn = document.getElementById('backToPetsBtn');
+
+        const modalPetImg = document.getElementById('modalPetImg');
+        const modalPetName = document.getElementById('modalPetName');
+        const modalPetTraits = document.getElementById('modalPetTraits');
+        const modalPetPrice = document.getElementById('modalPetPrice');
+        const modalPetDifficulty = document.getElementById('modalPetDifficulty');
+        const modalPetDesc = document.getElementById('modalPetDesc');
+
+        function openModal(pet) {
+            selectedPetForAdoption = pet;
+            modalPetName.textContent = pet.name;
+            modalPetTraits.textContent = pet.traits.join(' • ');
+            modalPetPrice.textContent = pet.price;
+            modalPetDifficulty.textContent = pet.difficulty === 'Beginner' ? '⭐ Beginner Friendly' : (pet.difficulty === 'Intermediate' ? '⚡ Intermediate Companion' : '⭐ Advanced Companion');
+            modalPetDesc.textContent = `"${pet.description}"`;
+            modalPetImg.src = pet.image;
+
+            petModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            petModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        backToPetsBtn.addEventListener('click', closeModal);
+        petModal.addEventListener('click', (e) => {
+            if (e.target === petModal) {
+                closeModal();
+            }
+        });
+
+        // Handle Purchase / Adoption Flow with Authentication Guard
+        function attemptAdopt() {
+            if (!isLoggedIn) {
+                closeModal();
+                showToast("Please login first to adopt your pet!", "error");
+                // Optional: scroll or focus login button
+                document.getElementById('loginBtn').focus();
+                return;
+            }
+
+            // If logged in
+            alert(`🎉 Success! Redirecting to dashboard to name and care for your new ${selectedPetForAdoption.name}!`);
+            window.location.href = `/adopt?pet=${encodeURIComponent(selectedPetForAdoption.name)}`;
+        }
+
+        function handleStartPet(e) {
+            e.preventDefault();
+            if (!isLoggedIn) {
+                showToast("Please login first to start your pet journey!", "error");
+                document.getElementById('loginBtn').focus();
+            } else {
+                window.scrollTo({ top: 400, behavior: 'smooth' });
+                showToast("Choose your favorite companion below!", "success");
+            }
+        }
     </script>
 </body>
 </html>
