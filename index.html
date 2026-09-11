@@ -1,609 +1,937 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DiPet — Your Pet. Your World. Forever.</title>
-    <meta name="description" content="A premium virtual pet platform for people who love animals. Choose your digital companion, care for it, level it up, and build a lifelong bond. Pets never die.">
-    <!-- Google Fonts for Premium Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-main: #F8FAF9;
-            --bg-card: #FFFFFF;
-            --brand-green: #10B981;
-            --brand-green-light: #D1FAE5;
-            --brand-green-dark: #047857;
-            --accent-blue: #38BDF8;
-            --accent-yellow: #FBBF24;
-            --text-main: #1E293B;
-            --text-muted: #64748B;
-            --border-color: #E2E8F0;
-            --shadow-subtle: 0 10px 30px -5px rgba(16, 185, 129, 0.08);
-            --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
-            --radius-lg: 24px;
-            --radius-md: 16px;
-            --radius-sm: 12px;
-            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DiPet | Ultra-Realistic Digital Pet Adoption & Companionship</title>
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              forest: '#0B291B',     // Document Brand Palette: Deep Forest Green
+              deep: '#144631',
+              emerald: '#10B981',
+              accent: '#34D399',     // Fresh Mint Accent
+              cream: '#FDFBF7',      // Warm Cream
+              softbg: '#F4EFE6'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
         }
+      }
+    }
+  </script>
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-main); color: var(--text-main); }
-        body { overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-
-        /* Navigation Bar */
-        header {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background-color: rgba(248, 250, 249, 0.88);
-            backdrop-filter: blur(12px); z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
-        .logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--text-main); }
-        .logo-icon { background: var(--brand-green); color: white; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); font-size: 1.2rem; }
-        
-        .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
-        .nav-links a:hover { color: var(--brand-green); }
-
-        .nav-actions { display: flex; align-items: center; gap: 1rem; }
-        .btn-login {
-            background: #FFFFFF; border: 1px solid var(--border-color); color: var(--text-main);
-            font-weight: 600; font-size: 0.95rem; padding: 0.6rem 1.2rem; border-radius: var(--radius-sm);
-            cursor: pointer; transition: var(--transition); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
-        }
-        .btn-login:hover { border-color: var(--brand-green); }
-
-        .user-profile-pill {
-            display: flex; align-items: center; gap: 0.7rem;
-            background: var(--bg-card); border: 1px solid var(--border-color);
-            padding: 0.4rem 0.9rem 0.4rem 0.4rem; border-radius: 50px;
-            box-shadow: var(--shadow-card); cursor: pointer; transition: var(--transition);
-        }
-        .user-profile-pill:hover { border-color: rgba(239, 68, 68, 0.4); }
-        .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--brand-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
-        .user-name { font-size: 0.9rem; font-weight: 600; color: var(--text-main); }
-
-        .btn-primary {
-            background-color: var(--brand-green); color: white; padding: 0.7rem 1.5rem;
-            border-radius: var(--radius-sm); font-weight: 600; font-size: 0.95rem; text-decoration: none;
-            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3); transition: var(--transition); border: none; cursor: pointer;
-            display: inline-flex; align-items: center; gap: 0.5rem;
-        }
-        .btn-primary:hover { background-color: var(--brand-green-dark); transform: translateY(-2px); }
-
-        /* 1. Hero Section */
-        .hero { padding: 10rem 2rem 5rem 2rem; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .hero-content { display: flex; flex-direction: column; gap: 1.5rem; }
-        .badge { display: inline-flex; align-items: center; gap: 0.5rem; background-color: var(--brand-green-light); color: var(--brand-green-dark); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; width: fit-content; }
-        .hero h1 { font-size: 3.5rem; line-height: 1.1; }
-        .hero p { font-size: 1.15rem; color: var(--text-muted); line-height: 1.6; }
-        .hero-cta { display: flex; gap: 1rem; margin-top: 0.5rem; }
-
-        .btn-secondary {
-            background-color: transparent; color: var(--text-main); border: 1px solid var(--border-color);
-            padding: 0.7rem 1.5rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: var(--transition); display: inline-flex; align-items: center; justify-content: center;
-        }
-        .btn-secondary:hover { border-color: var(--text-main); background-color: rgba(0,0,0,0.02); }
-
-        .hero-visual {
-            position: relative; background: linear-gradient(135deg, #E6F4EA 0%, #E0F2FE 100%);
-            border-radius: var(--radius-lg); padding: 3rem; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; min-height: 440px; box-shadow: var(--shadow-subtle);
-        }
-        .pet-stage { font-size: 7rem; animation: floatPet 4s ease-in-out infinite; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1)); cursor: pointer; }
-        @keyframes floatPet { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-
-        .floating-ui-card {
-            position: absolute; background: var(--bg-card); padding: 0.75rem 1.2rem;
-            border-radius: var(--radius-sm); box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 0.6rem; border: 1px solid var(--border-color);
-        }
-        .card-level { top: 25px; left: 25px; }
-        .card-happy { top: 25px; right: 25px; }
-        .card-energy { bottom: 35px; left: 25px; }
-        .card-xp { bottom: 35px; right: 25px; }
-
-        /* 2. Trust / Concept Strip */
-        .concept-strip { max-width: 1280px; margin: 0 auto 5rem auto; padding: 0 2rem; }
-        .strip-grid {
-            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);
-            padding: 2rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; box-shadow: var(--shadow-card);
-        }
-        .strip-item { display: flex; align-items: center; gap: 1rem; font-weight: 600; font-size: 1rem; }
-        .strip-icon { font-size: 1.5rem; background: var(--brand-green-light); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); }
-
-        /* Generic Section Header */
-        section { padding: 6rem 2rem; max-width: 1280px; margin: 0 auto; }
-        .section-header { text-align: center; max-width: 650px; margin: 0 auto 4rem auto; display: flex; flex-direction: column; gap: 1rem; }
-        .section-header h2 { font-size: 2.75rem; color: var(--text-main); }
-        .section-header p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; }
-
-        /* 3. "Why DiPet?" Section */
-        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-        .feature-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-card); transition: var(--transition); display: flex; flex-direction: column; gap: 1rem; }
-        .feature-card:hover { transform: translateY(-5px); border-color: var(--brand-green); box-shadow: var(--shadow-subtle); }
-        .feature-icon-box { font-size: 2rem; background: var(--brand-green-light); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); margin-bottom: 0.5rem; }
-
-        /* 4. How It Works Section */
-        .steps-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-        .step-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-card); display: flex; flex-direction: column; gap: 1rem; }
-        .step-number { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: var(--brand-green); }
-
-        /* 5. Master Categories & Subcategories Section */
-        .categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-        .category-card {
-            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);
-            padding: 2.5rem 1.5rem; text-align: center; box-shadow: var(--shadow-card); cursor: pointer; transition: var(--transition);
-            display: flex; flex-direction: column; align-items: center; gap: 1rem;
-        }
-        .category-card:hover { transform: translateY(-6px); border-color: var(--brand-green); box-shadow: var(--shadow-subtle); }
-        .category-icon { font-size: 3rem; background: var(--brand-green-light); width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
-
-        .drilldown-container { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 3rem; margin: 2rem 0; box-shadow: var(--shadow-card); }
-        .breadcrumb-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); }
-        .back-btn { background: var(--bg-main); border: 1px solid var(--border-color); font-weight: 600; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; }
-        .pets-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-        .pet-card {
-            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);
-            overflow: hidden; box-shadow: var(--shadow-card); transition: var(--transition); cursor: pointer; display: flex; flex-direction: column;
-        }
-        .pet-card:hover { transform: translateY(-5px); border-color: var(--brand-green); }
-        .pet-img-container { width: 100%; height: 180px; background: #E2E8F0; }
-        .pet-img-container img { width: 100%; height: 100%; object-fit: cover; }
-        .pet-card-content { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem; justify-content: space-between; flex-grow: 1; }
-        .pet-subcat { font-size: 0.72rem; text-transform: uppercase; font-weight: 700; color: var(--brand-green-dark); }
-        .pet-price-tag { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; color: #D97706; }
-
-        /* 6. Pet Growth / Level System */
-        .growth-container { background: linear-gradient(135deg, #F0FDF4 0%, #E0F2FE 100%); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 4rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; box-shadow: var(--shadow-card); }
-        .never-dies-badge { background: #FEE2E2; color: #991B1B; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; width: fit-content; }
-        .growth-timeline { display: flex; flex-direction: column; gap: 1rem; background: var(--bg-card); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
-        .timeline-step { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.95rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border-color); }
-
-        /* 7. Pet Home Preview Section */
-        .home-preview-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 4rem; text-align: center; box-shadow: var(--shadow-card); }
-        .room-scene { font-size: 5rem; margin: 2rem 0; display: flex; justify-content: center; gap: 2rem; align-items: center; }
-        .customization-tags { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
-        .custom-tag { background: var(--bg-main); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; }
-
-        /* 8. Features Ecosystem Grid */
-        .features-grid-small { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-        .feature-mini-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem 1.5rem; border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow-card); display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
-        .mini-icon { font-size: 2rem; background: var(--brand-green-light); width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); }
-
-        /* 9. Coins Section */
-        .coins-section-box { background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); border: 1px solid #FDE68A; border-radius: var(--radius-lg); padding: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; box-shadow: var(--shadow-card); }
-        .wallet-display { background: var(--bg-card); border: 1px solid #FCD34D; padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); display: flex; flex-direction: column; gap: 1.2rem; }
-        .wallet-amount { font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; color: #B45309; display: flex; align-items: center; gap: 0.5rem; }
-        .wallet-mission { display: flex; justify-content: space-between; align-items: center; background: var(--bg-main); padding: 0.8rem 1.2rem; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 600; border: 1px solid var(--border-color); }
-
-        /* 10. Emotional Banner */
-        .emotional-banner { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; border-radius: var(--radius-lg); padding: 5rem 4rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; box-shadow: var(--shadow-subtle); }
-        .emotional-banner h2 { font-size: 3rem; color: white; }
-        .btn-white { background: white; color: var(--brand-green-dark); padding: 0.8rem 2rem; border-radius: var(--radius-sm); font-weight: 700; text-decoration: none; }
-
-        /* 11. Final CTA */
-        .final-cta { text-align: center; padding: 6rem 2rem; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; align-items: center; }
-        .final-cta h2 { font-size: 3rem; }
-
-        /* Modal */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: var(--transition); padding: 1.5rem; }
-        .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .pet-modal-container { background: var(--bg-card); border-radius: var(--radius-lg); width: 100%; max-width: 700px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; box-shadow: 0 25px 50px rgba(0,0,0,0.25); position: relative; }
-        .pet-img-side { background: #E2E8F0; position: relative; min-height: 280px; }
-        .pet-img-side img { width: 100%; height: 100%; object-fit: cover; }
-        .pet-content-side { padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; }
-        .close-btn { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.5); color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; }
-
-        /* Toast Alert */
-        .toast-alert { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #1E293B; color: white; padding: 0.9rem 1.8rem; border-radius: 50px; font-weight: 600; font-size: 0.95rem; z-index: 3000; transition: transform 0.4s; display: flex; align-items: center; gap: 0.6rem; }
-        .toast-alert.show { transform: translateX(-50%) translateY(0); }
-        .toast-alert.success { background: #059669; }
-        .toast-alert.error { background: #DC2626; }
-
-        /* 12. Footer */
-        footer { border-top: 1px solid var(--border-color); background: var(--bg-card); padding: 4rem 2rem 2rem 2rem; }
-        .footer-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; }
-        .footer-bottom { border-top: 1px solid var(--border-color); margin-top: 3rem; padding-top: 2rem; display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.9rem; }
-
-        .hidden { display: none !important; }
-
-        @media (max-width: 1024px) {
-            .hero, .growth-container, .coins-section-box { grid-template-columns: 1fr; text-align: center; }
-            .hero-content { align-items: center; }
-            .hero-cta { justify-content: center; }
-            .categories-grid, .pets-grid, .features-grid, .steps-container, .features-grid-small, .strip-grid { grid-template-columns: repeat(2, 1fr); }
-            .pet-modal-container { grid-template-columns: 1fr; max-width: 450px; }
-        }
-        @media (max-width: 768px) {
-            .categories-grid, .pets-grid, .features-grid, .steps-container, .features-grid-small, .strip-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
-        }
-    </style>
+  <style>
+    .glass-dark {
+      background: rgba(11, 41, 27, 0.90);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-brand-cream text-slate-800 antialiased selection:bg-brand-accent selection:text-brand-forest">
 
-    <!-- 1. Navigation Bar -->
-    <header>
-        <div class="nav-container">
-            <a href="#home" class="logo">
-                <div class="logo-icon">🐾</div>
-                DiPet
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-emerald/10 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-brand-forest flex items-center justify-center text-brand-accent shadow-md shadow-brand-forest/20">
+          <i data-lucide="paw-print" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-black tracking-tight text-brand-forest">Di<span class="text-brand-emerald">Pet</span></span>
+          <span class="text-[10px] block font-semibold text-slate-500 tracking-widest uppercase -mt-1">Realistic Pet Companion</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#demo" class="hover:text-brand-forest transition">3D Interactive Pet</a>
+        <a href="#catalog" class="hover:text-brand-forest transition">Species Catalog</a>
+        <a href="#how-it-works" class="hover:text-brand-forest transition">How DiPet Works</a>
+        <a href="#dips" class="hover:text-brand-forest transition">Dips Packages</a>
+        <a href="#faq" class="hover:text-brand-forest transition">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button class="hidden sm:inline-flex px-4 py-2 text-sm font-semibold text-brand-forest hover:bg-brand-emerald/10 rounded-xl transition">
+          Log In
+        </button>
+        <a href="#catalog" class="px-5 py-2.5 text-sm font-semibold text-white bg-brand-forest hover:bg-brand-deep rounded-xl shadow-lg shadow-brand-forest/20 transition-all">
+          Adopt Pet
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO & ULTRA-REALISTIC 3D PET SIMULATOR ================= -->
+  <section class="relative overflow-hidden pt-10 pb-16 lg:pt-14 lg:pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-6 text-center lg:text-left space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-deep text-xs font-semibold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-brand-emerald animate-ping"></span>
+            Lifelike Anatomy & Biomechanics
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-forest leading-[1.12] tracking-tight">
+            Feels Like A Real Pet. <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-deep via-brand-emerald to-emerald-600">
+              Zero Space & Travel Limits.
+            </span>
+          </h1>
+          
+          <p class="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
+            Apartment restrictions, work commitments, or travel shouldn't hold you back. Experience true companionship with lifelike muscle movements, realistic coats, and emotional loyalty.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1 text-xs font-semibold text-slate-600">
+            <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-xs">
+              <i data-lucide="shield-check" class="w-4 h-4 text-brand-emerald"></i> Permanent Pet ID (@DP)[cite: 1]
+            </span>
+            <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-xs">
+              <i data-lucide="heart" class="w-4 h-4 text-rose-500"></i> Lifetime Care (No Death)[cite: 1]
+            </span>
+            <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-xs">
+              <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i> Procedural Fur Texturing[cite: 1]
+            </span>
+          </div>
+
+          <div class="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#catalog" class="w-full sm:w-auto px-8 py-4 bg-brand-forest text-white font-semibold rounded-2xl shadow-xl shadow-brand-forest/25 hover:bg-brand-deep hover:-translate-y-0.5 transition-all text-center flex items-center justify-center gap-2">
+              <i data-lucide="sparkles" class="w-5 h-5 text-brand-accent"></i>
+              Adopt Your Pet Today
             </a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#categoriesSection">Categories</a></li>
-                <li><a href="#features">Features</a></li>
-            </ul>
-            <div class="nav-actions" id="navActionsContainer">
-                <a href="login.html" class="btn-login" id="authButton">🔒 Login</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- 2. Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="badge">🐾 Your Digital Pet Starts Here</div>
-            <h1>Your Pet. Your World. Forever.</h1>
-            <p>Love having a pet but don't have the time, space, or freedom for a real one? Meet your digital companion. Choose a pet, care for it, play with it, and watch your bond grow.</p>
-            <div class="hero-cta">
-                <a href="#categoriesSection" class="btn-primary">Explore Categories →</a>
-                <a href="#how-it-works" class="btn-secondary">How It Works</a>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="pet-stage">🐶</div>
-            <div class="floating-ui-card card-level">⭐ Level 7</div>
-            <div class="floating-ui-card card-happy">❤️ Happiness 92%</div>
-            <div class="floating-ui-card card-energy">⚡ Energy 78%</div>
-            <div class="floating-ui-card card-xp">🎯 XP 640/800</div>
-        </div>
-    </section>
-
-    <!-- 3. Trust / Concept Strip -->
-    <div class="concept-strip">
-        <div class="strip-grid">
-            <div class="strip-item"><div class="strip-icon">🐾</div><span>Choose a Pet</span></div>
-            <div class="strip-item"><div class="strip-icon">❤️</div><span>Build a Bond</span></div>
-            <div class="strip-item"><div class="strip-icon">⭐</div><span>Level Up</span></div>
-            <div class="strip-item"><div class="strip-icon">♾️</div><span>Never Lose Your Pet</span></div>
-        </div>
-    </div>
-
-    <!-- 4. "Why DiPet?" Section -->
-    <section id="features">
-        <div class="section-header">
-            <h2>A Pet That Fits Your Life</h2>
-            <p>Real pets need time, space and daily care. DiPet gives you the joy of having a companion without the pressure.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon-box">⏳</div>
-                <h3>No Time?</h3>
-                <p>"Care for your pet whenever you have a moment. Your companion waits patiently for your return."</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon-box">🏡</div>
-                <h3>No Space?</h3>
-                <p>"Your pet lives in your digital world. Perfect for apartments, dorms, and busy urban lifestyles."</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. How It Works -->
-    <section id="how-it-works">
-        <div class="section-header">
-            <h2>Meet Your New Best Friend</h2>
-            <p>Four simple steps to start your lifelong digital bond.</p>
-        </div>
-        <div class="steps-container">
-            <div class="step-card"><div class="step-number">01</div><h3>Choose</h3><p>Pick a category and select your favorite companion.</p></div>
-            <div class="step-card"><div class="step-number">02</div><h3>Name</h3><p>Give your new companion a special name.</p></div>
-            <div class="step-card"><div class="step-number">03</div><h3>Care</h3><p>Feed, play, pet and take care of your companion.</p></div>
-            <div class="step-card"><div class="step-number">04</div><h3>Grow</h3><p>Earn XP, level up and build your bond.</p></div>
-        </div>
-    </section>
-
-    <!-- 6. Master Categories & Subcategories Section -->
-    <section id="categoriesSection">
-        <div class="section-header">
-            <h2>Explore Pet Categories</h2>
-            <p>Click on any category below to browse subcategories, breeds, and companion options.</p>
+            <a href="#demo" class="w-full sm:w-auto px-6 py-4 bg-white text-brand-forest border border-slate-300/80 hover:bg-slate-50 font-semibold rounded-2xl shadow-xs transition-all text-center">
+              Interact With Live Pet
+            </a>
+          </div>
         </div>
 
-        <div id="mainCategoriesView">
-            <div class="categories-grid" id="categoriesGrid"></div>
-        </div>
-
-        <div id="subcategoriesView" class="hidden">
-            <div class="drilldown-container">
-                <div class="breadcrumb-bar">
-                    <div>
-                        <button class="back-btn" onclick="showMainCategories()">← Back to Categories</button>
-                        <h3 id="selectedCategoryTitle" style="display:inline-block; margin-left:1rem; font-size: 1.3rem;">Category</h3>
-                    </div>
-                    <div style="font-size: 0.85rem; color: var(--text-muted);">Subcategories & Breeds</div>
+        <!-- Right: 3D Living Pet Room & Realistic Quadruped Motion -->
+        <div id="demo" class="lg:col-span-6 relative">
+          <div class="relative rounded-3xl overflow-hidden glass-dark p-4 shadow-2xl border border-brand-accent/20">
+            
+            <!-- Pet Header Info -->
+            <div class="flex items-center justify-between pb-3 border-b border-white/10 text-white px-2">
+              <div class="flex items-center gap-3">
+                <div id="pet-avatar-icon" class="w-10 h-10 rounded-full bg-brand-accent/20 border border-brand-accent/40 flex items-center justify-center text-xl">
+                  🐕
                 </div>
-                <div class="pets-grid" id="subcategoriesPetsGrid"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. Pet Growth / Level System -->
-    <section>
-        <div class="growth-container">
-            <div class="growth-info">
-                <div class="never-dies-badge">❤️ Your pet never dies.</div>
-                <h2>They Grow With You</h2>
-                <p style="color: var(--text-muted); line-height: 1.6;">"Your pet's level represents your journey together. The more you care, play and interact, the stronger your bond becomes."</p>
-            </div>
-            <div class="growth-timeline">
-                <div class="timeline-step"><span>Level 1 — Baby Pet</span><span>Start</span></div>
-                <div class="timeline-step"><span>Level 10 — Best Friend</span><span>Unlocked</span></div>
-                <div class="timeline-step"><span>Level 50 — Legendary Pet</span><span>Ultimate</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. Pet Home Preview Section -->
-    <section>
-        <div class="home-preview-box">
-            <div class="section-header" style="margin-bottom: 2rem;">
-                <h2>Give Your Pet a Home</h2>
-                <p>"Customize your pet's world and make it feel like home."</p>
-            </div>
-            <div class="room-scene">
-                <span>🪴</span><span>🛏️</span><span>🐶</span><span>🦴</span><span>🎾</span>
-            </div>
-            <div class="customization-tags">
-                <span class="custom-tag">✨ New Toy</span>
-                <span class="custom-tag">🛏️ New Bed</span>
-                <span class="custom-tag">🎩 New Outfit</span>
-                <span class="custom-tag">🪴 New Decoration</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. Features Ecosystem Section -->
-    <section>
-        <div class="section-header">
-            <h2>Everything Your Pet Needs</h2>
-            <p>An immersive virtual ecosystem designed for interaction and engagement.</p>
-        </div>
-        <div class="features-grid-small">
-            <div class="feature-mini-card"><div class="mini-icon">❤️</div><h3>Friendship</h3><p>Lifelong emotional connection.</p></div>
-            <div class="feature-mini-card"><div class="mini-icon">🍖</div><h3>Feeding</h3><p>Treat your pet to snacks.</p></div>
-            <div class="feature-mini-card"><div class="mini-icon">🎾</div><h3>Playing</h3><p>Interactive mini-games.</p></div>
-            <div class="feature-mini-card"><div class="mini-icon">🛁</div><h3>Grooming</h3><p>Keep your pet spotless.</p></div>
-        </div>
-    </section>
-
-    <!-- 10. Coins & Rewards Section -->
-    <section>
-        <div class="coins-section-box">
-            <div class="growth-info">
-                <h2>Earn. Play. Upgrade.</h2>
-                <p style="color: var(--text-muted); line-height: 1.6;">"Earn coins by caring for your pet, completing missions and coming back every day. Use them to unlock food, toys, outfits and more."</p>
-            </div>
-            <div class="wallet-display">
-                <div class="wallet-amount">🪙 2,450 Coins</div>
-                <div class="wallet-mission"><span>Daily Reward Check-in</span><span>+100 Coins</span></div>
-                <div class="wallet-mission"><span>Mission Complete: Play Catch</span><span>+250 Coins</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 11. Emotional Section -->
-    <section>
-        <div class="emotional-banner">
-            <h2>Some Pets Are Forever.</h2>
-            <p>Life gets busy. Plans change. But your digital companion is always there when you come back.</p>
-            <a href="#categoriesSection" class="btn-white">Start Your Journey →</a>
-        </div>
-    </section>
-
-    <!-- 12. Final CTA Section -->
-    <section class="final-cta" id="adopt">
-        <h2>Ready to Meet Your Pet?</h2>
-        <p>Choose your companion. Give them a name. Start your journey together.</p>
-        <div style="margin-top: 1rem;">
-            <a href="#categoriesSection" class="btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Adopt Your First Pet 🐾</a>
-        </div>
-    </section>
-
-    <!-- Pet Preview Modal -->
-    <div class="modal-overlay" id="petModal">
-        <div class="pet-modal-container">
-            <button class="close-btn" onclick="closePetModal()">×</button>
-            <div class="pet-img-side">
-                <img id="modalPetImg" src="" alt="Pet Preview">
-            </div>
-            <div class="pet-content-side">
                 <div>
-                    <span id="modalPetSubcat" class="pet-subcat">Subcategory</span>
-                    <h3 id="modalPetName" style="font-size: 1.6rem; margin-top: 0.2rem;">Pet Name</h3>
-                    <div class="pet-price-tag" id="modalPetPrice" style="font-size: 1.2rem; margin-top: 0.4rem;">🪙 500 Coins</div>
+                  <div class="flex items-center gap-2">
+                    <h3 id="pet-name" class="font-bold text-lg tracking-wide text-white">Bruno</h3>
+                    <span id="pet-id-tag" class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/10 text-brand-accent">@DP000032</span>
+                  </div>
+                  <p id="pet-breed-desc" class="text-xs text-slate-400">Golden Retriever • Level 14 Companion</p>
                 </div>
-                <div style="background: var(--bg-main); padding: 0.8rem; border-radius: 8px; font-size: 0.85rem;">
-                    <div>❤️ Starting Happiness: <b>100%</b></div>
-                    <div>⭐ Starting XP: <b>0</b></div>
+              </div>
+
+              <!-- Dips Currency Indicator -->
+              <div class="flex items-center gap-1.5 bg-black/40 px-3 py-1.5 rounded-full border border-amber-400/30">
+                <i data-lucide="coins" class="w-4 h-4 text-amber-400"></i>
+                <span class="text-xs font-bold text-amber-300"><span id="dips-display">240</span> Dips</span>
+              </div>
+            </div>
+
+            <!-- Realistic 3D WebGL Canvas -->
+            <div class="relative w-full h-[350px] sm:h-[410px] rounded-2xl overflow-hidden my-3 bg-radial from-[#1e4834] via-[#0e271a] to-[#07130d] flex items-center justify-center">
+              <canvas id="pet-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
+              
+              <!-- Pet Speech / Reaction Bubble -->
+              <div id="pet-dialogue" class="absolute top-4 left-4 right-4 text-center pointer-events-none transition-all duration-300 opacity-0 transform -translate-y-2">
+                <span id="pet-dialogue-text" class="inline-block bg-white/95 text-brand-forest text-xs font-bold px-4 py-2 rounded-2xl shadow-xl border border-brand-accent/40">
+                  Sniffing happily! Ready to explore! 🐾
+                </span>
+              </div>
+
+              <!-- Motion State Tag -->
+              <div class="absolute top-3 left-3 pointer-events-none text-[10px] font-bold text-brand-accent flex items-center gap-1.5 bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-brand-accent/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-ping"></span>
+                Gait: <span id="current-motion-state" class="text-white uppercase tracking-wider">Natural Trotting</span>
+              </div>
+
+              <!-- Lighting & Interaction helper -->
+              <div class="absolute bottom-3 left-3 pointer-events-none text-[10px] text-white/60 flex items-center gap-1.5 bg-black/40 px-2.5 py-1 rounded-md">
+                <i data-lucide="move-3d" class="w-3.5 h-3.5"></i> Click & drag to inspect coat & anatomy
+              </div>
+            </div>
+
+            <!-- Realtime Health / Hunger HUD -->
+            <div class="grid grid-cols-3 gap-2 px-1 pb-3 text-white text-xs">
+              <div class="bg-white/5 rounded-xl p-2.5 border border-white/5">
+                <div class="flex justify-between items-center mb-1 text-[11px] text-slate-300">
+                  <span class="flex items-center gap-1"><i data-lucide="heart" class="w-3 h-3 text-rose-400"></i> Vitality</span>
+                  <span id="val-health" class="font-bold text-emerald-400">98%</span>
                 </div>
-                <button onclick="attemptAdopt()" class="btn-primary" style="justify-content: center; width: 100%;">Adopt This Pet →</button>
+                <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                  <div id="bar-health" class="bg-emerald-400 h-full rounded-full transition-all duration-500" style="width: 98%"></div>
+                </div>
+              </div>
+
+              <div class="bg-white/5 rounded-xl p-2.5 border border-white/5">
+                <div class="flex justify-between items-center mb-1 text-[11px] text-slate-300">
+                  <span class="flex items-center gap-1"><i data-lucide="smile" class="w-3 h-3 text-amber-400"></i> Mood</span>
+                  <span id="val-mood" class="font-bold text-amber-400">Energetic</span>
+                </div>
+                <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                  <div id="bar-mood" class="bg-amber-400 h-full rounded-full transition-all duration-500" style="width: 92%"></div>
+                </div>
+              </div>
+
+              <div class="bg-white/5 rounded-xl p-2.5 border border-white/5">
+                <div class="flex justify-between items-center mb-1 text-[11px] text-slate-300">
+                  <span class="flex items-center gap-1"><i data-lucide="utensils" class="w-3 h-3 text-cyan-400"></i> Nutrition</span>
+                  <span id="val-hunger" class="font-bold text-cyan-400">80%</span>
+                </div>
+                <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                  <div id="bar-hunger" class="bg-cyan-400 h-full rounded-full transition-all duration-500" style="width: 80%"></div>
+                </div>
+              </div>
             </div>
+
+            <!-- Interactive Action Dock -->
+            <div class="grid grid-cols-4 gap-2 pt-2 border-t border-white/10">
+              <button onclick="petAction('feed')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
+                <i data-lucide="cookie" class="w-4 h-4 mb-1 text-amber-400 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[11px] font-medium">Feed Meal</span>
+              </button>
+              
+              <button onclick="petAction('water')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
+                <i data-lucide="droplet" class="w-4 h-4 mb-1 text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[11px] font-medium">Water Bowl</span>
+              </button>
+
+              <button onclick="petAction('walk')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
+                <i data-lucide="footprints" class="w-4 h-4 mb-1 text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[11px] font-medium">Trot / Sprint</span>
+              </button>
+
+              <button onclick="petAction('train')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
+                <i data-lucide="zap" class="w-4 h-4 mb-1 text-purple-400 group-hover:scale-110 transition-transform"></i>
+                <span class="text-[11px] font-medium">Sit & Wag</span>
+              </button>
+            </div>
+          </div>
         </div>
+
+      </div>
     </div>
+  </section>
 
-    <!-- Toast Alert -->
-    <div class="toast-alert" id="toastAlert">
-        <span id="toastIcon">⚠️</span>
-        <span id="toastMsg">Please login first!</span>
+  <!-- ================= CATEGORIES & SUB-CATEGORIES DIRECTORY ================= -->
+  <section id="catalog" class="py-20 bg-brand-softbg/60 border-t border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-bold text-brand-emerald tracking-widest uppercase">Ecosystem Directory</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-forest mt-2">All Species & Sub-Breed Categories</h2>
+        <p class="text-slate-600 mt-2 text-sm sm:text-base">
+          Every breed carries distinct anatomical scaling, metabolic schedules, and realistic personality profiles.
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
+        <button onclick="filterCategory('all', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-brand-forest text-white transition shadow-xs">All Breeds</button>
+        <button onclick="filterCategory('dogs', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐕 Dogs</button>
+        <button onclick="filterCategory('cats', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐈 Cats</button>
+        <button onclick="filterCategory('birds', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🦜 Birds</button>
+        <button onclick="filterCategory('aquatic', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐠 Fish & Aquatic</button>
+        <button onclick="filterCategory('small', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐹 Small Mammals</button>
+        <button onclick="filterCategory('reptiles', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🦎 Reptiles</button>
+        <button onclick="filterCategory('exotic', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🦁 Wild & Exotic</button>
+      </div>
+
+      <!-- Dynamic Cards Grid -->
+      <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
     </div>
+  </section>
 
-    <!-- 13. Footer -->
-    <footer>
-        <div class="footer-container">
-            <div>
-                <a href="#home" class="logo"><div class="logo-icon">🐾</div>DiPet</a>
-                <p style="color: var(--text-muted); margin-top:0.5rem;">"Your Pet. Your World. Forever."</p>
-            </div>
-            <div>
-                <h4 style="margin-bottom:0.8rem;">Legal & Disclaimer</h4>
-                <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 350px;">DiPet provides virtual digital companions only. No real animals are sold, adopted, or delivered.</p>
-            </div>
+  <!-- ================= HOW DIPET WORKS ================= -->
+  <section id="how-it-works" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold text-brand-emerald tracking-widest uppercase">Empathetic Lifecycle</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-forest mt-2">Not A Game. A Realistic Bond.</h2>
+        <p class="text-slate-600 mt-3 text-sm sm:text-base">
+          DiPet is designed around consistent daily care, physiological aging, and psychological bond growth[cite: 1].
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-3xl bg-brand-softbg/40 border border-slate-200/80 group hover:border-brand-emerald/40 transition">
+          <div class="w-12 h-12 rounded-2xl bg-brand-forest text-brand-accent flex items-center justify-center font-black text-xl mb-6 shadow-md">
+            1
+          </div>
+          <h3 class="text-xl font-bold text-brand-forest mb-3">Authentic Adoption</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Select breed, customize physical coat patterns, lock in irreversible gender, and receive a platform-wide registered Pet ID (e.g. <span class="font-mono text-brand-deep font-semibold">@DP000032</span>)[cite: 1].
+          </p>
         </div>
-        <div class="footer-bottom">
-            <div>© 2026 DiPet. All rights reserved.</div>
+
+        <div class="p-8 rounded-3xl bg-brand-softbg/40 border border-slate-200/80 group hover:border-brand-emerald/40 transition">
+          <div class="w-12 h-12 rounded-2xl bg-brand-forest text-brand-accent flex items-center justify-center font-black text-xl mb-6 shadow-md">
+            2
+          </div>
+          <h3 class="text-xl font-bold text-brand-forest mb-3">Metabolic Care Engine</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Feed, hydrate, train, and walk on species-tailored schedules[cite: 1]. The backend simulates elapsed-time biology without punishing sudden short delays[cite: 1].
+          </p>
         </div>
-    </footer>
 
-    <!-- JavaScript Logic -->
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const userEmail = localStorage.getItem("dipet_user_email");
-            const navActions = document.getElementById('navActionsContainer');
+        <div class="p-8 rounded-3xl bg-brand-softbg/40 border border-slate-200/80 group hover:border-brand-emerald/40 transition">
+          <div class="w-12 h-12 rounded-2xl bg-brand-forest text-brand-accent flex items-center justify-center font-black text-xl mb-6 shadow-md">
+            3
+          </div>
+          <h3 class="text-xl font-bold text-brand-forest mb-3">No Emotional Loss</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Observe visual scaling from baby puppy to muscular adult[cite: 1]. Even in 90-day extreme inactivity, pets disable gracefully but <strong>never permanently die</strong>[cite: 1].
+          </p>
+        </div>
+      </div>
 
-            if (userEmail) {
-                const username = userEmail.split('@')[0];
-                const firstLetter = username.charAt(0).toUpperCase();
+    </div>
+  </section>
 
-                navActions.innerHTML = `
-                    <div class="user-profile-pill" onclick="handleLogout()" title="Click to Logout">
-                        <div class="user-avatar">${firstLetter}</div>
-                        <span class="user-name">${username}</span>
-                    </div>
-                `;
-            } else {
-                navActions.innerHTML = `<a href="login.html" class="btn-login" id="authButton">🔒 Login</a>`;
-            }
-        });
+  <!-- ================= DIPS PACKAGES ================= -->
+  <section id="dips" class="py-20 bg-brand-forest text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-bold text-brand-accent tracking-widest uppercase">Internal Virtual Currency</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Dips: Currency Built For Care</h2>
+        <p class="text-slate-300 mt-3 text-sm sm:text-base">
+          Standard conversion: <strong>₹1 = 2 Dips</strong>[cite: 1]. Dips never expire and fuel nutrition bags, grooming kits, and vet checkups[cite: 1].
+        </p>
+      </div>
 
-        function handleLogout() {
-            if (confirm("Do you want to log out of your account?")) {
-                localStorage.removeItem("dipet_user_email");
-                window.location.reload();
-            }
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 transition">
+          <span class="text-xs text-slate-400 block mb-1">Starter</span>
+          <p class="text-2xl font-black text-brand-accent">30</p>
+          <span class="text-[11px] text-slate-300">Dips</span>
+          <div class="mt-4 pt-3 border-t border-white/10 font-bold text-sm">₹15</div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 transition">
+          <span class="text-xs text-slate-400 block mb-1">Care Pack</span>
+          <p class="text-2xl font-black text-brand-accent">120</p>
+          <span class="text-[11px] text-slate-300">Dips</span>
+          <div class="mt-4 pt-3 border-t border-white/10 font-bold text-sm">₹50</div>
+        </div>
+
+        <div class="bg-brand-emerald/20 border border-brand-accent/40 rounded-2xl p-4 text-center shadow-lg relative">
+          <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-forest text-[9px] font-black px-2 py-0.5 rounded-full uppercase">Value</span>
+          <span class="text-xs text-brand-accent block mb-1">Popular</span>
+          <p class="text-2xl font-black text-white">260</p>
+          <span class="text-[11px] text-slate-300">Dips</span>
+          <div class="mt-4 pt-3 border-t border-white/10 font-bold text-sm">₹100</div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 transition">
+          <span class="text-xs text-slate-400 block mb-1">Pro Care</span>
+          <p class="text-2xl font-black text-brand-accent">1,350</p>
+          <span class="text-[11px] text-slate-300">Dips</span>
+          <div class="mt-4 pt-3 border-t border-white/10 font-bold text-sm">₹500</div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 transition">
+          <span class="text-xs text-slate-400 block mb-1">Master</span>
+          <p class="text-2xl font-black text-brand-accent">2,700</p>
+          <span class="text-[11px] text-slate-300">Dips</span>
+          <div class="mt-4 pt-3 border-t border-white/10 font-bold text-sm">₹1,000</div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 transition">
+          <span class="text-xs text-slate-400 block mb-1">Sanctuary</span>
+          <p class="text-2xl font-black text-brand-accent">4,500</p>
+          <span class="text-[11px] text-slate-300">Dips</span>
+          <div class="mt-4 pt-3 border-t border-white/10 font-bold text-sm">₹1,500</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq" class="py-20 bg-brand-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-extrabold text-brand-forest">Frequently Asked Questions</h2>
+        <p class="text-slate-600 mt-2 text-sm">Insights on realism, lifespans, and platform safety.</p>
+      </div>
+
+      <div class="space-y-4">
+        <details class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs" open>
+          <summary class="font-bold text-brand-forest cursor-pointer flex justify-between items-center list-none">
+            <span>What happens if work keeps me away for several days?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+          </summary>
+          <p class="text-sm text-slate-600 mt-4 leading-relaxed">
+            DiPet implements non-punitive gradual progression[cite: 1]. Missing a couple of meals causes mild sadness and hunger, but won't trigger critical illness[cite: 1]. Prolonged inactivity (up to 90 days) safely disables the pet, ready to be revitalized anytime[cite: 1]. <strong>Pets never die.</strong>[cite: 1]
+          </p>
+        </details>
+
+        <details class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs">
+          <summary class="font-bold text-brand-forest cursor-pointer flex justify-between items-center list-none">
+            <span>How realistic are pet reactions and vocalizations?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+          </summary>
+          <p class="text-sm text-slate-600 mt-4 leading-relaxed">
+            Pets incorporate organic breathing, sniffing motions, dynamic tail wagging based on emotional arousal, and breed-accurate audio cues (barks, whines, purrs)[cite: 1].
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-brand-forest text-white/80 py-12 border-t border-brand-emerald/20 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-4">
+        <p>© 2026 DiPet Inc. (dipet.in). All rights reserved.</p>
+        <p>Ultra-Realistic 3D Digital Pet Adoption & Companionship Platform.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= THREE.JS ULTRA-REALISTIC BIO-RIG ENGINE ================= -->
+  <script>
+    lucide.createIcons();
+
+    // Comprehensive Breed Catalog
+    const petDatabase = [
+      { name: "Golden Retriever", cat: "dogs", icon: "🐕", tag: "@DP-Dog", desc: "Gentle, active swimmer, rich lustrous golden coat.", feed: "2-3 times/day", status: "Available", coatColor: 0xD4943E },
+      { name: "Labrador", cat: "dogs", icon: "🦮", tag: "@DP-Dog", desc: "Athletic, highly obedient, water-resistant coat.", feed: "2-3 times/day", status: "Available", coatColor: 0x2A2421 },
+      { name: "German Shepherd", cat: "dogs", icon: "🐕‍🦺", tag: "@DP-Dog", desc: "Alert posture, dual-tone muscular anatomy.", feed: "2 times/day", status: "Available", coatColor: 0x935B2B },
+      { name: "Beagle", cat: "dogs", icon: "🐶", tag: "@DP-Dog", desc: "Compact hound, tri-color coat, agile gait.", feed: "2 times/day", status: "Available", coatColor: 0xC67A38 },
+      { name: "Pug", cat: "dogs", icon: "🐾", tag: "@DP-Dog", desc: "Wrinkled muzzle, curled tail, gentle low-energy companion.", feed: "2 times/day", status: "Available", coatColor: 0xDECAA8 },
+      
+      { name: "Persian Cat", cat: "cats", icon: "🐈", tag: "@DP-Cat", desc: "Fluffy dense fur, round copper eyes, calm.", feed: "2 times/day", status: "Available", coatColor: 0xEAEAEA },
+      { name: "Siamese Cat", cat: "cats", icon: "🐱", tag: "@DP-Cat", desc: "Sleek body, dark point-coloration, vivid blue eyes.", feed: "2 times/day", status: "Available", coatColor: 0xD6C7B2 },
+      { name: "British Shorthair", cat: "cats", icon: "🐈‍⬛", tag: "@DP-Cat", desc: "Dense plush coat, sturdy build, placid.", feed: "2 times/day", status: "Available", coatColor: 0x7E858E },
+      
+      { name: "Parakeet / Budgie", cat: "birds", icon: "🦜", tag: "@DP-Bird", desc: "Vibrant yellow-green plumage, cheerful whistle.", feed: "Small feeds", status: "Available", coatColor: 0x6DBE45 },
+      { name: "Cockatiel", cat: "birds", icon: "🪶", tag: "@DP-Bird", desc: "Sulfur crest, expressive cheek spots.", feed: "Twice daily", status: "Available", coatColor: 0xDAD6C8 },
+      
+      { name: "Crown Goldfish", cat: "aquatic", icon: "🐠", tag: "@DP-Aqua", desc: "Translucent fin drapery, calming aquarium swimmer.", feed: "Micro-feeds", status: "Available", coatColor: 0xFA6900 },
+      { name: "Betta Fish", cat: "aquatic", icon: "🐟", tag: "@DP-Aqua", desc: "Iridescent flowing veil fins, solitary grace.", feed: "Micro pellets", status: "Available", coatColor: 0x1E5799 },
+      
+      { name: "Syrian Hamster", cat: "small", icon: "🐹", tag: "@DP-Pocket", desc: "Plump cheeks, nocturnal foraging instinct.", feed: "Seed mix", status: "Available", coatColor: 0xCE955B },
+      { name: "Holland Lop", cat: "small", icon: "🐇", tag: "@DP-Pocket", desc: "Drooping velvet ears, compact hopping gait.", feed: "Timothy hay", status: "Available", coatColor: 0xF3ECE2 },
+      
+      { name: "Bearded Dragon", cat: "reptiles", icon: "🦎", tag: "@DP-Reptile", desc: "Textured scales, docile basking behavior.", feed: "Greens & bugs", status: "Coming Soon", coatColor: 0xA28659 },
+      { name: "Savannah Lion", cat: "exotic", icon: "🦁", tag: "@DP-Wild", desc: "Thick mane, powerful biomechanics, apex roar.", feed: "Nutritional blocks", status: "Special Event", coatColor: 0xC89343 }
+    ];
+
+    function renderCatalog(filter = 'all') {
+      const container = document.getElementById('catalog-grid');
+      container.innerHTML = '';
+      const list = filter === 'all' ? petDatabase : petDatabase.filter(p => p.cat === filter);
+
+      list.forEach(pet => {
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-3xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group";
+        card.innerHTML = `
+          <div>
+            <div class="relative w-full h-40 rounded-2xl overflow-hidden bg-brand-softbg flex items-center justify-center mb-4 group-hover:scale-[1.02] transition-transform duration-300">
+              <span class="text-5xl group-hover:scale-110 transition-transform duration-300">${pet.icon}</span>
+              <span class="absolute bottom-2 right-2 bg-brand-forest text-white px-2 py-0.5 rounded text-[10px] font-mono">${pet.tag}</span>
+            </div>
+            <h3 class="font-bold text-base text-brand-forest">${pet.name}</h3>
+            <p class="text-xs text-slate-500 mt-1 line-clamp-2">${pet.desc}</p>
+            <div class="mt-3 text-[11px] text-slate-600">
+              <span class="font-semibold text-slate-800">Feeding Cycle:</span> ${pet.feed}
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-slate-400 block">Status</span>
+              <span class="text-xs font-bold text-brand-emerald">${pet.status}</span>
+            </div>
+            <button onclick="selectPet('${pet.name}', '${pet.icon}', ${pet.coatColor})" class="px-3.5 py-1.5 bg-brand-forest hover:bg-brand-deep text-white font-semibold text-xs rounded-xl transition shadow-xs">
+              Preview Pet
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        b.classList.remove('bg-brand-forest', 'text-white');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      btn.classList.add('bg-brand-forest', 'text-white');
+      btn.classList.remove('bg-white', 'text-slate-700');
+      renderCatalog(cat);
+    }
+
+    function selectPet(name, icon, coatColor) {
+      document.getElementById('pet-name').innerText = name;
+      document.getElementById('pet-avatar-icon').innerText = icon;
+      document.getElementById('pet-breed-desc').innerText = `${name} • Lifelong Companion`;
+      
+      if (coatMaterial && coatColor) {
+        coatMaterial.color.setHex(coatColor);
+      }
+      triggerDialogue(`Inspecting ${name}! Anatomical posture updated.`);
+      const demoSec = document.getElementById('demo');
+      demoSec.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function triggerDialogue(text) {
+      const bubble = document.getElementById('pet-dialogue');
+      const textElem = document.getElementById('pet-dialogue-text');
+      textElem.innerText = text;
+      bubble.classList.remove('opacity-0', '-translate-y-2');
+      bubble.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        bubble.classList.remove('opacity-100', 'translate-y-0');
+        bubble.classList.add('opacity-0', '-translate-y-2');
+      }, 2600);
+    }
+
+    let petStats = { health: 98, mood: 92, hunger: 80, dips: 240 };
+    let currentAnimationMode = 'walk'; // 'walk', 'run', 'eat', 'sit'
+
+    function updateHUD() {
+      document.getElementById('bar-health').style.width = petStats.health + '%';
+      document.getElementById('val-health').innerText = petStats.health + '%';
+      document.getElementById('bar-mood').style.width = petStats.mood + '%';
+      document.getElementById('val-mood').innerText = petStats.mood > 75 ? 'Energetic' : 'Calm';
+      document.getElementById('bar-hunger').style.width = petStats.hunger + '%';
+      document.getElementById('val-hunger').innerText = petStats.hunger + '%';
+      document.getElementById('dips-display').innerText = petStats.dips;
+      document.getElementById('current-motion-state').innerText = 
+        currentAnimationMode === 'walk' ? 'Natural Trotting' : 
+        currentAnimationMode === 'run' ? 'Playful Sprint' : 
+        currentAnimationMode === 'sit' ? 'Alert Sitting' : 'Nourishing';
+    }
+
+    function petAction(action) {
+      if (action === 'feed') {
+        currentAnimationMode = 'eat';
+        petStats.hunger = Math.min(100, petStats.hunger + 15);
+        petStats.dips = Math.max(0, petStats.dips - 5);
+        triggerDialogue("Crunch crunch! Fresh organic kibble eaten! 🍖");
+        setTimeout(() => { currentAnimationMode = 'walk'; updateHUD(); }, 3200);
+      } else if (action === 'water') {
+        petStats.health = Math.min(100, petStats.health + 2);
+        triggerDialogue("Lapping pure water from the bowl! 💧");
+      } else if (action === 'walk') {
+        currentAnimationMode = currentAnimationMode === 'run' ? 'walk' : 'run';
+        petStats.mood = Math.min(100, petStats.mood + 8);
+        triggerDialogue(currentAnimationMode === 'run' ? "Full kinetic sprint! Zoomies mode! 💨" : "Relaxed natural trotting gait! 🐾");
+      } else if (action === 'train') {
+        currentAnimationMode = 'sit';
+        petStats.mood = Math.min(100, petStats.mood + 5);
+        triggerDialogue("Sat obediently! Watching you attentively! 🐕");
+        setTimeout(() => { currentAnimationMode = 'walk'; updateHUD(); }, 3500);
+      }
+      updateHUD();
+    }
+
+    // ================= REALISTIC 3D GRAPHICS & SKELETAL RIG =================
+    let scene, camera, renderer, coatMaterial;
+    let dogRig = {
+      root: null,
+      torso: null,
+      chest: null,
+      neck: null,
+      head: null,
+      snout: null,
+      jaw: null,
+      eyes: [],
+      ears: [],
+      tailNodes: [],
+      frontLeft: {},
+      frontRight: {},
+      backLeft: {},
+      backRight: {}
+    };
+
+    // 1. Procedural Fine-Fur Texture Generator for Organic Photorealism
+    function createOrganicFurTexture() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 512;
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = '#DCA354';
+      ctx.fillRect(0, 0, 512, 512);
+
+      // Fine hair stroke simulation
+      for (let i = 0; i < 45000; i++) {
+        const x = Math.random() * 512;
+        const y = Math.random() * 512;
+        const length = 4 + Math.random() * 8;
+        const alpha = 0.08 + Math.random() * 0.12;
+
+        ctx.strokeStyle = Math.random() > 0.5 ? `rgba(255, 235, 195, ${alpha})` : `rgba(130, 80, 20, ${alpha})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + Math.sin(y * 0.05) * 2, y + length);
+        ctx.stroke();
+      }
+
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.wrapT = THREE.RepeatWrapping;
+      texture.repeat.set(3, 3);
+      return texture;
+    }
+
+    function initRealisticPet() {
+      const container = document.getElementById('pet-3d-canvas');
+      const width = container.clientWidth || 400;
+      const height = container.clientHeight || 410;
+
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
+      camera.position.set(0, 1.6, 5.2);
+
+      renderer = new THREE.WebGLRenderer({ canvas: container, alpha: true, antialias: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+      // Lighting Rig for Natural Animal Depth
+      const ambientLight = new THREE.AmbientLight(0xfff5ea, 1.2);
+      scene.add(ambientLight);
+
+      // Sunlight
+      const sunLight = new THREE.DirectionalLight(0xfff1db, 1.8);
+      sunLight.position.set(4, 8, 5);
+      sunLight.castShadow = true;
+      sunLight.shadow.mapSize.width = 1024;
+      sunLight.shadow.mapSize.height = 1024;
+      scene.add(sunLight);
+
+      // Soft ground bounce light
+      const groundBounce = new THREE.DirectionalLight(0x0B291B, 0.8);
+      groundBounce.position.set(0, -5, 0);
+      scene.add(groundBounce);
+
+      // Rim light for fur contours
+      const rimLight = new THREE.DirectionalLight(0x34d399, 0.9);
+      rimLight.position.set(-5, 2, -4);
+      scene.add(rimLight);
+
+      // Materials
+      const furTex = createOrganicFurTexture();
+      coatMaterial = new THREE.MeshStandardMaterial({
+        color: 0xD49137, // Golden Retriever Default
+        map: furTex,
+        roughness: 0.82,
+        metalness: 0.05
+      });
+
+      const underbellyMat = new THREE.MeshStandardMaterial({
+        color: 0xF7EBD4,
+        roughness: 0.85,
+        map: furTex
+      });
+
+      const wetNoseMat = new THREE.MeshStandardMaterial({
+        color: 0x181312,
+        roughness: 0.15, // High specularity for realistic wet nose
+        metalness: 0.1
+      });
+
+      const eyeGlossMat = new THREE.MeshStandardMaterial({
+        color: 0x110C0A,
+        roughness: 0.05,
+        metalness: 0.2
+      });
+
+      dogRig.root = new THREE.Group();
+
+      // Torso / Ribcage
+      const chestGeo = new THREE.SphereGeometry(0.85, 32, 24);
+      chestGeo.scale(1.05, 1.15, 1.25);
+      dogRig.chest = new THREE.Mesh(chestGeo, coatMaterial);
+      dogRig.chest.position.set(0, 0.2, 0.4);
+      dogRig.chest.castShadow = true;
+      dogRig.root.add(dogRig.chest);
+
+      // Flank / Pelvis
+      const rearGeo = new THREE.SphereGeometry(0.72, 32, 24);
+      rearGeo.scale(0.95, 1.05, 1.15);
+      dogRig.torso = new THREE.Mesh(rearGeo, coatMaterial);
+      dogRig.torso.position.set(0, 0.15, -0.75);
+      dogRig.torso.castShadow = true;
+      dogRig.root.add(dogRig.torso);
+
+      // Neck
+      const neckGeo = new THREE.CylinderGeometry(0.35, 0.48, 0.7, 24);
+      dogRig.neck = new THREE.Mesh(neckGeo, coatMaterial);
+      dogRig.neck.position.set(0, 0.75, 0.85);
+      dogRig.neck.rotation.x = -Math.PI / 5;
+      dogRig.root.add(dogRig.neck);
+
+      // Head
+      dogRig.head = new THREE.Group();
+      dogRig.head.position.set(0, 1.15, 1.15);
+
+      const skullGeo = new THREE.SphereGeometry(0.55, 32, 24);
+      skullGeo.scale(0.95, 0.9, 1.05);
+      const skull = new THREE.Mesh(skullGeo, coatMaterial);
+      dogRig.head.add(skull);
+
+      // Snout (Tapered Canine Muzzle)
+      const muzzleGeo = new THREE.CylinderGeometry(0.2, 0.32, 0.6, 24);
+      muzzleGeo.scale(1.1, 0.9, 1.2);
+      dogRig.snout = new THREE.Mesh(muzzleGeo, underbellyMat);
+      dogRig.snout.position.set(0, -0.15, 0.6);
+      dogRig.snout.rotation.x = Math.PI / 2.2;
+      dogRig.head.add(dogRig.snout);
+
+      // Wet Specular Nose with Nostrils
+      const nose = new THREE.Mesh(new THREE.SphereGeometry(0.1, 16, 16), wetNoseMat);
+      nose.scale.set(1.4, 0.9, 1);
+      nose.position.set(0, -0.06, 0.95);
+      dogRig.head.add(nose);
+
+      // Lifelike Eyes with Depth & Highlights
+      function createRealisticEye(x) {
+        const eyeGroup = new THREE.Group();
+        const eyeball = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), eyeGlossMat);
+        eyeGroup.add(eyeball);
+
+        // Corneal Glint (White Specular Dot)
+        const glint = new THREE.Mesh(new THREE.SphereGeometry(0.018, 8, 8), new THREE.MeshBasicMaterial({ color: 0xFFFFFF }));
+        glint.position.set(0.02, 0.03, 0.07);
+        eyeGroup.add(glint);
+
+        eyeGroup.position.set(x, 0.12, 0.45);
+        return eyeGroup;
+      }
+
+      const leftEye = createRealisticEye(-0.25);
+      const rightEye = createRealisticEye(0.25);
+      dogRig.head.add(leftEye);
+      dogRig.head.add(rightEye);
+      dogRig.eyes = [leftEye, rightEye];
+
+      // Floppy Ears
+      function createEar(x, rotZ) {
+        const earGroup = new THREE.Group();
+        earGroup.position.set(x, 0.2, 0.05);
+        const earMesh = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.65, 0.32), coatMaterial);
+        earMesh.position.y = -0.28;
+        earMesh.rotation.z = rotZ;
+        earGroup.add(earMesh);
+        return earGroup;
+      }
+
+      const leftEar = createEar(-0.48, 0.25);
+      const rightEar = createEar(0.48, -0.25);
+      dogRig.head.add(leftEar);
+      dogRig.head.add(rightEar);
+      dogRig.ears = [leftEar, rightEar];
+
+      dogRig.root.add(dogRig.head);
+
+      // Articulated Multi-Joint Legs (Shoulder/Hip, Knee/Hock, Paw)
+      function buildArticulatedLeg(x, z, isRear) {
+        const hipGroup = new THREE.Group();
+        hipGroup.position.set(x, isRear ? 0.25 : 0.2, z);
+
+        // Thigh / Upper Shoulder
+        const thighGeo = new THREE.CylinderGeometry(0.18, 0.13, 0.55, 16);
+        const thigh = new THREE.Mesh(thighGeo, coatMaterial);
+        thigh.position.y = -0.22;
+        thigh.castShadow = true;
+        hipGroup.add(thigh);
+
+        // Knee / Hock Pivot
+        const kneeGroup = new THREE.Group();
+        kneeGroup.position.set(0, -0.45, 0);
+
+        const shinGeo = new THREE.CylinderGeometry(0.12, 0.09, 0.55, 16);
+        const shin = new THREE.Mesh(shinGeo, coatMaterial);
+        shin.position.y = -0.22;
+        shin.position.z = isRear ? -0.06 : 0.02; // Anatomical canine backward hock bend
+        shin.castShadow = true;
+        kneeGroup.add(shin);
+
+        // Paw
+        const pawGeo = new THREE.SphereGeometry(0.13, 16, 12);
+        pawGeo.scale(1, 0.65, 1.4);
+        const paw = new THREE.Mesh(pawGeo, underbellyMat);
+        paw.position.set(0, -0.5, 0.08);
+        kneeGroup.add(paw);
+
+        hipGroup.add(kneeGroup);
+        dogRig.root.add(hipGroup);
+
+        return { hip: hipGroup, knee: kneeGroup };
+      }
+
+      dogRig.frontLeft = buildArticulatedLeg(-0.48, 0.55, false);
+      dogRig.frontRight = buildArticulatedLeg(0.48, 0.55, false);
+      dogRig.backLeft = buildArticulatedLeg(-0.45, -0.75, true);
+      dogRig.backRight = buildArticulatedLeg(0.45, -0.75, true);
+
+      // Multi-Segment Flexible Spine Tail (Cylinders in chain)
+      let parentNode = dogRig.torso;
+      for (let i = 0; i < 4; i++) {
+        const node = new THREE.Group();
+        node.position.set(0, i === 0 ? 0.35 : 0, i === 0 ? -0.7 : -0.2);
+        const tailMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.08 - i * 0.015, 0.1 - i * 0.015, 0.25, 12), coatMaterial);
+        tailMesh.position.z = -0.12;
+        tailMesh.rotation.x = -Math.PI / 3.2;
+        node.add(tailMesh);
+        parentNode.add(node);
+        dogRig.tailNodes.push(node);
+        parentNode = node;
+      }
+
+      // Cozy Environment Carpet / Platform
+      const turfDisc = new THREE.Mesh(
+        new THREE.CylinderGeometry(2.8, 2.8, 0.12, 32),
+        new THREE.MeshStandardMaterial({ color: 0x092116, roughness: 0.9 })
+      );
+      turfDisc.position.set(0, -1.3, 0);
+      turfDisc.receiveShadow = true;
+      scene.add(turfDisc);
+
+      scene.add(dogRig.root);
+
+      // Mouse Orbit Drag Controls
+      let isDragging = false;
+      let prevMouseX = 0;
+      container.addEventListener('mousedown', e => { isDragging = true; prevMouseX = e.clientX; });
+      window.addEventListener('mouseup', () => isDragging = false);
+      window.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        dogRig.root.rotation.y += (e.clientX - prevMouseX) * 0.01;
+        prevMouseX = e.clientX;
+      });
+
+      window.addEventListener('resize', () => {
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+      });
+
+      animateBioLoop();
+    }
+
+    // Realistic Biomechanical Quadruped Gait Loop
+    let clock = new THREE.Clock();
+    function animateBioLoop() {
+      requestAnimationFrame(animateBioLoop);
+      const t = clock.getElapsedTime();
+
+      if (dogRig.root) {
+        // 1. Organic Respiration Breathing (Chest expands & contracts)
+        const breath = Math.sin(t * 2.2) * 0.025;
+        dogRig.chest.scale.set(1.05 + breath, 1.15 + breath, 1.25);
+
+        // 2. Realistic Head & Sniffing Curiosity
+        dogRig.head.rotation.y = Math.sin(t * 1.2) * 0.15;
+        dogRig.head.rotation.x = Math.sin(t * 2.5) * 0.06;
+
+        if (currentAnimationMode === 'walk') {
+          // Canine Trotting Gait (Diagonal Leg Pairs Synchronized)
+          const walkSpeed = 5;
+          const legSwing = 0.45;
+
+          dogRig.frontLeft.hip.rotation.x = Math.sin(t * walkSpeed) * legSwing;
+          dogRig.backRight.hip.rotation.x = Math.sin(t * walkSpeed) * legSwing;
+
+          dogRig.frontRight.hip.rotation.x = -Math.sin(t * walkSpeed) * legSwing;
+          dogRig.backLeft.hip.rotation.x = -Math.sin(t * walkSpeed) * legSwing;
+
+          // Knee flexion during movement
+          dogRig.frontLeft.knee.rotation.x = Math.max(0, -Math.sin(t * walkSpeed) * 0.4);
+          dogRig.frontRight.knee.rotation.x = Math.max(0, Math.sin(t * walkSpeed) * 0.4);
+
+          // Spine & Body vertical sway
+          dogRig.root.position.y = -0.15 + Math.abs(Math.sin(t * walkSpeed * 2)) * 0.06;
+          dogRig.torso.rotation.z = Math.sin(t * walkSpeed) * 0.03;
+
+          // Organic Multi-Joint Tail Wag
+          dogRig.tailNodes.forEach((node, idx) => {
+            node.rotation.y = Math.sin(t * 8 + idx * 0.5) * 0.25;
+          });
+
+        } else if (currentAnimationMode === 'run') {
+          // High-Energy Sprint / Gallop
+          const sprintSpeed = 10;
+          dogRig.frontLeft.hip.rotation.x = Math.sin(t * sprintSpeed) * 0.8;
+          dogRig.frontRight.hip.rotation.x = Math.sin(t * sprintSpeed) * 0.8;
+          dogRig.backLeft.hip.rotation.x = Math.sin(t * sprintSpeed + 0.6) * 0.8;
+          dogRig.backRight.hip.rotation.x = Math.sin(t * sprintSpeed + 0.6) * 0.8;
+
+          dogRig.root.position.y = -0.15 + Math.abs(Math.sin(t * sprintSpeed)) * 0.18;
+
+          dogRig.tailNodes.forEach((node, idx) => {
+            node.rotation.y = Math.sin(t * 14 + idx * 0.4) * 0.35;
+          });
+
+        } else if (currentAnimationMode === 'sit') {
+          // Sitting Position: Lowered pelvis & folded rear hocks
+          dogRig.torso.position.y = -0.25;
+          dogRig.backLeft.hip.rotation.x = -1.1;
+          dogRig.backRight.hip.rotation.x = -1.1;
+          dogRig.frontLeft.hip.rotation.x = 0.15;
+          dogRig.frontRight.hip.rotation.x = 0.15;
+          dogRig.root.position.y = -0.25;
+
+          // Gentle attentive tail sweep on floor
+          dogRig.tailNodes.forEach((node, idx) => {
+            node.rotation.y = Math.sin(t * 5 + idx * 0.3) * 0.2;
+          });
+
+        } else if (currentAnimationMode === 'eat') {
+          // Eating from floor
+          dogRig.head.rotation.x = 0.55 + Math.sin(t * 8) * 0.08;
+          dogRig.root.position.y = -0.25;
         }
 
-        function showToast(message, type = "error") {
-            const toast = document.getElementById('toastAlert');
-            document.getElementById('toastMsg').textContent = message;
-            toast.className = `toast-alert show ${type}`;
-            document.getElementById('toastIcon').textContent = type === "success" ? "✅" : "⚠️";
-            setTimeout(() => { toast.classList.remove('show'); }, 3500);
-        }
+        // Natural Ear Jiggle
+        dogRig.ears[0].rotation.x = Math.sin(t * 4) * 0.12;
+        dogRig.ears[1].rotation.x = Math.sin(t * 4) * 0.12;
+      }
 
-        const petsData = [
-            { name: "Chihuahua", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 600 Coins", image: "https://images.unsplash.com/photo-1591768793439-1f6e2b69f4c3?auto=format&fit=crop&w=800&q=80" },
-            { name: "Pomeranian", category: "Dogs", subcategory: "Toy Breeds", price: "🪙 750 Coins", image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80" },
-            { name: "German Shepherd", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,300 Coins", image: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=800&q=80" },
-            { name: "Golden Retriever", category: "Dogs", subcategory: "Large Breeds", price: "🪙 1,250 Coins", image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80" },
-            { name: "Domestic Shorthair", category: "Cats", subcategory: "Short Hair", price: "🪙 400 Coins", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" },
-            { name: "Persian", category: "Cats", subcategory: "Long Hair", price: "🪙 900 Coins", image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=80" },
-            { name: "Holland Lop", category: "Rabbits", subcategory: "Lop", price: "🪙 500 Coins", image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" },
-            { name: "Budgerigar", category: "Birds", subcategory: "Small Parrots", price: "🪙 350 Coins", image: "https://images.unsplash.com/photo-1522858541180-82c3f567f677?auto=format&fit=crop&w=800&q=80" }
-        ];
+      renderer.render(scene, camera);
+    }
 
-        const mainCategories = [
-            { name: "Dogs", icon: "🐶", desc: "Toy, Small, Medium, Large & Giant Breeds" },
-            { name: "Cats", icon: "🐱", desc: "Short hair, Long hair, Hairless & Exotics" },
-            { name: "Rabbits", icon: "🐰", desc: "Dwarf, Lop & Long hair breeds" },
-            { name: "Birds", icon: "🐦", desc: "Parrots, Finches & Canaries" }
-        ];
-
-        const categoriesGrid = document.getElementById('categoriesGrid');
-        function renderCategories() {
-            categoriesGrid.innerHTML = '';
-            mainCategories.forEach(cat => {
-                const card = document.createElement('div');
-                card.className = 'category-card';
-                card.innerHTML = `
-                    <div class="category-icon">${cat.icon}</div>
-                    <div>
-                        <h3>${cat.name}</h3>
-                        <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.3rem;">${cat.desc}</p>
-                    </div>
-                `;
-                card.addEventListener('click', () => openCategory(cat.name));
-                categoriesGrid.appendChild(card);
-            });
-        }
-        renderCategories();
-
-        function openCategory(catName) {
-            document.getElementById('mainCategoriesView').classList.add('hidden');
-            document.getElementById('subcategoriesView').classList.remove('hidden');
-            document.getElementById('selectedCategoryTitle').textContent = catName;
-
-            const filtered = petsData.filter(p => p.category === catName);
-            const grid = document.getElementById('subcategoriesPetsGrid');
-            grid.innerHTML = '';
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding: 3rem; color:var(--text-muted);">No pets available in this category yet.</div>`;
-                return;
-            }
-
-            filtered.forEach(pet => {
-                const pCard = document.createElement('div');
-                pCard.className = 'pet-card';
-                pCard.innerHTML = `
-                    <div class="pet-img-container">
-                        <img src="${pet.image}" alt="${pet.name}" loading="lazy">
-                    </div>
-                    <div class="pet-card-content">
-                        <div>
-                            <span class="pet-subcat">${pet.subcategory}</span>
-                            <h4 style="margin-top:0.2rem;">${pet.name}</h4>
-                            <div class="pet-price-tag">${pet.price}</div>
-                        </div>
-                        <div style="font-size:0.85rem; font-weight:700; color:var(--brand-green); margin-top:0.4rem;">Meet Pet →</div>
-                    </div>
-                `;
-                pCard.addEventListener('click', () => openPetModal(pet));
-                grid.appendChild(pCard);
-            });
-        }
-
-        function showMainCategories() {
-            document.getElementById('subcategoriesView').classList.add('hidden');
-            document.getElementById('mainCategoriesView').classList.remove('hidden');
-        }
-
-        const petModal = document.getElementById('petModal');
-        function openPetModal(pet) {
-            selectedPet = pet;
-            document.getElementById('modalPetName').textContent = pet.name;
-            document.getElementById('modalPetSubcat').textContent = `${pet.category} → ${pet.subcategory}`;
-            document.getElementById('modalPetPrice').textContent = pet.price;
-            document.getElementById('modalPetImg').src = pet.image;
-            petModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePetModal() {
-            petModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        petModal.addEventListener('click', (e) => { if(e.target === petModal) closePetModal(); });
-
-        function attemptAdopt() {
-            const userEmail = localStorage.getItem("dipet_user_email");
-            if (!userEmail) {
-                closePetModal();
-                showToast("Please login first to adopt your pet!", "error");
-                setTimeout(() => { window.location.href = "login.html"; }, 1200);
-                return;
-            }
-            alert(`🎉 Success! ${selectedPet.name} has been adopted to your dashboard!`);
-            closePetModal();
-        }
-    </script>
+    window.addEventListener('DOMContentLoaded', () => {
+      initRealisticPet();
+      renderCatalog('all');
+    });
+  </script>
 </body>
 </html>
