@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>DiPet | Autonomous Living Baby Puppy</title>
+  <title>DiPet | Realistic Autonomous Baby Puppy Simulator</title>
   
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -76,7 +76,7 @@
         </div>
         <div>
           <span class="text-xl sm:text-2xl font-black tracking-tight text-brand-forest">Di<span class="text-brand-emerald">Pet</span></span>
-          <span class="text-[9px] sm:text-[10px] block font-semibold text-slate-500 tracking-widest uppercase -mt-1">Autonomous Living Puppy</span>
+          <span class="text-[9px] sm:text-[10px] block font-semibold text-slate-500 tracking-widest uppercase -mt-1">Realistic Feeding Engine</span>
         </div>
       </a>
 
@@ -104,29 +104,29 @@
         <div class="lg:col-span-6 text-center lg:text-left space-y-4 sm:space-y-6">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-deep text-[11px] sm:text-xs font-semibold uppercase tracking-wider">
             <span class="w-2 h-2 rounded-full bg-brand-emerald animate-ping"></span>
-            100% Autonomous AI Behavior Engine
+            Real Bite, Chewing & Jaw Kinematics Engine
           </div>
           
           <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-brand-forest leading-[1.12] tracking-tight">
-            An Adorable Baby Puppy. <br/>
+            Realistic Eating & Chewing. <br/>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-deep via-brand-emerald to-emerald-600">
-              Lives, Eats & Plays On Its Own.
+              True Jaw, Head & Bone Physics.
             </span>
           </h1>
           
           <p class="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
-            You do not need to keep pressing buttons. The puppy acts entirely on its own: exploring the room, eating from its food bowl, drinking water, chasing toys, resting, and wagging its tail naturally. Take manual control with the joystick whenever you like!
+            Puppy drops onto its front elbows, pins the chew bone with its front paws, opens its lower jaw to take real crunchy bites, shakes its head naturally to tear the treat, and swallows with authentic audio feedback.
           </p>
 
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1 text-xs font-semibold text-slate-600">
             <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-xs">
-              <i data-lucide="cpu" class="w-4 h-4 text-brand-accent"></i> Autonomous Free-Will AI[cite: 1]
+              <i data-lucide="bone" class="w-4 h-4 text-amber-500"></i> Paw-Pinned Bone & Head-Tear Chewing
             </span>
             <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-xs">
-              <i data-lucide="utensils" class="w-4 h-4 text-amber-500"></i> Self-Feeding & Drinking[cite: 1]
+              <i data-lucide="utensils" class="w-4 h-4 text-rose-500"></i> Articulated Hinged Lower Jaw
             </span>
             <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-xs">
-              <i data-lucide="compass" class="w-4 h-4 text-emerald-500"></i> 360° Viewing Angles
+              <i data-lucide="volume-2" class="w-4 h-4 text-emerald-500"></i> Multi-Tone Crunchy Bite Sounds
             </span>
           </div>
         </div>
@@ -144,16 +144,16 @@
                 <div>
                   <div class="flex items-center gap-2">
                     <h3 id="pet-name" class="font-bold text-base sm:text-lg text-white">Chintu</h3>
-                    <span id="pet-id-tag" class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-brand-accent">@DP000032[cite: 1]</span>
+                    <span id="pet-id-tag" class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-brand-accent">@DP000032</span>
                   </div>
-                  <p id="pet-stage-label" class="text-[11px] text-brand-accent font-medium">Autonomous Baby Puppy (2 Months)</p>
+                  <p id="pet-stage-label" class="text-[11px] text-brand-accent font-medium">Kinetic Living Puppy (2 Months)</p>
                 </div>
               </div>
 
               <!-- Dips Indicator -->
               <div class="flex items-center gap-1.5 bg-black/40 px-3 py-1 rounded-full border border-amber-400/30">
                 <i data-lucide="coins" class="w-3.5 h-3.5 text-amber-400"></i>
-                <span class="text-xs font-bold text-amber-300"><span id="dips-display">240</span> Dips[cite: 1]</span>
+                <span class="text-xs font-bold text-amber-300"><span id="dips-display">240</span> Dips</span>
               </div>
             </div>
 
@@ -164,14 +164,14 @@
               <!-- Dialogue Reaction Box -->
               <div id="pet-dialogue" class="absolute top-3 left-3 right-3 text-center pointer-events-none transition-all duration-300 opacity-0 transform -translate-y-2 z-20">
                 <span id="pet-dialogue-text" class="inline-block bg-white/95 text-brand-forest text-xs font-bold px-3.5 py-1.5 rounded-xl shadow-xl border border-brand-accent/40">
-                  Exploring happily on its own! 🐾
+                  Ready to chew and crunch! 🐾
                 </span>
               </div>
 
-              <!-- Status Badge (Shows Current Autonomous Action) -->
+              <!-- Status Badge -->
               <div class="absolute top-3 left-3 pointer-events-none text-[10px] font-bold text-brand-accent flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg border border-brand-accent/20 z-10">
                 <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-ping"></span>
-                Action: <span id="current-motion-state" class="text-white uppercase tracking-wider">Exploring Room</span>
+                Action: <span id="current-motion-state" class="text-white uppercase tracking-wider">Playful Idle</span>
               </div>
 
               <!-- Autonomous Mode Toggle Switch -->
@@ -215,8 +215,8 @@
               <!-- Helper Label -->
               <div class="absolute bottom-4 right-4 pointer-events-none text-right z-10">
                 <span class="inline-block bg-black/60 backdrop-blur-md text-white/80 text-[10px] font-medium px-2.5 py-1.5 rounded-lg border border-white/10">
-                  Puppy acts freely[cite: 1]!<br/>
-                  Touch joystick to take control[cite: 1].
+                  🕹️ Push Up to Walk Forward<br/>
+                  👆 Drag to Free Rotate
                 </span>
               </div>
             </div>
@@ -262,8 +262,8 @@
 
               <div class="bg-white/5 rounded-xl p-2 border border-white/5">
                 <div class="flex justify-between items-center mb-1 text-[10px] text-slate-300">
-                  <span class="flex items-center gap-1"><i data-lucide="smile" class="w-3 h-3 text-amber-400"></i> Happiness</span>
-                  <span id="val-mood" class="font-bold text-amber-400">Super Happy</span>
+                  <span class="flex items-center gap-1"><i data-lucide="smile" class="w-3 h-3 text-amber-400"></i> Fullness</span>
+                  <span id="val-mood" class="font-bold text-amber-400">Eating Well</span>
                 </div>
                 <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
                   <div id="bar-mood" class="bg-amber-400 h-full rounded-full transition-all duration-500" style="width: 96%"></div>
@@ -272,16 +272,16 @@
 
               <div class="bg-white/5 rounded-xl p-2 border border-white/5">
                 <div class="flex justify-between items-center mb-1 text-[10px] text-slate-300">
-                  <span class="flex items-center gap-1"><i data-lucide="award" class="w-3 h-3 text-cyan-400"></i> Energy</span>
-                  <span id="val-energy" class="font-bold text-cyan-400">Active</span>
+                  <span class="flex items-center gap-1"><i data-lucide="award" class="w-3 h-3 text-cyan-400"></i> Teething Fun</span>
+                  <span id="val-energy" class="font-bold text-cyan-400">Happy Chewer</span>
                 </div>
                 <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                  <div id="bar-energy" class="bg-cyan-400 h-full rounded-full transition-all duration-500" style="width: 85%"></div>
+                  <div id="bar-energy" class="bg-cyan-400 h-full rounded-full transition-all duration-500" style="width: 90%"></div>
                 </div>
               </div>
             </div>
 
-            <!-- 6 Dedicated Puppy Action Commands -->
+            <!-- 6 Dedicated Realistic Choreographed Actions -->
             <div class="grid grid-cols-3 gap-2 pt-2 border-t border-white/10">
               <button onclick="puppyAction('wag')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
                 <span class="text-base mb-0.5 group-hover:scale-125 transition-transform">🐾</span>
@@ -293,9 +293,9 @@
                 <span class="text-[10px] font-semibold">Cuddle</span>
               </button>
 
-              <button onclick="puppyAction('chew')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
+              <button onclick="puppyAction('chew')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group border border-amber-400/50 shadow-sm">
                 <span class="text-base mb-0.5 group-hover:scale-125 transition-transform">🦴</span>
-                <span class="text-[10px] font-semibold">Chew toy</span>
+                <span class="text-[10px] font-bold text-amber-300">Chew toy</span>
               </button>
 
               <button onclick="puppyAction('bark')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
@@ -308,9 +308,9 @@
                 <span class="text-[10px] font-semibold">Go potty</span>
               </button>
 
-              <button onclick="puppyAction('fetch')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
+              <button onclick="puppyAction('fetch')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group border border-emerald-400/40 shadow-xs">
                 <span class="text-base mb-0.5 group-hover:scale-125 transition-transform">🎾</span>
-                <span class="text-[10px] font-semibold">Play fetch</span>
+                <span class="text-[10px] font-semibold text-emerald-300">Play fetch</span>
               </button>
             </div>
           </div>
@@ -324,16 +324,16 @@
   <section id="catalog" class="py-16 bg-brand-softbg/60 border-t border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-8">
-        <span class="text-xs font-bold text-brand-emerald tracking-widest uppercase">Ecosystem Directory[cite: 1]</span>
+        <span class="text-xs font-bold text-brand-emerald tracking-widest uppercase">Ecosystem Directory</span>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-forest mt-1.5">Puppy Breeds Directory</h2>
         <p class="text-slate-600 mt-2 text-xs sm:text-sm">Select any breed to preview its natural physical traits and soft puppy fur.</p>
       </div>
 
       <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar">
         <button onclick="filterCategory('all', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-brand-forest text-white transition shadow-xs">All Puppies</button>
-        <button onclick="filterCategory('golden', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐕 Golden Retriever[cite: 1]</button>
-        <button onclick="filterCategory('lab', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🦮 Labrador[cite: 1]</button>
-        <button onclick="filterCategory('beagle', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐶 Beagle[cite: 1]</button>
+        <button onclick="filterCategory('golden', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐕 Golden Retriever</button>
+        <button onclick="filterCategory('lab', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🦮 Labrador</button>
+        <button onclick="filterCategory('beagle', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐶 Beagle</button>
       </div>
 
       <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
@@ -344,52 +344,52 @@
   <section id="dips" class="py-16 bg-brand-forest text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-xs font-bold text-brand-accent tracking-widest uppercase">Platform Economy[cite: 1]</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Dips Care Currency (₹1 = 2 Dips)[cite: 1]</h2>
+        <span class="text-xs font-bold text-brand-accent tracking-widest uppercase">Platform Economy</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Dips Care Currency (₹1 = 2 Dips)</h2>
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         <div class="bg-white/5 border border-white/10 rounded-2xl p-3 text-center">
-          <span class="text-[11px] text-slate-400 block mb-1">Starter[cite: 1]</span>
-          <p class="text-xl font-black text-brand-accent">30[cite: 1]</p>
-          <span class="text-[10px] text-slate-300">Dips[cite: 1]</span>
-          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹15[cite: 1]</div>
+          <span class="text-[11px] text-slate-400 block mb-1">Starter</span>
+          <p class="text-xl font-black text-brand-accent">30</p>
+          <span class="text-[10px] text-slate-300">Dips</span>
+          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹15</div>
         </div>
 
         <div class="bg-white/5 border border-white/10 rounded-2xl p-3 text-center">
-          <span class="text-[11px] text-slate-400 block mb-1">Care Pack[cite: 1]</span>
-          <p class="text-xl font-black text-brand-accent">120[cite: 1]</p>
-          <span class="text-[10px] text-slate-300">Dips[cite: 1]</span>
-          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹50[cite: 1]</div>
+          <span class="text-[11px] text-slate-400 block mb-1">Care Pack</span>
+          <p class="text-xl font-black text-brand-accent">120</p>
+          <span class="text-[10px] text-slate-300">Dips</span>
+          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹50</div>
         </div>
 
         <div class="bg-brand-emerald/20 border border-brand-accent/40 rounded-2xl p-3 text-center shadow-lg relative">
-          <span class="absolute -top-2 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-forest text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">Popular[cite: 1]</span>
-          <span class="text-[11px] text-brand-accent block mb-1">Value[cite: 1]</span>
-          <p class="text-xl font-black text-white">260[cite: 1]</p>
-          <span class="text-[10px] text-slate-300">Dips[cite: 1]</span>
-          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹100[cite: 1]</div>
+          <span class="absolute -top-2 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-forest text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">Popular</span>
+          <span class="text-[11px] text-brand-accent block mb-1">Value</span>
+          <p class="text-xl font-black text-white">260</p>
+          <span class="text-[10px] text-slate-300">Dips</span>
+          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹100</div>
         </div>
 
         <div class="bg-white/5 border border-white/10 rounded-2xl p-3 text-center">
-          <span class="text-[11px] text-slate-400 block mb-1">Pro[cite: 1]</span>
-          <p class="text-xl font-black text-brand-accent">1,350[cite: 1]</p>
-          <span class="text-[10px] text-slate-300">Dips[cite: 1]</span>
-          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹500[cite: 1]</div>
+          <span class="text-[11px] text-slate-400 block mb-1">Pro</span>
+          <p class="text-xl font-black text-brand-accent">1,350</p>
+          <span class="text-[10px] text-slate-300">Dips</span>
+          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹500</div>
         </div>
 
         <div class="bg-white/5 border border-white/10 rounded-2xl p-3 text-center">
-          <span class="text-[11px] text-slate-400 block mb-1">Master[cite: 1]</span>
-          <p class="text-xl font-black text-brand-accent">2,700[cite: 1]</p>
-          <span class="text-[10px] text-slate-300">Dips[cite: 1]</span>
-          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹1,000[cite: 1]</div>
+          <span class="text-[11px] text-slate-400 block mb-1">Master</span>
+          <p class="text-xl font-black text-brand-accent">2,700</p>
+          <span class="text-[10px] text-slate-300">Dips</span>
+          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹1,000</div>
         </div>
 
         <div class="bg-white/5 border border-white/10 rounded-2xl p-3 text-center">
-          <span class="text-[11px] text-slate-400 block mb-1">Sanctuary[cite: 1]</span>
-          <p class="text-xl font-black text-brand-accent">4,500[cite: 1]</p>
-          <span class="text-[10px] text-slate-300">Dips[cite: 1]</span>
-          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹1,500[cite: 1]</div>
+          <span class="text-[11px] text-slate-400 block mb-1">Sanctuary</span>
+          <p class="text-xl font-black text-brand-accent">4,500</p>
+          <span class="text-[10px] text-slate-300">Dips</span>
+          <div class="mt-2 pt-2 border-t border-white/10 font-bold text-xs">₹1,500</div>
         </div>
       </div>
     </div>
@@ -402,7 +402,7 @@
     </div>
   </footer>
 
-  <!-- ================= JAVASCRIPT: THREE.JS & AUTONOMOUS AI ================= -->
+  <!-- ================= JAVASCRIPT: THREE.JS ENGINE & KINETIC ACTIONS ================= -->
   <script>
     lucide.createIcons();
 
@@ -459,7 +459,7 @@
         coatMat.color.setHex(coatColor);
         if (muzzleMat && muzzleColor) muzzleMat.color.setHex(muzzleColor);
       }
-      triggerDialogue(`Welcomed little ${name}! Watching it live and explore on its own.`);
+      triggerDialogue(`Welcomed little ${name}! Ready to explore.`);
       document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
     }
 
@@ -475,28 +475,39 @@
       }, 2600);
     }
 
-    // Web Audio Synthesizer
+    // Realistic Web Audio Synthesizer
     let audioCtx = null;
     function playPuppySound(type) {
       try {
         if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         if (audioCtx.state === 'suspended') audioCtx.resume();
 
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
         const now = audioCtx.currentTime;
 
-        if (type === 'bark') {
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(650, now);
-          osc.frequency.exponentialRampToValueAtTime(320, now + 0.14);
-          gain.gain.setValueAtTime(0.35, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
-          osc.start(now);
-          osc.stop(now + 0.16);
+        if (type === 'crunch') {
+          for (let i = 0; i < 3; i++) {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.type = Math.random() > 0.5 ? 'sawtooth' : 'triangle';
+            const startF = 180 + Math.random() * 220;
+            osc.frequency.setValueAtTime(startF, now + i * 0.03);
+            osc.frequency.exponentialRampToValueAtTime(60, now + i * 0.03 + 0.06);
+
+            gain.gain.setValueAtTime(0.25, now + i * 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.03 + 0.07);
+
+            osc.start(now + i * 0.03);
+            osc.stop(now + i * 0.03 + 0.07);
+          }
         } else if (type === 'whimper') {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
           osc.type = 'sine';
           osc.frequency.setValueAtTime(750, now);
           osc.frequency.linearRampToValueAtTime(880, now + 0.2);
@@ -505,15 +516,25 @@
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
           osc.start(now);
           osc.stop(now + 0.45);
-        } else if (type === 'chew') {
-          osc.type = 'sawtooth';
-          osc.frequency.setValueAtTime(160, now);
-          osc.frequency.exponentialRampToValueAtTime(80, now + 0.08);
-          gain.gain.setValueAtTime(0.2, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+        } else if (type === 'bark') {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(650, now);
+          osc.frequency.exponentialRampToValueAtTime(320, now + 0.14);
+          gain.gain.setValueAtTime(0.35, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
           osc.start(now);
-          osc.stop(now + 0.09);
+          osc.stop(now + 0.16);
         } else if (type === 'drink') {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
           osc.type = 'sine';
           osc.frequency.setValueAtTime(450, now);
           osc.frequency.exponentialRampToValueAtTime(280, now + 0.06);
@@ -527,90 +548,25 @@
       }
     }
 
-    // ================= AUTONOMOUS AI & ENVIRONMENT ITEMS =================
-    let isAutonomousMode = true;
-    let autonomousTimer = 0;
-    let nextDecisionTime = 4.0;
-    let autonomousState = 'wander'; // 'wander', 'eat', 'drink', 'chew', 'play_ball', 'rest'
-    let autoTargetPos = { x: 0, z: 0 };
+    // ================= STATIONS & OBJECT REFERENCES =================
+    const FOOD_STATION = { x: 1.4, z: -1.0 };
+    const WATER_STATION = { x: 1.4, z: -1.6 };
+    const BONE_STATION = { x: -1.0, z: 0.8 };
+    const BALL_STATION = { x: 0.5, z: 1.6 };
+    const POTTY_STATION = { x: -1.4, z: -1.2 };
 
-    // Interactive 3D World Props
     let ballMesh = null;
     let boneToyMesh = null;
     let grassPatch = null;
     let foodBowl = null;
     let waterBowl = null;
 
-    // Food & Water Station Coordinates
-    const FOOD_STATION = { x: 1.4, z: -1.0 };
-    const WATER_STATION = { x: 1.4, z: -1.6 };
-    const BONE_STATION = { x: -1.2, z: 0.8 };
-    const BALL_STATION = { x: 0.5, z: 1.6 };
-    const POTTY_STATION = { x: -1.4, z: -1.2 };
-
-    function toggleAutonomousMode() {
-      isAutonomousMode = !isAutonomousMode;
-      const btn = document.getElementById('auto-toggle-btn');
-      if (isAutonomousMode) {
-        btn.innerText = "ON";
-        btn.className = "px-2 py-0.5 rounded-md text-[9px] font-bold bg-brand-accent text-brand-forest transition";
-        triggerDialogue("Autonomous mode enabled! Puppy lives & explores on its own.");
-        pickNextAutonomousGoal();
-      } else {
-        btn.innerText = "OFF";
-        btn.className = "px-2 py-0.5 rounded-md text-[9px] font-bold bg-white/20 text-white transition";
-        triggerDialogue("Manual mode! Use joystick or action buttons to guide puppy.");
-        autonomousState = 'idle';
-      }
-    }
-
-    function pickNextAutonomousGoal() {
-      if (!isAutonomousMode) return;
-      autonomousTimer = 0;
-
-      // Random state choice reflecting natural puppy day[cite: 1]
-      const choices = ['eat', 'drink', 'chew', 'play_ball', 'wander', 'rest', 'wag_tail'];
-      const pick = choices[Math.floor(Math.random() * choices.length)];
-      autonomousState = pick;
-
-      if (pick === 'eat') {
-        autoTargetPos = { x: FOOD_STATION.x - 0.25, z: FOOD_STATION.z + 0.35 };
-        nextDecisionTime = 8.0;
-        triggerDialogue("Puppy smelled kibble and is heading to the food bowl! 🍖[cite: 1]");
-      } else if (pick === 'drink') {
-        autoTargetPos = { x: WATER_STATION.x - 0.25, z: WATER_STATION.z + 0.35 };
-        nextDecisionTime = 7.0;
-        triggerDialogue("Thirsty pup is walking over to drink fresh water! 💧[cite: 1]");
-      } else if (pick === 'chew') {
-        autoTargetPos = { x: BONE_STATION.x + 0.2, z: BONE_STATION.z };
-        nextDecisionTime = 9.0;
-        triggerDialogue("Found the chew toy! Teething happily on the bone! 🦴[cite: 1]");
-      } else if (pick === 'play_ball') {
-        autoTargetPos = { x: BALL_STATION.x, z: BALL_STATION.z - 0.3 };
-        nextDecisionTime = 8.5;
-        triggerDialogue("Spotted the bright tennis ball! Rolling and playing with it! 🎾[cite: 1]");
-      } else if (pick === 'rest') {
-        autoTargetPos = { x: petPosition.x, z: petPosition.z };
-        nextDecisionTime = 6.0;
-        triggerDialogue("Little puppy got sleepy and is curling up for a nap! 😴");
-      } else if (pick === 'wag_tail') {
-        autoTargetPos = { x: (Math.random() - 0.5) * 2.0, z: (Math.random() - 0.5) * 2.0 };
-        nextDecisionTime = 5.0;
-        triggerDialogue("Wagging tail and looking for affection! 🐾[cite: 1]");
-        playPuppySound('whimper');
-      } else {
-        // Free wander / sniffing[cite: 1]
-        const angle = Math.random() * Math.PI * 2;
-        const dist = 0.6 + Math.random() * 1.5;
-        autoTargetPos = { x: Math.cos(angle) * dist, z: Math.sin(angle) * dist };
-        nextDecisionTime = 6.0;
-        triggerDialogue("Inquisitive sniffing around the floor! 🐾[cite: 1]");
-      }
-    }
-
-    // Manual Action Commands
     let currentAction = 'idle';
+    let actionPhase = 'idle';
     let actionTimer = 0;
+    let chewCycle = 0;
+    let targetActionCoord = { x: 0, z: 0 };
+    let mouthHeldProp = null;
 
     function puppyAction(act) {
       isAutonomousMode = false;
@@ -619,31 +575,113 @@
 
       currentAction = act;
       actionTimer = 0;
+      chewCycle = 0;
 
-      if (act === 'wag') {
+      if (mouthHeldProp === 'bone' && boneToyMesh) {
+        scene.add(boneToyMesh);
+        boneToyMesh.position.set(BONE_STATION.x, 0.06, BONE_STATION.z);
+        boneToyMesh.rotation.set(0, 0, 0);
+      } else if (mouthHeldProp === 'ball' && ballMesh) {
+        scene.add(ballMesh);
+        ballMesh.position.set(BALL_STATION.x, 0.12, BALL_STATION.z);
+      }
+      mouthHeldProp = null;
+
+      if (act === 'chew') {
+        actionPhase = 'running_to_target';
+        targetActionCoord = { x: BONE_STATION.x, z: BONE_STATION.z };
+        document.getElementById('current-motion-state').innerText = "Sprinting to Bone Toy";
+        triggerDialogue("🦴 Smelled the tasty bone! Sprinting to pin and chew it!");
+        playPuppySound('bark');
+      } 
+      else if (act === 'fetch') {
+        actionPhase = 'running_to_target';
+        targetActionCoord = { x: BALL_STATION.x, z: BALL_STATION.z };
+        document.getElementById('current-motion-state').innerText = "Running to Ball";
+        triggerDialogue("🎾 Ball thrown! Running fast to fetch it!");
+        playPuppySound('bark');
+      } 
+      else if (act === 'cuddle') {
+        actionPhase = 'running_to_target';
+        targetActionCoord = { x: 0, z: 0.5 };
+        document.getElementById('current-motion-state').innerText = "Trotting to Cuddle";
+        triggerDialogue("🥰 Waddling over to snuggle up with you!");
+        playPuppySound('whimper');
+      } 
+      else if (act === 'potty') {
+        actionPhase = 'running_to_target';
+        targetActionCoord = { x: POTTY_STATION.x, z: POTTY_STATION.z };
+        document.getElementById('current-motion-state').innerText = "Running to Potty Spot";
+        triggerDialogue("🚽 Running outside to the potty grass spot!");
+      } 
+      else if (act === 'wag') {
+        actionPhase = 'interacting';
         document.getElementById('current-motion-state').innerText = "Wagging Tail";
-        triggerDialogue("🐾 Wagging tail so fast with pure puppy happiness![cite: 1]");
+        triggerDialogue("🐾 Wagging tail happily with excitement!");
         playPuppySound('whimper');
-      } else if (act === 'cuddle') {
-        document.getElementById('current-motion-state').innerText = "Cuddling";
-        triggerDialogue("🥰 Nuzzling warmly and resting head close to you![cite: 1]");
-        playPuppySound('whimper');
-      } else if (act === 'chew') {
-        document.getElementById('current-motion-state').innerText = "Chewing Toy";
-        triggerDialogue("🦴 Munching and chewing happily on its teething bone![cite: 1]");
-        playPuppySound('chew');
-      } else if (act === 'bark') {
+      } 
+      else if (act === 'bark') {
+        actionPhase = 'interacting';
         document.getElementById('current-motion-state').innerText = "Barking";
-        triggerDialogue("🗣️ 'Yip yip! Woof!' Making cheerful puppy barks![cite: 1]");
+        triggerDialogue("🗣️ 'Yip yip!' Making cute puppy sounds!");
         playPuppySound('bark');
-        setTimeout(() => playPuppySound('bark'), 220);
-      } else if (act === 'potty') {
-        document.getElementById('current-motion-state').innerText = "Going Potty";
-        triggerDialogue("🚽 Good job! Learning good habits to go potty on the grass![cite: 1]");
-      } else if (act === 'fetch') {
-        document.getElementById('current-motion-state').innerText = "Chasing Ball";
-        triggerDialogue("🎾 Threw the ball! Chasing and retrieving with joyful pounces![cite: 1]");
-        playPuppySound('bark');
+        setTimeout(() => playPuppySound('bark'), 200);
+      }
+    }
+
+    let isAutonomousMode = true;
+    let autonomousTimer = 0;
+    let nextDecisionTime = 6.0;
+    let autonomousState = 'wander';
+    let autoTargetPos = { x: 0, z: 0 };
+
+    function toggleAutonomousMode() {
+      isAutonomousMode = !isAutonomousMode;
+      const btn = document.getElementById('auto-toggle-btn');
+      if (isAutonomousMode) {
+        btn.innerText = "ON";
+        btn.className = "px-2 py-0.5 rounded-md text-[9px] font-bold bg-brand-accent text-brand-forest transition";
+        triggerDialogue("Auto Life ON! Puppy acts freely on its own.");
+        pickNextAutonomousGoal();
+      } else {
+        btn.innerText = "OFF";
+        btn.className = "px-2 py-0.5 rounded-md text-[9px] font-bold bg-white/20 text-white transition";
+        triggerDialogue("Manual Mode! Use the buttons or joystick.");
+        autonomousState = 'idle';
+      }
+    }
+
+    function pickNextAutonomousGoal() {
+      if (!isAutonomousMode) return;
+      autonomousTimer = 0;
+      const choices = ['eat', 'drink', 'chew', 'wander', 'rest', 'wag_tail'];
+      const pick = choices[Math.floor(Math.random() * choices.length)];
+      autonomousState = pick;
+
+      if (pick === 'eat') {
+        autoTargetPos = { x: FOOD_STATION.x - 0.25, z: FOOD_STATION.z + 0.35 };
+        nextDecisionTime = 8.0;
+        triggerDialogue("Puppy walking to food bowl to munch kibble! 🍖");
+      } else if (pick === 'drink') {
+        autoTargetPos = { x: WATER_STATION.x - 0.25, z: WATER_STATION.z + 0.35 };
+        nextDecisionTime = 7.0;
+        triggerDialogue("Thirsty puppy lapping fresh water! 💧");
+      } else if (pick === 'chew') {
+        puppyAction('chew');
+        isAutonomousMode = true;
+        document.getElementById('auto-toggle-btn').innerText = "ON";
+        document.getElementById('auto-toggle-btn').className = "px-2 py-0.5 rounded-md text-[9px] font-bold bg-brand-accent text-brand-forest transition";
+        nextDecisionTime = 14.0;
+      } else if (pick === 'rest') {
+        autoTargetPos = { x: petPosition.x, z: petPosition.z };
+        nextDecisionTime = 6.0;
+        triggerDialogue("Little puppy resting peacefully! 😴");
+      } else {
+        const angle = Math.random() * Math.PI * 2;
+        const dist = 0.6 + Math.random() * 1.5;
+        autoTargetPos = { x: Math.cos(angle) * dist, z: Math.sin(angle) * dist };
+        nextDecisionTime = 6.0;
+        triggerDialogue("Curiously sniffing the ground! 🐾");
       }
     }
 
@@ -662,7 +700,7 @@
       document.getElementById('pet-stage-label').innerText = stageText;
     }
 
-    // ================= THREE.JS SCENE SETUP =================
+    // ================= THREE.JS ENGINE SETUP =================
     let scene, camera, renderer, coatMat, muzzleMat;
     let babyRig = {
       root: null,
@@ -674,7 +712,10 @@
       skull: null,
       cheeks: [],
       snout: null,
+      jawPivot: null,
+      jawMesh: null,
       tongue: null,
+      teeth: [],
       nose: null,
       eyes: [],
       eyelids: [],
@@ -832,8 +873,7 @@
       yard.receiveShadow = true;
       scene.add(yard);
 
-      // ================= AUTONOMOUS PROPS =================
-      // 1. Interactive Dog Food Bowl
+      // Props Setup
       foodBowl = new THREE.Group();
       const bowlOuter = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.18, 0.1, 20), new THREE.MeshStandardMaterial({ color: 0xef4444, roughness: 0.3 }));
       const foodKibble = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.08, 16), new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.9 }));
@@ -843,7 +883,6 @@
       foodBowl.position.set(FOOD_STATION.x, 0.05, FOOD_STATION.z);
       scene.add(foodBowl);
 
-      // 2. Interactive Water Bowl
       waterBowl = new THREE.Group();
       const waterBowlOuter = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.18, 0.1, 20), new THREE.MeshStandardMaterial({ color: 0x3b82f6, roughness: 0.3 }));
       const waterSurface = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.08, 16), new THREE.MeshStandardMaterial({ color: 0x67e8f9, roughness: 0.05 }));
@@ -853,21 +892,19 @@
       waterBowl.position.set(WATER_STATION.x, 0.05, WATER_STATION.z);
       scene.add(waterBowl);
 
-      // 3. Interactive Tennis Ball
       const ballGeo = new THREE.SphereGeometry(0.12, 16, 16);
       const ballMat = new THREE.MeshStandardMaterial({ color: 0xccff00, roughness: 0.5 });
       ballMesh = new THREE.Mesh(ballGeo, ballMat);
       ballMesh.position.set(BALL_STATION.x, 0.12, BALL_STATION.z);
       scene.add(ballMesh);
 
-      // 4. Chew Toy Bone
       const boneGroup = new THREE.Group();
-      const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.32, 12), new THREE.MeshStandardMaterial({ color: 0xFFFAF0, roughness: 0.3 }));
+      const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.38, 12), new THREE.MeshStandardMaterial({ color: 0xFFFBF0, roughness: 0.25 }));
       shaft.rotation.z = Math.PI / 2;
       boneGroup.add(shaft);
-      for (let side of [-0.16, 0.16]) {
-        for (let off of [-0.04, 0.04]) {
-          const nub = new THREE.Mesh(new THREE.SphereGeometry(0.05, 10, 10), new THREE.MeshStandardMaterial({ color: 0xFFFAF0, roughness: 0.3 }));
+      for (let side of [-0.19, 0.19]) {
+        for (let off of [-0.045, 0.045]) {
+          const nub = new THREE.Mesh(new THREE.SphereGeometry(0.055, 10, 10), new THREE.MeshStandardMaterial({ color: 0xFFFBF0, roughness: 0.25 }));
           nub.position.set(side, off, 0);
           boneGroup.add(nub);
         }
@@ -876,7 +913,6 @@
       boneToyMesh.position.set(BONE_STATION.x, 0.06, BONE_STATION.z);
       scene.add(boneToyMesh);
 
-      // 5. Potty Grass Patch
       grassPatch = new THREE.Mesh(
         new THREE.CylinderGeometry(0.7, 0.7, 0.02, 24),
         new THREE.MeshStandardMaterial({ color: 0x228833, roughness: 0.85 })
@@ -907,6 +943,7 @@
       const wetNoseMat = new THREE.MeshStandardMaterial({ color: 0x120E0C, roughness: 0.05, metalness: 0.3 });
       const puppyEyeMat = new THREE.MeshStandardMaterial({ color: 0x060403, roughness: 0.02, metalness: 0.4 });
       const tongueMat = new THREE.MeshStandardMaterial({ color: 0xF07888, roughness: 0.2 });
+      const toothMat = new THREE.MeshStandardMaterial({ color: 0xFFFFFF, roughness: 0.2 });
 
       // Build Puppy Rig
       babyRig.root = new THREE.Group();
@@ -960,21 +997,41 @@
       const snoutGeo = new THREE.SphereGeometry(0.26, 24, 20);
       snoutGeo.scale(1.15, 0.85, 1.35);
       babyRig.snout = new THREE.Mesh(snoutGeo, muzzleMat);
-      babyRig.snout.position.set(0, -0.1, 0.46);
+      babyRig.snout.position.set(0, -0.06, 0.46);
       babyRig.snout.castShadow = true;
       babyRig.headGroup.add(babyRig.snout);
+
+      // Hinged Lower Jaw
+      babyRig.jawPivot = new THREE.Group();
+      babyRig.jawPivot.position.set(0, -0.15, 0.28);
+
+      const jawMeshGeo = new THREE.CylinderGeometry(0.12, 0.16, 0.32, 16);
+      jawMeshGeo.scale(1.1, 0.6, 1.3);
+      babyRig.jawMesh = new THREE.Mesh(jawMeshGeo, muzzleMat);
+      babyRig.jawMesh.rotation.x = Math.PI / 2;
+      babyRig.jawMesh.position.set(0, -0.04, 0.16);
+      babyRig.jawPivot.add(babyRig.jawMesh);
+
+      for (let tX of [-0.07, 0.07]) {
+        const tooth = new THREE.Mesh(new THREE.ConeGeometry(0.018, 0.045, 8), toothMat);
+        tooth.position.set(tX, 0.03, 0.28);
+        tooth.rotation.x = -0.2;
+        babyRig.jawPivot.add(tooth);
+        babyRig.teeth.push(tooth);
+      }
+
+      const tongueGeo = new THREE.BoxGeometry(0.11, 0.02, 0.22);
+      babyRig.tongue = new THREE.Mesh(tongueGeo, tongueMat);
+      babyRig.tongue.position.set(0, 0.015, 0.22);
+      babyRig.jawPivot.add(babyRig.tongue);
+
+      babyRig.headGroup.add(babyRig.jawPivot);
 
       const noseGeo = new THREE.SphereGeometry(0.088, 16, 16);
       noseGeo.scale(1.3, 0.8, 1);
       babyRig.nose = new THREE.Mesh(noseGeo, wetNoseMat);
-      babyRig.nose.position.set(0, -0.04, 0.72);
+      babyRig.nose.position.set(0, -0.02, 0.72);
       babyRig.headGroup.add(babyRig.nose);
-
-      const tongueGeo = new THREE.BoxGeometry(0.12, 0.025, 0.2);
-      babyRig.tongue = new THREE.Mesh(tongueGeo, tongueMat);
-      babyRig.tongue.position.set(0, -0.18, 0.54);
-      babyRig.tongue.rotation.x = 0.25;
-      babyRig.headGroup.add(babyRig.tongue);
 
       function buildBigPuppyEye(x) {
         const eyeGroup = new THREE.Group();
@@ -1055,7 +1112,7 @@
         hip.add(knee);
         babyRig.scalerGroup.add(hip);
 
-        return { hip: hip, knee: knee };
+        return { hip: hip, knee: knee, paw: pawGroup };
       }
 
       babyRig.legs.fl = buildChubbyLeg(-0.36, 0.38, false);
@@ -1118,7 +1175,6 @@
 
         const factor = clampedDist / maxRadius;
         if (factor > 0.15) {
-          // Temporarily disable autonomous override when user uses joystick
           isAutonomousMode = false;
           document.getElementById('auto-toggle-btn').innerText = "OFF";
           document.getElementById('auto-toggle-btn').className = "px-2 py-0.5 rounded-md text-[9px] font-bold bg-white/20 text-white transition";
@@ -1134,6 +1190,7 @@
 
           isMoving = true;
           currentAction = 'idle';
+          actionPhase = 'idle';
         } else {
           moveVelocity.x = 0;
           moveVelocity.z = 0;
@@ -1208,7 +1265,7 @@
       window.addEventListener('touchend', () => { isOrbiting = false; });
     }
 
-    // ================= REALTIME ANIMATION & AUTONOMOUS LOOP =================
+    // ================= REALTIME ANIMATION & REAL EATING KINEMATICS =================
     let clock = new THREE.Clock();
 
     function animatePuppyBiomechanics() {
@@ -1230,72 +1287,17 @@
           lid.rotation.x = isBlinking ? Math.PI / 2 : Math.PI;
         });
 
-        // Breathing
+        // Respiration
         const bellyBreath = Math.sin(t * 2.8) * 0.03;
         babyRig.chubbyBelly.scale.set(1.15 + bellyBreath, 1.15 + bellyBreath, 1.25);
 
-        // ================= AUTONOMOUS AI DECISION CYCLE =================
-        let isWaddling = false;
+        let isRunningGait = false;
+        let isWaddlingGait = false;
+        let jawTargetAngle = 0;
 
-        if (isAutonomousMode) {
-          if (autonomousTimer >= nextDecisionTime) {
-            pickNextAutonomousGoal();
-          }
-
-          // Move toward target position
-          const dx = autoTargetPos.x - petPosition.x;
-          const dz = autoTargetPos.z - petPosition.z;
-          const distanceToGoal = Math.hypot(dx, dz);
-
-          if (distanceToGoal > 0.35 && autonomousState !== 'rest') {
-            // Actively walking toward its destination
-            isWaddling = true;
-            const walkSpd = 0.024;
-            petPosition.x += (dx / distanceToGoal) * walkSpd;
-            petPosition.z += (dz / distanceToGoal) * walkSpd;
-
-            targetRotation = Math.atan2(dx, dz);
-            document.getElementById('current-motion-state').innerText = `Walking to ${autonomousState}`;
-          } else {
-            // Reached destination: execute activity
-            if (autonomousState === 'eat') {
-              document.getElementById('current-motion-state').innerText = "Eating Kibble";
-              babyRig.headGroup.rotation.x = 0.42 + Math.sin(t * 10) * 0.08;
-              babyRig.snout.scale.set(1.15, 0.85 + Math.sin(t * 12) * 0.06, 1.35);
-              if (Math.random() < 0.03) playPuppySound('chew');
-            } else if (autonomousState === 'drink') {
-              document.getElementById('current-motion-state').innerText = "Drinking Water";
-              babyRig.headGroup.rotation.x = 0.44 + Math.sin(t * 12) * 0.05;
-              babyRig.tongue.scale.z = 1.0 + Math.sin(t * 14) * 0.25;
-              if (Math.random() < 0.04) playPuppySound('drink');
-            } else if (autonomousState === 'chew') {
-              document.getElementById('current-motion-state').innerText = "Chewing Bone Toy";
-              babyRig.headGroup.rotation.x = 0.38 + Math.sin(t * 8) * 0.07;
-              if (Math.random() < 0.03) playPuppySound('chew');
-            } else if (autonomousState === 'play_ball') {
-              document.getElementById('current-motion-state').innerText = "Rolling Ball";
-              if (ballMesh) {
-                ballMesh.position.x += Math.sin(t * 3) * 0.008;
-                ballMesh.position.z += Math.cos(t * 3) * 0.008;
-              }
-              babyRig.headGroup.rotation.y = Math.sin(t * 5) * 0.2;
-              babyRig.torso.position.y = Math.abs(Math.sin(t * 6)) * 0.05;
-            } else if (autonomousState === 'rest') {
-              document.getElementById('current-motion-state').innerText = "Resting / Napping";
-              babyRig.torso.position.y = -0.2;
-              babyRig.legs.bl.hip.rotation.x = -1.1;
-              babyRig.legs.br.hip.rotation.x = -1.1;
-              babyRig.eyelids.forEach(lid => { lid.rotation.x = Math.PI / 2; }); // Sleeping eyes
-            } else {
-              document.getElementById('current-motion-state').innerText = "Happy Wagging";
-              babyRig.tailBones.forEach((b, idx) => {
-                b.rotation.y = Math.sin(t * 18 + idx * 0.4) * 0.4;
-              });
-            }
-          }
-        } else if (isMoving) {
-          // Manual joystick motion
-          isWaddling = true;
+        // 1. MANUAL JOYSTICK CONTROL
+        if (isMoving) {
+          isWaddlingGait = true;
           const moveSpeed = 0.052;
           petPosition.x += moveVelocity.x * moveSpeed;
           petPosition.z -= moveVelocity.z * moveSpeed;
@@ -1309,68 +1311,304 @@
 
           targetRotation = Math.atan2(moveVelocity.x, -moveVelocity.z);
           document.getElementById('current-motion-state').innerText = "Waddling Forward";
+        } 
+        // 2. REALISTIC CHOREOGRAPHED CHEW & EAT ACTIONS
+        else if (currentAction !== 'idle') {
+          if (currentAction === 'chew') {
+            if (actionPhase === 'running_to_target') {
+              isRunningGait = true;
+              const dx = targetActionCoord.x - petPosition.x;
+              const dz = targetActionCoord.z - petPosition.z;
+              const dist = Math.hypot(dx, dz);
+
+              if (dist > 0.32) {
+                const runSpeed = 0.065;
+                petPosition.x += (dx / dist) * runSpeed;
+                petPosition.z += (dz / dist) * runSpeed;
+                targetRotation = Math.atan2(dx, dz);
+                document.getElementById('current-motion-state').innerText = "Running to Bone";
+              } else {
+                actionPhase = 'settling_pose';
+                actionTimer = 0;
+                document.getElementById('current-motion-state').innerText = "Pinning Bone with Paws";
+                triggerDialogue("Pinned bone between front paws & getting ready to chew! 🦴");
+              }
+            } 
+            else if (actionPhase === 'settling_pose') {
+              babyRig.torso.position.y = -0.25;
+              babyRig.torso.rotation.x = 0.12;
+
+              babyRig.legs.fl.hip.rotation.x = 0.55;
+              babyRig.legs.fr.hip.rotation.x = 0.55;
+              babyRig.legs.fl.hip.rotation.z = 0.25;
+              babyRig.legs.fr.hip.rotation.z = -0.25;
+
+              babyRig.legs.bl.hip.rotation.x = -1.15;
+              babyRig.legs.br.hip.rotation.x = -1.15;
+
+              babyRig.headGroup.rotation.x = 0.42;
+
+              if (boneToyMesh) {
+                boneToyMesh.position.set(petPosition.x, 0.05, petPosition.z + 0.36);
+                boneToyMesh.rotation.set(0, petRotation, 0);
+              }
+
+              if (actionTimer > 0.8) {
+                actionPhase = 'active_chewing';
+                actionTimer = 0;
+                document.getElementById('current-motion-state').innerText = "Chewing & Biting Bone";
+                triggerDialogue("Crunch crunch! Chewing with real bites and head shakes! 🦴");
+              }
+            } 
+            else if (actionPhase === 'active_chewing') {
+              chewCycle += 0.12;
+
+              babyRig.torso.position.y = -0.25;
+              babyRig.torso.rotation.x = 0.12;
+              babyRig.legs.fl.hip.rotation.x = 0.55;
+              babyRig.legs.fr.hip.rotation.x = 0.55;
+              babyRig.legs.fl.hip.rotation.z = 0.25;
+              babyRig.legs.fr.hip.rotation.z = -0.25;
+              babyRig.legs.bl.hip.rotation.x = -1.15;
+              babyRig.legs.br.hip.rotation.x = -1.15;
+
+              const chewBite = Math.sin(chewCycle * 2.8);
+              jawTargetAngle = Math.max(0, chewBite * 0.38);
+
+              babyRig.headGroup.rotation.x = 0.42 + Math.sin(chewCycle * 1.4) * 0.08;
+              babyRig.headGroup.rotation.z = Math.sin(chewCycle * 2.8) * 0.14;
+              babyRig.headGroup.rotation.y = Math.cos(chewCycle * 1.4) * 0.09;
+
+              if (boneToyMesh) {
+                boneToyMesh.position.set(petPosition.x, 0.05, petPosition.z + 0.36);
+                boneToyMesh.rotation.set(Math.sin(chewCycle * 2.8) * 0.08, petRotation, Math.sin(chewCycle * 1.4) * 0.1);
+              }
+
+              babyRig.tongue.scale.z = 1.0 + Math.max(0, Math.sin(chewCycle * 2.8) * 0.5);
+
+              babyRig.tailBones.forEach((b, idx) => {
+                b.rotation.y = Math.sin(t * 12 + idx * 0.35) * 0.32;
+              });
+
+              if (chewBite > 0.85 && Math.random() < 0.18) {
+                playPuppySound('crunch');
+              }
+            }
+          } 
+          else if (currentAction === 'fetch') {
+            if (actionPhase === 'running_to_target') {
+              isRunningGait = true;
+              const dx = targetActionCoord.x - petPosition.x;
+              const dz = targetActionCoord.z - petPosition.z;
+              const dist = Math.hypot(dx, dz);
+
+              if (dist > 0.35) {
+                const runSpeed = 0.07;
+                petPosition.x += (dx / dist) * runSpeed;
+                petPosition.z += (dz / dist) * runSpeed;
+                targetRotation = Math.atan2(dx, dz);
+                document.getElementById('current-motion-state').innerText = "Sprinting to Ball";
+              } else {
+                actionPhase = 'holding_mouth';
+                actionTimer = 0;
+                mouthHeldProp = 'ball';
+                babyRig.headGroup.add(ballMesh);
+                ballMesh.position.set(0, -0.14, 0.52);
+                document.getElementById('current-motion-state').innerText = "Holding Ball in Mouth";
+                triggerDialogue("Caught the ball! Running back with it! 🎾");
+                playPuppySound('bark');
+              }
+            } else if (actionPhase === 'holding_mouth') {
+              isRunningGait = true;
+              const returnTarget = { x: 0, z: 0.6 };
+              const dx = returnTarget.x - petPosition.x;
+              const dz = returnTarget.z - petPosition.z;
+              const dist = Math.hypot(dx, dz);
+
+              if (dist > 0.3) {
+                const runSpeed = 0.06;
+                petPosition.x += (dx / dist) * runSpeed;
+                petPosition.z += (dz / dist) * runSpeed;
+                targetRotation = Math.atan2(dx, dz);
+              } else {
+                actionPhase = 'interacting';
+                scene.add(ballMesh);
+                ballMesh.position.set(petPosition.x, 0.12, petPosition.z + 0.35);
+                mouthHeldProp = null;
+                document.getElementById('current-motion-state').innerText = "Fetch Delivered!";
+                triggerDialogue("Dropped the ball at your feet! Happy tail wag! ⭐");
+                playPuppySound('bark');
+              }
+            } else if (actionPhase === 'interacting') {
+              babyRig.torso.position.y = Math.abs(Math.sin(t * 8)) * 0.08;
+              babyRig.headGroup.rotation.y = Math.sin(t * 6) * 0.15;
+              babyRig.tailBones.forEach((b, idx) => { b.rotation.y = Math.sin(t * 22 + idx * 0.4) * 0.45; });
+            }
+          }
+          else if (currentAction === 'cuddle') {
+            if (actionPhase === 'running_to_target') {
+              isWaddlingGait = true;
+              const dx = targetActionCoord.x - petPosition.x;
+              const dz = targetActionCoord.z - petPosition.z;
+              const dist = Math.hypot(dx, dz);
+              if (dist > 0.25) {
+                petPosition.x += (dx / dist) * 0.04;
+                petPosition.z += (dz / dist) * 0.04;
+                targetRotation = Math.atan2(dx, dz);
+              } else {
+                actionPhase = 'interacting';
+                document.getElementById('current-motion-state').innerText = "Nuzzling & Cuddling";
+              }
+            } else {
+              babyRig.torso.position.y = -0.16;
+              babyRig.headGroup.rotation.z = 0.24;
+              babyRig.headGroup.rotation.y = 0.16;
+              babyRig.headGroup.rotation.x = -0.06;
+              babyRig.legs.fl.hip.rotation.x = 0.1;
+              babyRig.legs.fr.hip.rotation.x = 0.1;
+              babyRig.tailBones.forEach((b, idx) => { b.rotation.y = Math.sin(t * 5 + idx * 0.3) * 0.24; });
+            }
+          }
+          else if (currentAction === 'potty') {
+            if (actionPhase === 'running_to_target') {
+              isWaddlingGait = true;
+              const dx = targetActionCoord.x - petPosition.x;
+              const dz = targetActionCoord.z - petPosition.z;
+              const dist = Math.hypot(dx, dz);
+              if (dist > 0.25) {
+                petPosition.x += (dx / dist) * 0.045;
+                petPosition.z += (dz / dist) * 0.045;
+                targetRotation = Math.atan2(dx, dz);
+              } else {
+                actionPhase = 'interacting';
+                actionTimer = 0;
+                document.getElementById('current-motion-state').innerText = "Squatting on Potty Grass";
+              }
+            } else {
+              babyRig.torso.position.y = -0.22;
+              babyRig.legs.bl.hip.rotation.x = -0.95;
+              babyRig.legs.br.hip.rotation.x = -0.95;
+              babyRig.tailBones.forEach((b) => { b.rotation.x = 0.25; });
+            }
+          }
+          else if (currentAction === 'wag') {
+            babyRig.torso.position.y = Math.abs(Math.sin(t * 8)) * 0.05;
+            babyRig.tailBones.forEach((b, idx) => { b.rotation.y = Math.sin(t * 26 + idx * 0.5) * 0.48; });
+            babyRig.headGroup.rotation.y = Math.sin(t * 4) * 0.12;
+            babyRig.tongue.scale.z = 1 + Math.sin(t * 8) * 0.2;
+          }
+          else if (currentAction === 'bark') {
+            const barkCycle = Math.sin(t * 14);
+            babyRig.headGroup.rotation.x = -0.25 + Math.max(0, barkCycle * 0.2);
+            babyRig.torso.position.y = Math.max(0, barkCycle * 0.08);
+            babyRig.tongue.scale.z = 1.2 + Math.max(0, barkCycle * 0.4);
+            babyRig.tailBones.forEach((b, idx) => { b.rotation.y = Math.sin(t * 18 + idx * 0.4) * 0.35; });
+            jawTargetAngle = Math.max(0, barkCycle * 0.3);
+          }
+        } 
+        // 3. AUTONOMOUS FREE-WILL AI
+        else if (isAutonomousMode) {
+          if (autonomousTimer >= nextDecisionTime) {
+            pickNextAutonomousGoal();
+          }
+
+          const dx = autoTargetPos.x - petPosition.x;
+          const dz = autoTargetPos.z - petPosition.z;
+          const dist = Math.hypot(dx, dz);
+
+          if (dist > 0.35 && autonomousState !== 'rest') {
+            isWaddlingGait = true;
+            const walkSpd = 0.025;
+            petPosition.x += (dx / dist) * walkSpd;
+            petPosition.z += (dz / dist) * walkSpd;
+            targetRotation = Math.atan2(dx, dz);
+            document.getElementById('current-motion-state').innerText = `Walking to ${autonomousState}`;
+          } else {
+            if (autonomousState === 'eat') {
+              document.getElementById('current-motion-state').innerText = "Eating Kibble";
+              chewCycle += 0.15;
+
+              babyRig.torso.position.y = -0.16;
+              babyRig.headGroup.rotation.x = 0.52 + Math.sin(chewCycle * 2) * 0.08;
+              babyRig.headGroup.rotation.z = Math.sin(chewCycle * 3) * 0.06;
+              jawTargetAngle = Math.max(0, Math.sin(chewCycle * 3) * 0.32);
+
+              if (Math.random() < 0.05) playPuppySound('crunch');
+            } else if (autonomousState === 'drink') {
+              document.getElementById('current-motion-state').innerText = "Drinking Water";
+              chewCycle += 0.18;
+
+              babyRig.torso.position.y = -0.15;
+              babyRig.headGroup.rotation.x = 0.5;
+              babyRig.tongue.scale.z = 1.0 + Math.sin(chewCycle * 4) * 0.4;
+              jawTargetAngle = 0.15;
+
+              if (Math.random() < 0.06) playPuppySound('drink');
+            } else if (autonomousState === 'rest') {
+              document.getElementById('current-motion-state').innerText = "Napping / Resting";
+              babyRig.torso.position.y = -0.2;
+              babyRig.legs.bl.hip.rotation.x = -1.1;
+              babyRig.legs.br.hip.rotation.x = -1.1;
+              babyRig.eyelids.forEach(lid => { lid.rotation.x = Math.PI / 2; });
+            } else {
+              document.getElementById('current-motion-state').innerText = "Happy Idle";
+              babyRig.tailBones.forEach((b, idx) => { b.rotation.y = Math.sin(t * 6 + idx * 0.4) * 0.25; });
+            }
+          }
+        } else {
+          babyRig.torso.position.y = 0;
+          babyRig.torso.rotation.x = 0;
+          babyRig.legs.fl.hip.rotation.x = 0;
+          babyRig.legs.fl.hip.rotation.z = 0;
+          babyRig.legs.fr.hip.rotation.x = 0;
+          babyRig.legs.fr.hip.rotation.z = 0;
+          babyRig.legs.bl.hip.rotation.x = 0;
+          babyRig.legs.br.hip.rotation.x = 0;
+          babyRig.tailBones.forEach((b, idx) => { b.rotation.y = Math.sin(t * 4.5 + idx * 0.35) * 0.18; });
         }
 
-        // ================= GAIT ANIMATION =================
-        if (isWaddling) {
-          const waddleFreq = isMoving ? 10.5 : 8.0;
-          const swing = 0.52;
+        if (babyRig.jawPivot) {
+          babyRig.jawPivot.rotation.x += (jawTargetAngle - babyRig.jawPivot.rotation.x) * 0.3;
+        }
+
+        if (isRunningGait) {
+          const runFreq = 14;
+          const swing = 0.65;
+          babyRig.legs.fl.hip.rotation.x = Math.sin(t * runFreq) * swing;
+          babyRig.legs.br.hip.rotation.x = Math.sin(t * runFreq) * swing;
+          babyRig.legs.fr.hip.rotation.x = -Math.sin(t * runFreq) * swing;
+          babyRig.legs.bl.hip.rotation.x = -Math.sin(t * runFreq) * swing;
+
+          babyRig.legs.fl.knee.rotation.x = Math.max(0, -Math.sin(t * runFreq) * 0.55);
+          babyRig.legs.fr.knee.rotation.x = Math.max(0, Math.sin(t * runFreq) * 0.55);
+
+          babyRig.torso.position.y = Math.abs(Math.sin(t * runFreq)) * 0.1;
+          babyRig.tailBones.forEach((b, idx) => { b.rotation.y = Math.sin(t * 22 + idx * 0.5) * 0.45; });
+        } else if (isWaddlingGait) {
+          const waddleFreq = 10.5;
+          const swing = 0.55;
           babyRig.legs.fl.hip.rotation.x = Math.sin(t * waddleFreq) * swing;
           babyRig.legs.br.hip.rotation.x = Math.sin(t * waddleFreq) * swing;
           babyRig.legs.fr.hip.rotation.x = -Math.sin(t * waddleFreq) * swing;
           babyRig.legs.bl.hip.rotation.x = -Math.sin(t * waddleFreq) * swing;
 
+          babyRig.legs.fl.knee.rotation.x = Math.max(0, -Math.sin(t * waddleFreq) * 0.45);
+          babyRig.legs.fr.knee.rotation.x = Math.max(0, Math.sin(t * waddleFreq) * 0.45);
+
           babyRig.torso.position.y = Math.abs(Math.sin(t * waddleFreq)) * 0.06;
           babyRig.torso.rotation.z = Math.sin(t * waddleFreq * 0.5) * 0.08;
 
-          babyRig.tailBones.forEach((b, idx) => {
-            b.rotation.y = Math.sin(t * 18 + idx * 0.5) * 0.38;
-          });
-          babyRig.headGroup.rotation.x = Math.sin(t * waddleFreq) * 0.05;
-        } else if (!isAutonomousMode) {
-          // Action button states
-          if (currentAction === 'wag') {
-            babyRig.torso.position.y = Math.abs(Math.sin(t * 8)) * 0.05;
-            babyRig.tailBones.forEach((b, idx) => {
-              b.rotation.y = Math.sin(t * 26 + idx * 0.5) * 0.48;
-            });
-            babyRig.headGroup.rotation.y = Math.sin(t * 4) * 0.12;
-            babyRig.tongue.scale.z = 1 + Math.sin(t * 8) * 0.2;
-          } else if (currentAction === 'cuddle') {
-            babyRig.torso.position.y = -0.15;
-            babyRig.headGroup.rotation.z = 0.22;
-            babyRig.headGroup.rotation.y = 0.15;
-            babyRig.legs.fl.hip.rotation.x = 0.1;
-            babyRig.legs.fr.hip.rotation.x = 0.1;
-          } else if (currentAction === 'bark') {
-            const barkCycle = Math.sin(t * 12);
-            babyRig.headGroup.rotation.x = -0.2 + Math.max(0, barkCycle * 0.18);
-            babyRig.torso.position.y = Math.max(0, barkCycle * 0.08);
-            babyRig.tongue.scale.z = 1.2 + Math.max(0, barkCycle * 0.4);
-          } else {
-            babyRig.torso.position.y = 0;
-            babyRig.torso.rotation.z = 0;
-            babyRig.headGroup.rotation.x = 0;
-            babyRig.legs.fl.hip.rotation.x = 0;
-            babyRig.legs.fr.hip.rotation.x = 0;
-            babyRig.legs.bl.hip.rotation.x = 0;
-            babyRig.legs.br.hip.rotation.x = 0;
-            babyRig.tailBones.forEach((b, idx) => {
-              b.rotation.y = Math.sin(t * 4.5 + idx * 0.35) * 0.18;
-            });
-          }
+          babyRig.tailBones.forEach((b, idx) => { b.rotation.y = Math.sin(t * 18 + idx * 0.5) * 0.38; });
         }
 
-        // Smooth rotation steering
         let diff = targetRotation - petRotation;
         while (diff < -Math.PI) diff += Math.PI * 2;
         while (diff > Math.PI) diff -= Math.PI * 2;
-        petRotation += diff * 0.18;
+        petRotation += diff * 0.22;
 
         babyRig.root.position.set(petPosition.x, 0, petPosition.z);
         babyRig.root.rotation.y = petRotation;
 
-        // Ear dynamics
         babyRig.ears[0].rotation.x = Math.sin(t * 4) * 0.12;
         babyRig.ears[1].rotation.x = Math.sin(t * 4) * 0.12;
       }
