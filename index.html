@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>DiPet | Next-Gen Ultra-Realistic Digital Pet Platform</title>
+  <title>DiPet | Hyper-Realistic Living Digital Puppy</title>
   
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -17,11 +17,11 @@
         extend: {
           colors: {
             brand: {
-              forest: '#0B291B',     // Document brand: Deep Forest Green
+              forest: '#0B291B',
               deep: '#144631',
               emerald: '#10B981',
-              accent: '#34D399',     // Fresh Mint Accent
-              cream: '#FDFBF7',      // Warm Cream
+              accent: '#34D399',
+              cream: '#FDFBF7',
               softbg: '#F4EFE6'
             }
           }
@@ -39,6 +39,22 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+    input[type=range] {
+      -webkit-appearance: none;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 9999px;
+      height: 6px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 18px;
+      width: 18px;
+      border-radius: 50%;
+      background: #34D399;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(52, 211, 153, 0.6);
+      border: 2px solid #0B291B;
     }
     .no-scrollbar::-webkit-scrollbar {
       display: none;
@@ -66,20 +82,20 @@
 
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
         <a href="#demo" class="hover:text-brand-forest transition">3D Interactive Simulator</a>
-        <a href="#catalog" class="hover:text-brand-forest transition">Breeds Catalog</a>
+        <a href="#catalog" class="hover:text-brand-forest transition">Species Catalog</a>
         <a href="#dips" class="hover:text-brand-forest transition">Dips Packages</a>
-        <a href="#faq" class="hover:text-brand-forest transition">FAQ</a>
+        <a href="#faq" class="hover:text-brand-forest transition">FAQ[cite: 1]</a>
       </nav>
 
       <div class="flex items-center gap-2.5">
         <a href="#catalog" class="px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-white bg-brand-forest hover:bg-brand-deep rounded-xl shadow-md transition-all">
-          Adopt Pet
+          Adopt Pet[cite: 1]
         </a>
       </div>
     </div>
   </header>
 
-  <!-- ================= HERO & REALISTIC 3D PET SIMULATOR ================= -->
+  <!-- ================= HERO & 3D SIMULATOR ================= -->
   <section class="relative overflow-hidden pt-6 pb-16 lg:pt-12 lg:pb-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -88,34 +104,34 @@
         <div class="lg:col-span-6 text-center lg:text-left space-y-4 sm:space-y-6">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-deep text-[11px] sm:text-xs font-semibold uppercase tracking-wider">
             <span class="w-2 h-2 rounded-full bg-brand-emerald animate-ping"></span>
-            Hyper-Realistic Fur & Quadruped Biomechanics
+            Subdivision Canine Anatomy & Fur Shaders[cite: 1]
           </div>
           
           <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-brand-forest leading-[1.12] tracking-tight">
             Feels Alive. <br/>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-deep via-brand-emerald to-emerald-600">
-              Moves Like A Real Pet.
+              An Ultra-Realistic Companion.
             </span>
           </h1>
           
           <p class="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
-            Apartment restrictions, work schedules, or frequent travel shouldn't hold you back. Experience true companionship with natural quadruped trotting, organic fur shading, and responsive mobile touch controls.
+            Apartment restrictions, work schedules, or frequent travel shouldn't hold you back from the joy of having a pet[cite: 1]. Experience true companionship with real-time breathing, organic blinking, and responsive touch controls[cite: 1].
           </p>
 
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1 text-xs font-semibold text-slate-600">
             <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-xs">
-              <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i> Procedural Bump & Fur Shading
+              <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i> Double-Pass Fur & Whisker Detail[cite: 1]
             </span>
             <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-xs">
-              <i data-lucide="smartphone" class="w-4 h-4 text-brand-emerald"></i> Mobile Virtual Joystick[cite: 1]
+              <i data-lucide="eye" class="w-4 h-4 text-brand-emerald"></i> Natural Eyelid Blinking[cite: 1]
             </span>
             <span class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-xs">
-              <i data-lucide="shield-check" class="w-4 h-4 text-brand-deep"></i> Permanent Pet ID (@DP)[cite: 1]
+              <i data-lucide="sliders" class="w-4 h-4 text-cyan-500"></i> Puppy Size Slider[cite: 1]
             </span>
           </div>
         </div>
 
-        <!-- Right: 3D Living Pet Room & Touch Controls -->
+        <!-- Right: 3D Living Pet Room & Realistic Puppy Rig -->
         <div id="demo" class="lg:col-span-6 relative">
           <div class="relative rounded-3xl overflow-hidden glass-dark p-3 sm:p-4 shadow-2xl border border-brand-accent/20">
             
@@ -128,34 +144,44 @@
                 <div>
                   <div class="flex items-center gap-2">
                     <h3 id="pet-name" class="font-bold text-base sm:text-lg text-white">Bruno</h3>
-                    <span id="pet-id-tag" class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-brand-accent">@DP000032</span>
+                    <span id="pet-id-tag" class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-brand-accent">@DP000032[cite: 1]</span>
                   </div>
-                  <p id="pet-breed-desc" class="text-[11px] text-slate-400">Golden Retriever • Level 14 Companion</p>
+                  <p id="pet-stage-label" class="text-[11px] text-brand-accent font-medium">Small Baby Puppy[cite: 1]</p>
                 </div>
               </div>
 
               <!-- Dips Currency -->
               <div class="flex items-center gap-1.5 bg-black/40 px-3 py-1 rounded-full border border-amber-400/30">
                 <i data-lucide="coins" class="w-3.5 h-3.5 text-amber-400"></i>
-                <span class="text-xs font-bold text-amber-300"><span id="dips-display">240</span> Dips</span>
+                <span class="text-xs font-bold text-amber-300"><span id="dips-display">240</span> Dips[cite: 1]</span>
               </div>
             </div>
 
-            <!-- 3D Canvas Area with Touch Overlay -->
+            <!-- 3D Canvas Area -->
             <div id="pet-3d-canvas-container" class="relative w-full h-[370px] sm:h-[430px] rounded-2xl overflow-hidden my-2.5 bg-radial from-[#1e4834] via-[#0d261a] to-[#06120c] flex items-center justify-center select-none">
               <canvas id="pet-3d-canvas" class="w-full h-full"></canvas>
               
               <!-- Dialogue Reaction Box -->
               <div id="pet-dialogue" class="absolute top-3 left-3 right-3 text-center pointer-events-none transition-all duration-300 opacity-0 transform -translate-y-2 z-20">
                 <span id="pet-dialogue-text" class="inline-block bg-white/95 text-brand-forest text-xs font-bold px-3.5 py-1.5 rounded-xl shadow-xl border border-brand-accent/40">
-                  Sniffing happily! Ready to run! 🐾
+                  Sniffing happily! Wagging tail! 🐾
                 </span>
               </div>
 
               <!-- Status Badge -->
               <div class="absolute top-3 left-3 pointer-events-none text-[10px] font-bold text-brand-accent flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg border border-brand-accent/20 z-10">
                 <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-ping"></span>
-                Gait: <span id="current-motion-state" class="text-white uppercase tracking-wider">Natural Quadruped Trot</span>
+                Status: <span id="current-motion-state" class="text-white uppercase tracking-wider">Standing Idle</span>
+              </div>
+
+              <!-- CAMERA ZOOM BUTTONS -->
+              <div class="absolute top-3 right-3 z-20 flex flex-col gap-1.5">
+                <button onclick="adjustZoom(-0.6)" title="Zoom In" class="w-8 h-8 rounded-lg bg-black/60 hover:bg-black/80 border border-white/20 text-white flex items-center justify-center backdrop-blur-md active:scale-90 transition">
+                  <i data-lucide="zoom-in" class="w-4 h-4 text-brand-accent"></i>
+                </button>
+                <button onclick="adjustZoom(0.6)" title="Zoom Out" class="w-8 h-8 rounded-lg bg-black/60 hover:bg-black/80 border border-white/20 text-white flex items-center justify-center backdrop-blur-md active:scale-90 transition">
+                  <i data-lucide="zoom-out" class="w-4 h-4 text-brand-accent"></i>
+                </button>
               </div>
 
               <!-- Mobile On-Screen Virtual Joystick -->
@@ -168,9 +194,36 @@
               <!-- Helper Label -->
               <div class="absolute bottom-4 right-4 pointer-events-none text-right z-10">
                 <span class="inline-block bg-black/60 backdrop-blur-md text-white/80 text-[10px] font-medium px-2.5 py-1.5 rounded-lg border border-white/10">
-                  🕹️ Touch Joystick to Walk<br/>
+                  🕹️ Use Joystick to Walk[cite: 1]<br/>
                   👆 Drag screen to Rotate
                 </span>
+              </div>
+            </div>
+
+            <!-- Puppy Size Slider -->
+            <div class="bg-black/30 border border-white/10 rounded-xl px-3 py-2 my-2 text-white">
+              <div class="flex items-center justify-between text-[11px] mb-1 font-medium">
+                <span class="flex items-center gap-1.5 text-brand-accent">
+                  <i data-lucide="scaling" class="w-3.5 h-3.5"></i> Puppy Size / Growth[cite: 1]:
+                </span>
+                <span id="size-value-display" class="font-bold text-white bg-white/10 px-2 py-0.5 rounded text-[10px]">
+                  Baby (0.65x)[cite: 1]
+                </span>
+              </div>
+              
+              <div class="flex items-center gap-3">
+                <span class="text-[10px] text-slate-400">Small[cite: 1]</span>
+                <input 
+                  type="range" 
+                  id="pet-size-slider" 
+                  min="0.4" 
+                  max="1.2" 
+                  step="0.05" 
+                  value="0.65" 
+                  oninput="onPetSizeChange(this.value)" 
+                  class="w-full cursor-pointer"
+                />
+                <span class="text-[10px] text-slate-400">Big (Adult)[cite: 1]</span>
               </div>
             </div>
 
@@ -178,7 +231,7 @@
             <div class="grid grid-cols-3 gap-2 px-1 pb-2 text-white text-xs">
               <div class="bg-white/5 rounded-xl p-2 border border-white/5">
                 <div class="flex justify-between items-center mb-1 text-[10px] text-slate-300">
-                  <span class="flex items-center gap-1"><i data-lucide="heart" class="w-3 h-3 text-rose-400"></i> Vitality</span>
+                  <span class="flex items-center gap-1"><i data-lucide="heart" class="w-3 h-3 text-rose-400"></i> Vitality[cite: 1]</span>
                   <span id="val-health" class="font-bold text-emerald-400">98%</span>
                 </div>
                 <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
@@ -188,7 +241,7 @@
 
               <div class="bg-white/5 rounded-xl p-2 border border-white/5">
                 <div class="flex justify-between items-center mb-1 text-[10px] text-slate-300">
-                  <span class="flex items-center gap-1"><i data-lucide="smile" class="w-3 h-3 text-amber-400"></i> Mood</span>
+                  <span class="flex items-center gap-1"><i data-lucide="smile" class="w-3 h-3 text-amber-400"></i> Mood[cite: 1]</span>
                   <span id="val-mood" class="font-bold text-amber-400">Excited</span>
                 </div>
                 <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
@@ -198,7 +251,7 @@
 
               <div class="bg-white/5 rounded-xl p-2 border border-white/5">
                 <div class="flex justify-between items-center mb-1 text-[10px] text-slate-300">
-                  <span class="flex items-center gap-1"><i data-lucide="utensils" class="w-3 h-3 text-cyan-400"></i> Nutrition</span>
+                  <span class="flex items-center gap-1"><i data-lucide="utensils" class="w-3 h-3 text-cyan-400"></i> Nutrition[cite: 1]</span>
                   <span id="val-hunger" class="font-bold text-cyan-400">85%</span>
                 </div>
                 <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
@@ -211,22 +264,22 @@
             <div class="grid grid-cols-4 gap-2 pt-2 border-t border-white/10">
               <button onclick="petAction('feed')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
                 <i data-lucide="cookie" class="w-4 h-4 mb-0.5 text-amber-400 group-hover:scale-110 transition-transform"></i>
-                <span class="text-[10px] font-medium">Feed Meal</span>
+                <span class="text-[10px] font-medium">Feed Meal[cite: 1]</span>
               </button>
               
               <button onclick="petAction('water')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
                 <i data-lucide="droplet" class="w-4 h-4 mb-0.5 text-cyan-400 group-hover:scale-110 transition-transform"></i>
-                <span class="text-[10px] font-medium">Water Bowl</span>
+                <span class="text-[10px] font-medium">Water Bowl[cite: 1]</span>
               </button>
 
               <button onclick="petAction('jump')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
                 <i data-lucide="sparkles" class="w-4 h-4 mb-0.5 text-emerald-400 group-hover:scale-110 transition-transform"></i>
-                <span class="text-[10px] font-medium">Sprint / Jump</span>
+                <span class="text-[10px] font-medium">Sprint / Jump[cite: 1]</span>
               </button>
 
               <button onclick="petAction('sit')" class="flex flex-col items-center justify-center p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition active:scale-95 group">
                 <i data-lucide="arrow-down-circle" class="w-4 h-4 mb-0.5 text-purple-400 group-hover:scale-110 transition-transform"></i>
-                <span class="text-[10px] font-medium">Sit & Wag</span>
+                <span class="text-[10px] font-medium">Sit & Wag[cite: 1]</span>
               </button>
             </div>
           </div>
@@ -236,27 +289,23 @@
     </div>
   </section>
 
-  <!-- ================= SPECIES CATALOG DIRECTORY ================= -->
+  <!-- ================= SPECIES DIRECTORY ================= -->
   <section id="catalog" class="py-16 bg-brand-softbg/60 border-t border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-8">
-        <span class="text-xs font-bold text-brand-emerald tracking-widest uppercase">Ecosystem Directory</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-forest mt-1.5">Explore Pet Breeds</h2>
-        <p class="text-slate-600 mt-2 text-xs sm:text-sm">Tap any companion below to inspect its realistic anatomical scale and coat physics in real-time.</p>
+        <span class="text-xs font-bold text-brand-emerald tracking-widest uppercase">Ecosystem Directory[cite: 1]</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-forest mt-1.5">Explore Breeds[cite: 1]</h2>
+        <p class="text-slate-600 mt-2 text-xs sm:text-sm">Select any companion to preview its anatomy and coat textures[cite: 1].</p>
       </div>
 
-      <!-- Categories Filter Tabs -->
       <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar">
         <button onclick="filterCategory('all', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-brand-forest text-white transition shadow-xs">All Breeds</button>
-        <button onclick="filterCategory('dogs', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐕 Dogs</button>
-        <button onclick="filterCategory('cats', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐈 Cats</button>
-        <button onclick="filterCategory('birds', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🦜 Birds</button>
-        <button onclick="filterCategory('aquatic', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐠 Fish</button>
-        <button onclick="filterCategory('small', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐹 Small Pets</button>
-        <button onclick="filterCategory('reptiles', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🦎 Reptiles</button>
+        <button onclick="filterCategory('dogs', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐕 Dogs[cite: 1]</button>
+        <button onclick="filterCategory('cats', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐈 Cats[cite: 1]</button>
+        <button onclick="filterCategory('birds', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🦜 Birds[cite: 1]</button>
+        <button onclick="filterCategory('aquatic', this)" class="cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition shadow-xs">🐠 Fish[cite: 1]</button>
       </div>
 
-      <!-- Dynamic Cards Grid -->
       <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
     </div>
   </section>
@@ -265,7 +314,7 @@
   <section id="dips" class="py-16 bg-brand-forest text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-xs font-bold text-brand-accent tracking-widest uppercase">Platform Economy</span>
+        <span class="text-xs font-bold text-brand-accent tracking-widest uppercase">Platform Economy[cite: 1]</span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Dips Care Currency (₹1 = 2 Dips)[cite: 1]</h2>
       </div>
 
@@ -319,25 +368,20 @@
   <!-- ================= FOOTER ================= -->
   <footer class="bg-brand-forest text-white/80 py-8 border-t border-brand-emerald/20 text-xs">
     <div class="max-w-7xl mx-auto px-4 text-center">
-      <p>© 2026 DiPet Inc. (dipet.in). Hyper-Realistic Digital Pet Biomechanics[cite: 1].</p>
+      <p>© 2026 DiPet Inc. (dipet.in). Hyper-Realistic Digital Pet Platform[cite: 1].</p>
     </div>
   </footer>
 
-  <!-- ================= JAVASCRIPT: HYPER-REALISTIC PET GRAPHICS & BIOMECHANICS ================= -->
+  <!-- ================= THREE.JS HYPER-REALISTIC PUPPY RIG ================= -->
   <script>
     lucide.createIcons();
 
     // Catalog Data
     const petDatabase = [
-      { name: "Golden Retriever", cat: "dogs", icon: "🐕", tag: "@DP-Dog", desc: "Silky golden coat, athletic trotting, affectionate.", status: "Available", coatColor: 0xD69942, muzzleColor: 0xF5E6CF },
-      { name: "Black Labrador", cat: "dogs", icon: "🦮", tag: "@DP-Dog", desc: "Glossy jet-black coat, muscular shoulders, loyal.", status: "Available", coatColor: 0x221E1D, muzzleColor: 0x2B2725 },
-      { name: "German Shepherd", cat: "dogs", icon: "🐕‍🦺", tag: "@DP-Dog", desc: "Dual sable coat, erect alert ears, agile stride.", status: "Available", coatColor: 0x935624, muzzleColor: 0x1F1A17 },
-      { name: "Beagle", cat: "dogs", icon: "🐶", tag: "@DP-Dog", desc: "Tri-color hound, curious sniffing gait, friendly.", status: "Available", coatColor: 0xB86A2E, muzzleColor: 0xFDFBF7 },
-      { name: "Persian Cat", cat: "cats", icon: "🐈", tag: "@DP-Cat", desc: "Fluffy dense coat, copper eyes, calm nature.", status: "Available", coatColor: 0xECECEC, muzzleColor: 0xFFFFFF },
-      { name: "Siamese Cat", cat: "cats", icon: "🐱", tag: "@DP-Cat", desc: "Sleek body, dark point-shading, vocal companion.", status: "Available", coatColor: 0xD3C4AF, muzzleColor: 0x48382B },
-      { name: "Parakeet", cat: "birds", icon: "🦜", tag: "@DP-Bird", desc: "Vibrant yellow-green plumage, whistles.", status: "Available", coatColor: 0x6DBE45, muzzleColor: 0xFAEB56 },
-      { name: "Crown Goldfish", cat: "aquatic", icon: "🐠", tag: "@DP-Aqua", desc: "Translucent fin drapery, calm swimmer.", status: "Available", coatColor: 0xFA6900, muzzleColor: 0xFFFFFF },
-      { name: "Syrian Hamster", cat: "small", icon: "🐹", tag: "@DP-Pocket", desc: "Plump cheeks, nocturnal forager.", status: "Available", coatColor: 0xC88E52, muzzleColor: 0xFFFFFF }
+      { name: "Golden Retriever Puppy", cat: "dogs", icon: "🐕", tag: "@DP-Dog", desc: "Warm golden coat, droopy soft ears, energetic trotting[cite: 1].", status: "Available", coatColor: 0xD79A46, muzzleColor: 0xF7E8D0 },
+      { name: "Labrador Puppy", cat: "dogs", icon: "🦮", tag: "@DP-Dog", desc: "Chocolate brown sleek fur, high playfulness[cite: 1].", status: "Available", coatColor: 0x4A2E1B, muzzleColor: 0x5C3A24 },
+      { name: "German Shepherd Puppy", cat: "dogs", icon: "🐕‍🦺", tag: "@DP-Dog", desc: "Two-tone coat, curious head tilt, alert[cite: 1].", status: "Available", coatColor: 0x965A29, muzzleColor: 0x221B17 },
+      { name: "Beagle Puppy", cat: "dogs", icon: "🐶", tag: "@DP-Dog", desc: "Tri-color hound, sniffing curiosity[cite: 1].", status: "Available", coatColor: 0xBC6E30, muzzleColor: 0xFBF9F5 }
     ];
 
     function renderCatalog(filter = 'all') {
@@ -381,13 +425,12 @@
     function selectPet(name, icon, coatColor, muzzleColor) {
       document.getElementById('pet-name').innerText = name;
       document.getElementById('pet-avatar-icon').innerText = icon;
-      document.getElementById('pet-breed-desc').innerText = `${name} • Lifelong Companion`;
-      
       if (coatMat && coatColor) {
         coatMat.color.setHex(coatColor);
+        if (undercoatMat) undercoatMat.color.setHex(coatColor);
         if (muzzleMat && muzzleColor) muzzleMat.color.setHex(muzzleColor);
       }
-      triggerDialogue(`Loaded ${name}! Coat physics updated.`);
+      triggerDialogue(`Loaded ${name}! Coat updated.`);
       document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
     }
 
@@ -407,16 +450,16 @@
     function petAction(action) {
       if (action === 'feed') {
         petStats.hunger = Math.min(100, petStats.hunger + 10);
-        triggerDialogue("Crunch crunch! Fresh nutritional food! 🍖");
+        triggerDialogue("Crunch crunch! Delicious puppy kibble! 🍖[cite: 1]");
       } else if (action === 'water') {
         petStats.health = Math.min(100, petStats.health + 2);
-        triggerDialogue("Lapping pure water from the bowl! 💧");
+        triggerDialogue("Lapping fresh water! 💧[cite: 1]");
       } else if (action === 'jump') {
         jumpTrigger = true;
-        triggerDialogue("Energetic jump & sprint! ⭐");
+        triggerDialogue("Playful bounce & leap! ⭐[cite: 1]");
       } else if (action === 'sit') {
         isSitting = !isSitting;
-        triggerDialogue(isSitting ? "Sitting attentively! 🐕" : "Ready to walk!");
+        triggerDialogue(isSitting ? "Good boy! Sitting nicely! 🐕[cite: 1]" : "Ready to play![cite: 1]");
       }
       updateHUD();
     }
@@ -430,20 +473,23 @@
       document.getElementById('dips-display').innerText = petStats.dips;
     }
 
-    // ================= ADVANCED THREE.JS REALISTIC BIO-ENGINE =================
-    let scene, camera, renderer, coatMat, muzzleMat;
-    let petDog = {
+    // ================= REALISTIC THREE.JS SKELETAL PUPPY SYSTEM =================
+    let scene, camera, renderer, coatMat, undercoatMat, muzzleMat;
+    let puppyRig = {
       root: null,
-      torsoGroup: null,
-      chest: null,
+      scalerGroup: null,
+      torso: null,
       ribcage: null,
       pelvis: null,
       neck: null,
-      head: null,
+      headGroup: null,
       snout: null,
       jaw: null,
+      tongue: null,
+      eyes: [],
+      eyelids: [],
       ears: [],
-      tailJoints: [],
+      tailBones: [],
       legs: {}
     };
 
@@ -455,48 +501,75 @@
     let isSitting = false;
     let jumpTrigger = false;
     let jumpHeight = 0;
+    let cameraDistance = 5.2;
 
-    // 1. Procedural Realistic Fur Texture & Normal Bump Map
-    function createProceduralFurTextures() {
+    function adjustZoom(delta) {
+      cameraDistance = Math.min(7.5, Math.max(2.8, cameraDistance + delta));
+      camera.position.z = cameraDistance;
+    }
+
+    function onPetSizeChange(val) {
+      const scale = parseFloat(val);
+      if (puppyRig.scalerGroup) {
+        puppyRig.scalerGroup.scale.set(scale, scale, scale);
+      }
+      let stageText = "Baby Puppy (0.65x)[cite: 1]";
+      if (scale < 0.52) stageText = `Tiny Puppy (${scale}x)[cite: 1]`;
+      else if (scale <= 0.72) stageText = `Baby Puppy (${scale}x)[cite: 1]`;
+      else if (scale <= 0.95) stageText = `Young Pup (${scale}x)[cite: 1]`;
+      else stageText = `Adult Dog (${scale}x)[cite: 1]`;
+
+      document.getElementById('size-value-display').innerText = stageText;
+      document.getElementById('pet-stage-label').innerText = stageText;
+    }
+
+    // Realistic Multi-Layer Procedural Fur Generator
+    function createHyperRealisticFurTexture() {
       const size = 512;
       const cvs = document.createElement('canvas');
       cvs.width = size; cvs.height = size;
       const ctx = cvs.getContext('2d');
 
-      // Base coat fill
-      ctx.fillStyle = '#C88C3E';
+      // Base coat
+      ctx.fillStyle = '#D4943E';
       ctx.fillRect(0, 0, size, size);
 
-      // Fine individual hair strokes
-      for (let i = 0; i < 40000; i++) {
-        const x = Math.random() * size;
-        const y = Math.random() * size;
-        const len = 3 + Math.random() * 8;
-        const alpha = 0.08 + Math.random() * 0.12;
+      // Undercoat softness
+      for (let i = 0; i < 30000; i++) {
+        const x = Math.random() * size, y = Math.random() * size;
+        ctx.fillStyle = Math.random() > 0.5 ? 'rgba(245, 220, 175, 0.08)' : 'rgba(140, 80, 20, 0.06)';
+        ctx.beginPath();
+        ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
-        ctx.strokeStyle = Math.random() > 0.45 ? `rgba(255, 235, 190, ${alpha})` : `rgba(110, 60, 15, ${alpha})`;
+      // Individual directional guard hairs
+      for (let i = 0; i < 50000; i++) {
+        const x = Math.random() * size, y = Math.random() * size;
+        const len = 4 + Math.random() * 8;
+        const alpha = 0.07 + Math.random() * 0.12;
+        ctx.strokeStyle = Math.random() > 0.4 ? `rgba(255, 238, 205, ${alpha})` : `rgba(105, 55, 12, ${alpha})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(x, y);
-        ctx.lineTo(x + Math.sin(y * 0.08) * 2, y + len);
+        ctx.lineTo(x + Math.sin(y * 0.06) * 2.5, y + len);
         ctx.stroke();
       }
 
       const furTexture = new THREE.CanvasTexture(cvs);
       furTexture.wrapS = furTexture.wrapT = THREE.RepeatWrapping;
-      furTexture.repeat.set(3, 3);
+      furTexture.repeat.set(4, 4);
 
-      // Generate bump map from hair strands for specular light reaction
+      // Micro bump texture for fur specular lighting
       const bumpCvs = document.createElement('canvas');
       bumpCvs.width = size; bumpCvs.height = size;
       const bCtx = bumpCvs.getContext('2d');
       bCtx.fillStyle = '#808080';
       bCtx.fillRect(0, 0, size, size);
 
-      for (let i = 0; i < 25000; i++) {
-        const x = Math.random() * size;
-        const y = Math.random() * size;
-        bCtx.strokeStyle = Math.random() > 0.5 ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.15)';
+      for (let i = 0; i < 35000; i++) {
+        const x = Math.random() * size, y = Math.random() * size;
+        bCtx.strokeStyle = Math.random() > 0.5 ? 'rgba(255,255,255,0.18)' : 'rgba(0,0,0,0.18)';
         bCtx.beginPath();
         bCtx.moveTo(x, y);
         bCtx.lineTo(x, y + 4);
@@ -504,7 +577,7 @@
       }
       const bumpTexture = new THREE.CanvasTexture(bumpCvs);
       bumpTexture.wrapS = bumpTexture.wrapT = THREE.RepeatWrapping;
-      bumpTexture.repeat.set(3, 3);
+      bumpTexture.repeat.set(4, 4);
 
       return { furTexture, bumpTexture };
     }
@@ -516,9 +589,9 @@
       const h = container.clientHeight;
 
       scene = new THREE.Scene();
-      camera = new THREE.PerspectiveCamera(38, w / h, 0.1, 1000);
-      camera.position.set(0, 3.4, 5.6);
-      camera.lookAt(0, 0.5, 0);
+      camera = new THREE.PerspectiveCamera(36, w / h, 0.1, 1000);
+      camera.position.set(0, 2.6, cameraDistance);
+      camera.lookAt(0, 0.35, 0);
 
       renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true, powerPreference: 'high-performance' });
       renderer.setSize(w, h);
@@ -526,222 +599,286 @@
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-      // Realistic Lighting Studio Setup
-      const ambientLight = new THREE.AmbientLight(0xfff7ed, 1.35);
+      // Realistic Outdoor/Indoor Lighting Rig
+      const ambientLight = new THREE.AmbientLight(0xfff7ea, 1.4);
       scene.add(ambientLight);
 
-      // Primary Sunlight
-      const sun = new THREE.DirectionalLight(0xffecd2, 1.85);
-      sun.position.set(4, 9, 5);
+      const sun = new THREE.DirectionalLight(0xffeed4, 1.9);
+      sun.position.set(4, 8, 5);
       sun.castShadow = true;
       sun.shadow.mapSize.width = 1024;
       sun.shadow.mapSize.height = 1024;
       scene.add(sun);
 
-      // Warm ground bounce reflection
-      const groundBounce = new THREE.DirectionalLight(0x0e3824, 0.9);
-      groundBounce.position.set(0, -4, 0);
-      scene.add(groundBounce);
+      const rimLight = new THREE.DirectionalLight(0x34d399, 0.85);
+      rimLight.position.set(-5, 2, -4);
+      scene.add(rimLight);
 
-      // Subtle rim-light catching fur edges
-      const rim = new THREE.DirectionalLight(0x34d399, 0.75);
-      rim.position.set(-5, 2, -4);
-      scene.add(rim);
+      const bounceLight = new THREE.DirectionalLight(0x0e3a24, 0.8);
+      bounceLight.position.set(0, -3, 0);
+      scene.add(bounceLight);
 
-      // Room / Yard Platform
-      const platform = new THREE.Mesh(
-        new THREE.CylinderGeometry(3.6, 3.6, 0.12, 36),
-        new THREE.MeshStandardMaterial({ color: 0x081e13, roughness: 0.9 })
+      // Floor Platform
+      const yard = new THREE.Mesh(
+        new THREE.CylinderGeometry(3.6, 3.6, 0.12, 40),
+        new THREE.MeshStandardMaterial({ color: 0x081e13, roughness: 0.92 })
       );
-      platform.position.y = -0.06;
-      platform.receiveShadow = true;
-      scene.add(platform);
+      yard.position.y = -0.06;
+      yard.receiveShadow = true;
+      scene.add(yard);
 
-      // 2. Realistic Materials
-      const { furTexture, bumpTexture } = createProceduralFurTextures();
+      // Materials Setup
+      const { furTexture, bumpTexture } = createHyperRealisticFurTexture();
 
       coatMat = new THREE.MeshStandardMaterial({
-        color: 0xD69942, // Golden Retriever Default
+        color: 0xD79A46,
         map: furTexture,
         bumpMap: bumpTexture,
-        bumpScale: 0.035,
-        roughness: 0.8,
-        metalness: 0.04
+        bumpScale: 0.04,
+        roughness: 0.76,
+        metalness: 0.02
+      });
+
+      undercoatMat = new THREE.MeshStandardMaterial({
+        color: 0xD79A46,
+        roughness: 0.9,
+        transparent: true,
+        opacity: 0.3
       });
 
       muzzleMat = new THREE.MeshStandardMaterial({
-        color: 0xF5E6CF,
+        color: 0xF7E8D0,
         map: furTexture,
         bumpMap: bumpTexture,
-        bumpScale: 0.02,
+        bumpScale: 0.025,
         roughness: 0.85
       });
 
-      // Realistic wet leather nose
+      // Ultra Wet Shiny Nose
       const wetNoseMat = new THREE.MeshStandardMaterial({
-        color: 0x14100E,
-        roughness: 0.15,
-        metalness: 0.1
-      });
-
-      // Deep glassy eye material
-      const eyeGlassMat = new THREE.MeshStandardMaterial({
-        color: 0x090605,
-        roughness: 0.04,
+        color: 0x16110F,
+        roughness: 0.08,
         metalness: 0.25
       });
 
-      petDog.root = new THREE.Group();
-      petDog.torsoGroup = new THREE.Group();
-      petDog.root.add(petDog.torsoGroup);
+      // Glossy Animal Eyes
+      const eyeGlossMat = new THREE.MeshStandardMaterial({
+        color: 0x080504,
+        roughness: 0.02,
+        metalness: 0.4
+      });
 
-      // 3. Anatomical Canine Body Geometry (With Muscular Contours)
-      // Deep Ribcage & Chest
-      const chestGeo = new THREE.SphereGeometry(0.72, 32, 24);
-      chestGeo.scale(1.05, 1.25, 1.35);
-      petDog.chest = new THREE.Mesh(chestGeo, coatMat);
-      petDog.chest.position.set(0, 0.98, 0.35);
-      petDog.chest.castShadow = true;
-      petDog.torsoGroup.add(petDog.chest);
+      // Pink Tongue Material
+      const tongueMat = new THREE.MeshStandardMaterial({
+        color: 0xEE7788,
+        roughness: 0.2
+      });
 
-      // Flank / Tucked Abdomen & Pelvis
-      const pelvisGeo = new THREE.SphereGeometry(0.62, 32, 24);
-      pelvisGeo.scale(0.9, 1.05, 1.2);
-      petDog.pelvis = new THREE.Mesh(pelvisGeo, coatMat);
-      petDog.pelvis.position.set(0, 0.95, -0.65);
-      petDog.pelvis.castShadow = true;
-      petDog.torsoGroup.add(petDog.pelvis);
+      // ================= ORGANIC ANATOMICAL PUPPY MODEL =================
+      puppyRig.root = new THREE.Group();
+      puppyRig.scalerGroup = new THREE.Group();
+      puppyRig.scalerGroup.scale.set(0.65, 0.65, 0.65); // Initial Cute Puppy Proportion
+      puppyRig.root.add(puppyRig.scalerGroup);
 
-      // Muscular Neck
-      const neckGeo = new THREE.CylinderGeometry(0.32, 0.46, 0.65, 24);
+      puppyRig.torso = new THREE.Group();
+      puppyRig.scalerGroup.add(puppyRig.torso);
+
+      // Deep Barrel Ribcage / Chest
+      const chestGeo = new THREE.SphereGeometry(0.72, 36, 28);
+      chestGeo.scale(1.05, 1.22, 1.35);
+      puppyRig.ribcage = new THREE.Mesh(chestGeo, coatMat);
+      puppyRig.ribcage.position.set(0, 0.95, 0.35);
+      puppyRig.ribcage.castShadow = true;
+      puppyRig.torso.add(puppyRig.ribcage);
+
+      // Tucked Flank & Muscular Pelvis
+      const flankGeo = new THREE.SphereGeometry(0.6, 32, 24);
+      flankGeo.scale(0.92, 1.05, 1.15);
+      puppyRig.pelvis = new THREE.Mesh(flankGeo, coatMat);
+      puppyRig.pelvis.position.set(0, 0.94, -0.6);
+      puppyRig.pelvis.castShadow = true;
+      puppyRig.torso.add(puppyRig.pelvis);
+
+      // Arching Neck
+      const neckGeo = new THREE.CylinderGeometry(0.3, 0.44, 0.6, 24);
       neckGeo.scale(1, 1, 1.2);
-      petDog.neck = new THREE.Mesh(neckGeo, coatMat);
-      petDog.neck.position.set(0, 1.4, 0.7);
-      petDog.neck.rotation.x = -Math.PI / 4.8;
-      petDog.neck.castShadow = true;
-      petDog.torsoGroup.add(petDog.neck);
+      puppyRig.neck = new THREE.Mesh(neckGeo, coatMat);
+      puppyRig.neck.position.set(0, 1.36, 0.68);
+      puppyRig.neck.rotation.x = -Math.PI / 4.6;
+      puppyRig.torso.add(puppyRig.neck);
 
-      // Realistic Canine Skull & Jaw Structure
-      petDog.head = new THREE.Group();
-      petDog.head.position.set(0, 1.72, 0.98);
+      // ================= CUTE REALISTIC PUPPY HEAD =================
+      puppyRig.headGroup = new THREE.Group();
+      puppyRig.headGroup.position.set(0, 1.68, 0.95);
 
-      const skullGeo = new THREE.SphereGeometry(0.44, 28, 20);
-      skullGeo.scale(0.95, 0.9, 1.1);
+      // Rounded Puppy Cranium
+      const skullGeo = new THREE.SphereGeometry(0.48, 36, 28);
+      skullGeo.scale(1.05, 0.98, 1.08);
       const skull = new THREE.Mesh(skullGeo, coatMat);
       skull.castShadow = true;
-      petDog.head.add(skull);
+      puppyRig.headGroup.add(skull);
 
-      // Tapered Muzzle / Snout
-      const snoutGeo = new THREE.CylinderGeometry(0.16, 0.28, 0.52, 20);
-      snoutGeo.scale(1.15, 0.85, 1.2);
-      petDog.snout = new THREE.Mesh(snoutGeo, muzzleMat);
-      petDog.snout.position.set(0, -0.12, 0.48);
-      petDog.snout.rotation.x = Math.PI / 2.15;
-      petDog.snout.castShadow = true;
-      petDog.head.add(petDog.snout);
+      // Soft Tapered Snout
+      const snoutGeo = new THREE.CylinderGeometry(0.18, 0.29, 0.48, 24);
+      snoutGeo.scale(1.15, 0.85, 1.25);
+      puppyRig.snout = new THREE.Mesh(snoutGeo, muzzleMat);
+      puppyRig.snout.position.set(0, -0.1, 0.46);
+      puppyRig.snout.rotation.x = Math.PI / 2.15;
+      puppyRig.snout.castShadow = true;
+      puppyRig.headGroup.add(puppyRig.snout);
 
-      // Realistic Wet Nose with nostril shape
-      const nose = new THREE.Mesh(new THREE.SphereGeometry(0.085, 16, 16), wetNoseMat);
-      nose.scale.set(1.4, 0.85, 1);
-      nose.position.set(0, -0.05, 0.76);
-      petDog.head.add(nose);
+      // Lower Jaw (Slightly open for tongue)
+      const jawGeo = new THREE.BoxGeometry(0.24, 0.08, 0.38);
+      puppyRig.jaw = new THREE.Mesh(jawGeo, muzzleMat);
+      puppyRig.jaw.position.set(0, -0.22, 0.46);
+      puppyRig.headGroup.add(puppyRig.jaw);
 
-      // Reflective Eyes with Corneal Glint
-      function buildRealisticEye(x) {
+      // Playful Tongue
+      const tongueGeo = new THREE.BoxGeometry(0.14, 0.03, 0.22);
+      puppyRig.tongue = new THREE.Mesh(tongueGeo, tongueMat);
+      puppyRig.tongue.position.set(0, -0.18, 0.58);
+      puppyRig.tongue.rotation.x = 0.25;
+      puppyRig.headGroup.add(puppyRig.tongue);
+
+      // Wet Specular Heart-Shaped Puppy Nose
+      const noseGeo = new THREE.SphereGeometry(0.088, 20, 20);
+      noseGeo.scale(1.4, 0.85, 1);
+      const nose = new THREE.Mesh(noseGeo, wetNoseMat);
+      nose.position.set(0, -0.04, 0.74);
+      puppyRig.headGroup.add(nose);
+
+      // Whiskers dots (Dark tactile pads)
+      const whiskerDotL = new THREE.Mesh(new THREE.SphereGeometry(0.02, 8, 8), wetNoseMat);
+      whiskerDotL.position.set(-0.14, -0.08, 0.62);
+      const whiskerDotR = whiskerDotL.clone();
+      whiskerDotR.position.x = 0.14;
+      puppyRig.headGroup.add(whiskerDotL);
+      puppyRig.headGroup.add(whiskerDotR);
+
+      // Lifelike Eyes with Blinking Eyelids & Corneal Reflection
+      function buildOrganicEye(x) {
         const eyeGroup = new THREE.Group();
-        const eyeball = new THREE.Mesh(new THREE.SphereGeometry(0.07, 16, 16), eyeGlassMat);
+        const eyeball = new THREE.Mesh(new THREE.SphereGeometry(0.075, 20, 20), eyeGlossMat);
         eyeGroup.add(eyeball);
 
-        // Specular glint
-        const glint = new THREE.Mesh(new THREE.SphereGeometry(0.015, 8, 8), new THREE.MeshBasicMaterial({ color: 0xffffff }));
-        glint.position.set(0.018, 0.02, 0.055);
+        // Warm dark iris ring
+        const iris = new THREE.Mesh(new THREE.RingGeometry(0.015, 0.065, 24), new THREE.MeshBasicMaterial({ color: 0x3d200a, side: THREE.DoubleSide }));
+        iris.position.set(0, 0, 0.072);
+        eyeGroup.add(iris);
+
+        // Specular eye glint
+        const glint = new THREE.Mesh(new THREE.SphereGeometry(0.018, 8, 8), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        glint.position.set(0.02, 0.025, 0.065);
         eyeGroup.add(glint);
 
-        eyeGroup.position.set(x, 0.1, 0.38);
+        // Dynamic Eyelid for Blinking
+        const eyelidGeo = new THREE.SphereGeometry(0.082, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2);
+        const eyelid = new THREE.Mesh(eyelidGeo, coatMat);
+        eyelid.rotation.x = Math.PI; // Open eye by default
+        eyeGroup.add(eyelid);
+        puppyRig.eyelids.push(eyelid);
+
+        eyeGroup.position.set(x, 0.11, 0.38);
         return eyeGroup;
       }
-      petDog.head.add(buildRealisticEye(-0.21));
-      petDog.head.add(buildRealisticEye(0.21));
+      puppyRig.headGroup.add(buildOrganicEye(-0.22));
+      puppyRig.headGroup.add(buildOrganicEye(0.22));
 
-      // Natural Floppy Ears
-      function buildEar(x, rotZ) {
+      // Soft Curved Drooping Ears (Golden Retriever Puppy Style)
+      function buildDroopyEar(x, rotZ) {
         const earGroup = new THREE.Group();
-        earGroup.position.set(x, 0.16, 0.05);
+        earGroup.position.set(x, 0.18, 0.05);
 
-        const earGeo = new THREE.BoxGeometry(0.1, 0.58, 0.28);
-        const earMesh = new THREE.Mesh(earGeo, coatMat);
-        earMesh.position.y = -0.24;
-        earMesh.rotation.z = rotZ;
-        earGroup.add(earMesh);
+        // Folded ear fold
+        const earFold = new THREE.Mesh(new THREE.SphereGeometry(0.12, 16, 16), coatMat);
+        earFold.scale.set(1.2, 0.6, 1);
+        earGroup.add(earFold);
+
+        // Hanging flap
+        const earFlapGeo = new THREE.BoxGeometry(0.12, 0.6, 0.3);
+        const earFlap = new THREE.Mesh(earFlapGeo, coatMat);
+        earFlap.position.set(0, -0.26, 0);
+        earFlap.rotation.z = rotZ;
+        earGroup.add(earFlap);
+
         return earGroup;
       }
-      const earL = buildEar(-0.38, 0.28);
-      const earR = buildEar(0.38, -0.28);
-      petDog.head.add(earL);
-      petDog.head.add(earR);
-      petDog.ears = [earL, earR];
+      const earL = buildDroopyEar(-0.4, 0.25);
+      const earR = buildDroopyEar(0.4, -0.25);
+      puppyRig.headGroup.add(earL);
+      puppyRig.headGroup.add(earR);
+      puppyRig.ears = [earL, earR];
 
-      petDog.torsoGroup.add(petDog.head);
+      puppyRig.torso.add(puppyRig.headGroup);
 
-      // 4. Fully Articulated Legs (Shoulder/Hip -> Knee/Hock -> Pastern -> Paw)
+      // ================= ARTICULATED 4-JOINT LEGS =================
       function buildCanineLeg(x, z, isRear) {
-        const rootJoint = new THREE.Group();
-        rootJoint.position.set(x, 0.9, z);
+        const hip = new THREE.Group();
+        hip.position.set(x, 0.88, z);
 
-        // Thigh / Shoulder
-        const upperGeo = new THREE.CylinderGeometry(0.16, 0.12, 0.44, 16);
-        const upper = new THREE.Mesh(upperGeo, coatMat);
-        upper.position.y = -0.18;
-        upper.castShadow = true;
-        rootJoint.add(upper);
+        // Thigh
+        const thighGeo = new THREE.CylinderGeometry(0.17, 0.12, 0.44, 20);
+        const thigh = new THREE.Mesh(thighGeo, coatMat);
+        thigh.position.y = -0.18;
+        thigh.castShadow = true;
+        hip.add(thigh);
 
-        // Hock / Knee Joint (Canine hocks bend backward naturally)
-        const kneeJoint = new THREE.Group();
-        kneeJoint.position.set(0, -0.38, 0);
+        // Hock / Knee Joint (Backward canine bend for rear legs)
+        const knee = new THREE.Group();
+        knee.position.set(0, -0.38, 0);
 
-        const shinGeo = new THREE.CylinderGeometry(0.11, 0.08, 0.46, 16);
+        const shinGeo = new THREE.CylinderGeometry(0.11, 0.08, 0.46, 20);
         const shin = new THREE.Mesh(shinGeo, coatMat);
         shin.position.y = -0.2;
         shin.position.z = isRear ? -0.06 : 0.02;
         shin.castShadow = true;
-        kneeJoint.add(shin);
+        knee.add(shin);
 
-        // Paw / Metatarsals
-        const pawGeo = new THREE.SphereGeometry(0.11, 14, 12);
-        pawGeo.scale(1, 0.65, 1.4);
-        const paw = new THREE.Mesh(pawGeo, muzzleMat);
-        paw.position.set(0, -0.42, 0.06);
-        kneeJoint.add(paw);
+        // Paws with defined toes
+        const pawGroup = new THREE.Group();
+        pawGroup.position.set(0, -0.42, 0.06);
 
-        rootJoint.add(kneeJoint);
-        petDog.root.add(rootJoint);
+        const pawMain = new THREE.Mesh(new THREE.SphereGeometry(0.11, 16, 14), muzzleMat);
+        pawMain.scale.set(1.05, 0.65, 1.4);
+        pawGroup.add(pawMain);
 
-        return { root: rootJoint, knee: kneeJoint, upper: upper };
+        // Toe bumps
+        for (let t = -1; t <= 1; t++) {
+          const toe = new THREE.Mesh(new THREE.SphereGeometry(0.04, 10, 10), muzzleMat);
+          toe.position.set(t * 0.05, -0.03, 0.12);
+          pawGroup.add(toe);
+        }
+
+        knee.add(pawGroup);
+        hip.add(knee);
+        puppyRig.scalerGroup.add(hip);
+
+        return { hip: hip, knee: knee };
       }
 
-      petDog.legs.fl = buildCanineLeg(-0.38, 0.45, false); // Front Left
-      petDog.legs.fr = buildCanineLeg(0.38, 0.45, false);  // Front Right
-      petDog.legs.bl = buildCanineLeg(-0.36, -0.62, true); // Back Left
-      petDog.legs.br = buildCanineLeg(0.36, -0.62, true);  // Back Right
+      puppyRig.legs.fl = buildCanineLeg(-0.36, 0.44, false);
+      puppyRig.legs.fr = buildCanineLeg(0.36, 0.44, false);
+      puppyRig.legs.bl = buildCanineLeg(-0.34, -0.6, true);
+      puppyRig.legs.br = buildCanineLeg(0.34, -0.6, true);
 
-      // 5. Multi-Segment Flexible Spine Tail
-      let tailAnchor = petDog.pelvis;
+      // ================= NATURAL MULTI-JOINT WAGGING TAIL =================
+      let tailParent = puppyRig.pelvis;
       for (let i = 0; i < 5; i++) {
-        const joint = new THREE.Group();
-        joint.position.set(0, i === 0 ? 0.32 : 0, i === 0 ? -0.58 : -0.16);
+        const bone = new THREE.Group();
+        bone.position.set(0, i === 0 ? 0.32 : 0, i === 0 ? -0.56 : -0.16);
 
-        const tailGeo = new THREE.CylinderGeometry(0.065 - i * 0.01, 0.08 - i * 0.01, 0.2, 10);
-        const tailPart = new THREE.Mesh(tailGeo, coatMat);
-        tailPart.position.z = -0.08;
-        tailPart.rotation.x = -Math.PI / 3.4;
-        joint.add(tailPart);
+        const segGeo = new THREE.CylinderGeometry(0.07 - i * 0.01, 0.09 - i * 0.01, 0.2, 14);
+        const seg = new THREE.Mesh(segGeo, coatMat);
+        seg.position.z = -0.08;
+        seg.rotation.x = -Math.PI / 3.4;
+        bone.add(seg);
 
-        tailAnchor.add(joint);
-        petDog.tailJoints.push(joint);
-        tailAnchor = joint;
+        tailParent.add(bone);
+        puppyRig.tailBones.push(bone);
+        tailParent = bone;
       }
 
-      scene.add(petDog.root);
+      scene.add(puppyRig.root);
 
       window.addEventListener('resize', () => {
         const newW = container.clientWidth;
@@ -753,11 +890,10 @@
 
       setupTouchSwipe(container);
       setupVirtualJoystick();
-
-      animatePhysicsLoop();
+      animateBiomechanics();
     }
 
-    // ================= MOBILE ON-SCREEN JOYSTICK CONTROLLER =================
+    // ================= JOYSTICK & TOUCH CONTROLLERS =================
     function setupVirtualJoystick() {
       const joystickZone = document.getElementById('joystick-zone');
       const joystickStick = document.getElementById('joystick-stick');
@@ -824,7 +960,6 @@
       window.addEventListener('touchend', endTouch);
       window.addEventListener('touchcancel', endTouch);
 
-      // Desktop fallback mouse drag
       let isMouseDown = false;
       joystickZone.addEventListener('mousedown', (e) => {
         isMouseDown = true;
@@ -843,7 +978,6 @@
       });
     }
 
-    // Touch Swipe Screen to Rotate Scene Camera
     function setupTouchSwipe(elem) {
       let isOrbiting = false;
       let startX = 0;
@@ -857,29 +991,42 @@
       window.addEventListener('touchmove', (e) => {
         if (!isOrbiting) return;
         const deltaX = e.touches[0].clientX - startX;
-        camera.position.x = Math.sin(deltaX * 0.005) * 5.6;
-        camera.position.z = Math.cos(deltaX * 0.005) * 5.6;
-        camera.lookAt(petPosition.x, 0.6, petPosition.z);
+        camera.position.x = Math.sin(deltaX * 0.005) * cameraDistance;
+        camera.position.z = Math.cos(deltaX * 0.005) * cameraDistance;
+        camera.lookAt(petPosition.x, 0.4, petPosition.z);
       }, { passive: true });
 
       window.addEventListener('touchend', () => { isOrbiting = false; });
     }
 
-    // ================= REALISTIC BIOMECHANICAL MOTION LOOP =================
+    // ================= REALISTIC ANIMAL BIOMECHANICS LOOP =================
     let clock = new THREE.Clock();
 
-    function animatePhysicsLoop() {
-      requestAnimationFrame(animatePhysicsLoop);
+    function animateBiomechanics() {
+      requestAnimationFrame(animateBiomechanics);
       const t = clock.getElapsedTime();
 
-      if (petDog.root) {
-        // 1. Locomotion Movement Calculations
+      if (puppyRig.root) {
+        // Natural Eyelid Blinking
+        const blinkCycle = t % 4.2;
+        const isBlinking = blinkCycle > 4.05 && blinkCycle < 4.18;
+        puppyRig.eyelids.forEach(lid => {
+          lid.rotation.x = isBlinking ? Math.PI / 2 : Math.PI;
+        });
+
+        // Breathing & Respiration (Chest expansion)
+        const breath = Math.sin(t * 2.5) * 0.025;
+        puppyRig.ribcage.scale.set(1.05 + breath, 1.22 + breath, 1.35);
+
+        // Tongue panting motion
+        puppyRig.tongue.scale.z = 1 + Math.sin(t * 5) * 0.15;
+
+        // Position update
         if (isMoving) {
-          const moveSpeed = 0.058;
+          const moveSpeed = 0.055;
           petPosition.x += moveVelocity.x * moveSpeed;
           petPosition.z += moveVelocity.z * moveSpeed;
 
-          // Room boundary collision
           const dist = Math.hypot(petPosition.x, petPosition.z);
           if (dist > 2.8) {
             const angle = Math.atan2(petPosition.z, petPosition.x);
@@ -887,19 +1034,17 @@
             petPosition.z = Math.sin(angle) * 2.8;
           }
 
-          // Smooth rotational heading
           targetRotation = Math.atan2(-moveVelocity.x, -moveVelocity.z);
           let diff = targetRotation - petRotation;
           while (diff < -Math.PI) diff += Math.PI * 2;
           while (diff > Math.PI) diff -= Math.PI * 2;
           petRotation += diff * 0.22;
 
-          document.getElementById('current-motion-state').innerText = "Active Trotting Gait";
+          document.getElementById('current-motion-state').innerText = "Natural Trotting[cite: 1]";
         } else if (!isSitting) {
           document.getElementById('current-motion-state').innerText = "Standing Idle";
         }
 
-        // Jump physics
         if (jumpTrigger) {
           jumpHeight += 0.09;
           if (jumpHeight >= 0.85) jumpTrigger = false;
@@ -907,67 +1052,67 @@
           jumpHeight = Math.max(0, jumpHeight - 0.07);
         }
 
-        petDog.root.position.set(petPosition.x, jumpHeight, petPosition.z);
-        petDog.root.rotation.y = petRotation;
+        puppyRig.root.position.set(petPosition.x, jumpHeight, petPosition.z);
+        puppyRig.root.rotation.y = petRotation;
 
-        // 2. Realistic Quadruped Gait Physics
+        // Locomotion Gait
         if (isMoving) {
-          const trotFreq = 9.5;
+          const trotFreq = 9.8;
           const swing = 0.52;
 
-          // Diagonal synchronized leg trotting
-          petDog.legs.fl.root.rotation.x = Math.sin(t * trotFreq) * swing;
-          petDog.legs.br.root.rotation.x = Math.sin(t * trotFreq) * swing;
+          // Diagonal quadruped trotting
+          puppyRig.legs.fl.hip.rotation.x = Math.sin(t * trotFreq) * swing;
+          puppyRig.legs.br.hip.rotation.x = Math.sin(t * trotFreq) * swing;
+          puppyRig.legs.fr.hip.rotation.x = -Math.sin(t * trotFreq) * swing;
+          puppyRig.legs.bl.hip.rotation.x = -Math.sin(t * trotFreq) * swing;
 
-          petDog.legs.fr.root.rotation.x = -Math.sin(t * trotFreq) * swing;
-          petDog.legs.bl.root.rotation.x = -Math.sin(t * trotFreq) * swing;
+          // Hock & Knee flexion pushing on floor
+          puppyRig.legs.fl.knee.rotation.x = Math.max(0, -Math.sin(t * trotFreq) * 0.48);
+          puppyRig.legs.fr.knee.rotation.x = Math.max(0, Math.sin(t * trotFreq) * 0.48);
 
-          // Dynamic knee/hock flexion pushing against ground
-          petDog.legs.fl.knee.rotation.x = Math.max(0, -Math.sin(t * trotFreq) * 0.48);
-          petDog.legs.fr.knee.rotation.x = Math.max(0, Math.sin(t * trotFreq) * 0.48);
+          // Body vertical bounce
+          puppyRig.torso.position.y = Math.abs(Math.sin(t * trotFreq)) * 0.07;
+          puppyRig.ribcage.rotation.z = Math.sin(t * trotFreq) * 0.04;
 
-          // Vertical spine bounce & subtle shoulder sway
-          petDog.torsoGroup.position.y = Math.abs(Math.sin(t * trotFreq)) * 0.07;
-          petDog.chest.rotation.z = Math.sin(t * trotFreq) * 0.04;
-
-          // Energetic continuous tail wagging
-          petDog.tailJoints.forEach((j, idx) => {
-            j.rotation.y = Math.sin(t * 14 + idx * 0.45) * 0.32;
+          // Energetic puppy tail wagging
+          puppyRig.tailBones.forEach((b, idx) => {
+            b.rotation.y = Math.sin(t * 15 + idx * 0.45) * 0.34;
           });
-        } else if (isSitting) {
-          // Sitting pose: lower pelvis & folded hocks
-          petDog.torsoGroup.position.y = -0.22;
-          petDog.legs.bl.root.rotation.x = -1.15;
-          petDog.legs.br.root.rotation.x = -1.15;
-          petDog.legs.fl.root.rotation.x = 0.12;
-          petDog.legs.fr.root.rotation.x = 0.12;
-          document.getElementById('current-motion-state').innerText = "Sitting Attentive";
 
-          // Gentle floor tail sweep
-          petDog.tailJoints.forEach((j, idx) => {
-            j.rotation.y = Math.sin(t * 5 + idx * 0.3) * 0.2;
+          // Head bobbing
+          puppyRig.headGroup.rotation.x = Math.sin(t * trotFreq) * 0.06;
+
+        } else if (isSitting) {
+          puppyRig.torso.position.y = -0.22;
+          puppyRig.legs.bl.hip.rotation.x = -1.15;
+          puppyRig.legs.br.hip.rotation.x = -1.15;
+          puppyRig.legs.fl.hip.rotation.x = 0.12;
+          puppyRig.legs.fr.hip.rotation.x = 0.12;
+          document.getElementById('current-motion-state').innerText = "Sitting Attentive[cite: 1]";
+
+          puppyRig.tailBones.forEach((b, idx) => {
+            b.rotation.y = Math.sin(t * 5 + idx * 0.3) * 0.2;
           });
         } else {
-          // Idle breathing motion (chest expanding)
-          petDog.torsoGroup.position.y = 0;
-          petDog.legs.fl.root.rotation.x = 0;
-          petDog.legs.fr.root.rotation.x = 0;
-          petDog.legs.bl.root.rotation.x = 0;
-          petDog.legs.br.root.rotation.x = 0;
-          petDog.chest.scale.set(1.05 + Math.sin(t * 2.2) * 0.02, 1.25 + Math.sin(t * 2.2) * 0.02, 1.35);
+          puppyRig.torso.position.y = 0;
+          puppyRig.legs.fl.hip.rotation.x = 0;
+          puppyRig.legs.fr.hip.rotation.x = 0;
+          puppyRig.legs.bl.hip.rotation.x = 0;
+          puppyRig.legs.br.hip.rotation.x = 0;
 
-          petDog.tailJoints.forEach((j, idx) => {
-            j.rotation.y = Math.sin(t * 4 + idx * 0.35) * 0.16;
+          // Subtle idling tail sweep
+          puppyRig.tailBones.forEach((b, idx) => {
+            b.rotation.y = Math.sin(t * 4 + idx * 0.35) * 0.16;
           });
+
+          // Inquisitive head tilt
+          puppyRig.headGroup.rotation.y = Math.sin(t * 1.3) * 0.15;
+          puppyRig.headGroup.rotation.z = Math.sin(t * 0.8) * 0.05;
         }
 
-        // Head sniffing curiosity motion
-        petDog.head.rotation.y = Math.sin(t * 1.4) * 0.14;
-        petDog.head.rotation.x = Math.sin(t * 2.6) * 0.06;
-
-        // Ear flopping responding to head inertia
-        petDog.ears[0].rotation.x = Math.sin(t * 4) * 0.12;
-        petDog.ears[1].rotation.x = Math.sin(t * 4) * 0.12;
+        // Floppy ears inertia
+        puppyRig.ears[0].rotation.x = Math.sin(t * 4) * 0.12;
+        puppyRig.ears[1].rotation.x = Math.sin(t * 4) * 0.12;
       }
 
       renderer.render(scene, camera);
